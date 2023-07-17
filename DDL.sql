@@ -19,15 +19,16 @@ CREATE OR REPLACE TABLE Books (
     bookTitle VARCHAR(90) NOT NULL,
     bookAuthor VARCHAR(45) NOT NULL,
     yearPublished INT(4) NOT NULL,
+    bookGenre VARCHAR(45),
     bookPrice DECIMAL(6,2) NOT NULL,
     bookQuantity INT(10) NOT NULL,
     PRIMARY KEY (bookID)
 );
 
-INSERT INTO Books (bookTitle, bookAuthor, yearPublished, bookPrice, bookQuantity)
-VALUES ('Carrie Soto is Back', 'Taylor Jenkins Reid', 2017, 15.99, 5),
-('The Last Rose of Shanghai', 'Weina Dai Randel', 2015, 12.99, 3),
-('Where the Crawdads Sing', 'Delia Owens', 2016, 9.99, 10);
+INSERT INTO Books (bookTitle, bookAuthor, yearPublished, bookGenre, bookPrice, bookQuantity)
+VALUES ('Carrie Soto is Back', 'Taylor Jenkins Reid', 2017, 'Contemporary', 15.99, 5),
+('The Last Rose of Shanghai', 'Weina Dai Randel', 2015, 'Historical', 12.99, 3),
+('Where the Crawdads Sing', 'Delia Owens', 2016, 'Mystery', 9.99, 10);
 
 CREATE OR REPLACE TABLE Customers (
     customerID INT(10) NOT NULL AUTO_INCREMENT,
