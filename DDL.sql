@@ -26,9 +26,9 @@ CREATE OR REPLACE TABLE Books (
 );
 
 INSERT INTO Books (bookTitle, bookAuthor, yearPublished, bookGenre, bookPrice, bookQuantity)
-VALUES ('Carrie Soto is Back', 'Taylor Jenkins Reid', 2017, 'Contemporary', 15.99, 5),
-('The Last Rose of Shanghai', 'Weina Dai Randel', 2015, 'Historical', 12.99, 3),
-('Where the Crawdads Sing', 'Delia Owens', 2016, 'Mystery', 9.99, 10);
+VALUES ('Sapiens: A Brief History of Humankind', 'Yuval Noah Harari', 2011, 'Non-fiction', 13.06, 7),
+('Circe', 'Madeline Miller', 2018, 'Fiction', 22.99, 8),
+('To Kill a Mockingbird', 'Harper Lee', 1960, 'Fiction', 15.49, 6);
 
 CREATE OR REPLACE TABLE Customers (
     customerID INT(10) NOT NULL AUTO_INCREMENT,
@@ -38,9 +38,9 @@ CREATE OR REPLACE TABLE Customers (
 );
 
 INSERT INTO Customers (customerName, customerEmail)
-VALUES ('Jacob Summers', 'jsummers@gmail.com'),
-    ('Audrey Flanders', 'aflanders@gmail.com'),
-    ('Josh Nunnery', 'jnunnery@gmail.com');
+VALUES ('Jack Griffin'),
+    ('Martha Owen', 'mowen@gmail.com'),
+    ('Jennie Mcdaniel', 'jennieM96@yahoo.com');
 
 CREATE OR REPLACE TABLE Employees (
     employeeID INT(10) NOT NULL AUTO_INCREMENT,
@@ -50,9 +50,9 @@ CREATE OR REPLACE TABLE Employees (
 );
 
 INSERT INTO Employees (employeeName, phoneNumber)
-VALUES ('John Smith', '123-456-7778'),
-    ('Jane Doe', '555-555-5555'),
-    ('Jenny Lee', '917-345-1859');
+VALUES ('Amy Jones', '706-715-8865'),
+    ('Peter Foster', '404-771-5112'),
+    ('Leah Santos', '678-473-3521');
 
 CREATE OR REPLACE TABLE Sales (
     invoiceNumber INT(10) NOT NULL AUTO_INCREMENT,
@@ -65,9 +65,10 @@ CREATE OR REPLACE TABLE Sales (
 );
 
 INSERT INTO Sales (employeeID, customerID, saleRevenue)
-VALUES (1, 1, 9.99),
-    (1, 2, 12.99), 
-    (3, 3, 16.99);
+VALUES (1, 1, 14.29),
+    (2, 2, 34.52), 
+    (2, 1, 13.06),
+    (NULL, 3, 39.18);
 
 CREATE OR REPLACE TABLE MerchandiseSales (
     merchandiseMerchID INT(10) NOT NULL,
