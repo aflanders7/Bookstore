@@ -79,9 +79,9 @@ CREATE OR REPLACE TABLE MerchandiseSales (
 );
 
 INSERT INTO MerchandiseSales (merchandiseMerchID, saleInvoiceNumber, merchSaleQuantity)
-VALUES (2, 1, 1),
-    (1, 2, 1),
-    (1, 3, 1);
+VALUES (1, 1, 1),
+    (3, 1, 1),
+    (1, 2, 3);
     
 CREATE OR REPLACE TABLE BookSales (
     saleInvoiceNumber INT(10), 
@@ -90,10 +90,11 @@ CREATE OR REPLACE TABLE BookSales (
     FOREIGN KEY (bookID) REFERENCES Books(bookID),
     FOREIGN KEY (saleInvoiceNumber) REFERENCES Sales(invoiceNumber)
 );
-INSERT INTO BookSales (saleInvoiceNumber, bookSaleQuantity, bookID)
-VALUES (1, 1, 1),
-    (2, 1, 2),
-    (3, 1, 3);
+INSERT INTO BookSales (bookBookID, saleInvoiceNumber, bookSaleQuantity)
+VALUES (1, 2, 1),
+    (3, 2, 1),
+    (1, 3, 1),
+    (1, 4, 3);
 
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
