@@ -1,3 +1,6 @@
+-- Audrey Flanders, Jacob Summers
+-- Team 29
+
 SET FOREIGN_KEY_CHECKS=0;
 SET AUTOCOMMIT = 0;
 
@@ -66,9 +69,9 @@ CREATE OR REPLACE TABLE Sales (
 
 INSERT INTO Sales (employeeID, customerID, saleRevenue)
 VALUES (1, 1, 14.29),
-    (2, 2, 34.52), 
+    (2, 2, 30.54), 
     (2, 1, 13.06),
-    (NULL, 3, 39.18);
+    (NULL, 3, 26.12);
 
 CREATE OR REPLACE TABLE MerchandiseSales (
     merchSaleID INT(10) NOT NULL AUTO_INCREMENT,
@@ -96,7 +99,8 @@ INSERT INTO BookSales (bookID, invoiceNumber)
 VALUES (1, 2),
     (3, 2),
     (1, 3),
-    (1, 4);
+    (1, 4),
+    (1,4);
 
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
