@@ -38,7 +38,7 @@ CREATE OR REPLACE TABLE Customers (
 );
 
 INSERT INTO Customers (customerName, customerEmail)
-VALUES ('Jack Griffin'),
+VALUES ('Jack Griffin', NULL),
     ('Martha Owen', 'mowen@gmail.com'),
     ('Jennie Mcdaniel', 'jennieM96@yahoo.com');
 
@@ -56,8 +56,8 @@ VALUES ('Amy Jones', '706-715-8865'),
 
 CREATE OR REPLACE TABLE Sales (
     invoiceNumber INT(10) NOT NULL AUTO_INCREMENT,
-    employeeID INT(10) NOT NULL,
-    customerID INT(10),
+    employeeID INT(10),
+    customerID INT(10) NOT NULL,
     saleRevenue DECIMAL(6,2),
     PRIMARY KEY (invoiceNumber),
     FOREIGN KEY (employeeID) REFERENCES Employees(employeeID),
@@ -71,30 +71,32 @@ VALUES (1, 1, 14.29),
     (NULL, 3, 39.18);
 
 CREATE OR REPLACE TABLE MerchandiseSales (
-    merchandiseMerchID INT(10) NOT NULL,
-    saleInvoiceNumber INT(10) NOT NULL,
-    merchSaleQuantity INT(10),
-    FOREIGN KEY (merchandiseMerchID) REFERENCES Merchandise(merchID),
-    FOREIGN KEY (saleInvoiceNumber) REFERENCES Sales(invoiceNumber)
+    merchSaleID INT(10) NOT NULL AUTO_INCREMENT,
+    merchID INT(10) NOT NULL,
+    invoiceNumber INT(10) NOT NULL,
+    PRIMARY KEY (merchSaleID),
+    CONSTRAINT FK_MerchandiseSales_merchID FOREIGN KEY (merchID) REFERENCES Merchandise(merchID),
+    CONSTRAINT FK_MerchandiseSales_invoiceNumber FOREIGN KEY (invoiceNumber) REFERENCES Sales(invoiceNumber)
 );
 
-INSERT INTO MerchandiseSales (merchandiseMerchID, saleInvoiceNumber, merchSaleQuantity)
-VALUES (1, 1, 1),
-    (3, 1, 1),
-    (1, 2, 3);
+INSERT INTO MerchandiseSales (merchID, invoiceNumber)
+VALUES (1, 1),
+    (3, 1),
+    (1, 2);
     
 CREATE OR REPLACE TABLE BookSales (
-    saleInvoiceNumber INT(10), 
-    bookSaleQuantity INT(10),
-    bookID INT(10),
-    FOREIGN KEY (bookID) REFERENCES Books(bookID),
-    FOREIGN KEY (saleInvoiceNumber) REFERENCES Sales(invoiceNumber)
+    bookSaleID INT(10) NOT NULL AUTO_INCREMENT,
+    bookID INT(10) NOT NULL,
+    invoiceNumber INT(10) NOT NULL, 
+    PRIMARY KEY (bookSaleID),
+    CONSTRAINT FK_BookSales_bookID FOREIGN KEY (bookID) REFERENCES Books(bookID),
+    CONSTRAINT FK_BookSales_invoiceNumber FOREIGN KEY (invoiceNumber) REFERENCES Sales(invoiceNumber)
 );
-INSERT INTO BookSales (bookBookID, saleInvoiceNumber, bookSaleQuantity)
-VALUES (1, 2, 1),
-    (3, 2, 1),
-    (1, 3, 1),
-    (1, 4, 3);
+INSERT INTO BookSales (bookID, invoiceNumber)
+VALUES (1, 2),
+    (3, 2),
+    (1, 3),
+    (1, 4);
 
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
