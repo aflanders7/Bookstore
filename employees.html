@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>Employees</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Employees</h1>
+
+<a href="index.html">Home</a> | <a href="books.html">Books</a> | <a href="merchandise.html">Merchandise</a> | <a href="sales.html">Sales</a> | <a href="customers.html">Customers</a> | <a href="employees.html">Employees</a> | <a href="merchandisesales.html">Merchandise Sales</a> | <a href="booksales.html">Book Sales</a> 
+<div id="browse" style="display: block">
+<p><strong>Browse Employees</strong></p>
+<table border="1" cellpadding="5">
+  <tr>
+    <th><a href="#">New</a></th>
+    <th></th>
+    <th>employeeID</th>
+    <th>employeeName</th>
+    <th>phoneNumber</th>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >1</td>
+    <td >Amy James</td>
+    <td align="right" >706-715-8865</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >2</td>
+    <td >Peter Foster</td>
+    <td align="right" >404-771-5112</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >3</td>
+    <td >Leah Santos</td>
+    <td align="right" >678-473-3521</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert" style="display: block">
+    <form id="addEmployee">
+        <legend><strong>Add Employee</strong></legend>
+          <fieldset class="fields">
+            <label> employeeName </label> <input type="text" name="employeeName">
+             <label> phoneNumber </label> <input type="text" name="phoneNumber">
+          </fieldset>
+          <input class="btn" type="submit" id="addEmployee" value="Add Employee">
+          <input class="btn" type="button" value="cancel">
+	</form> <!--add new employee--
+</div><!-- insert -->
+
+<p>&nbsp;</p>
+<div id="update" style="display: block">
+  <form id="updateEmployee">
+      <legend><strong>Update Employee</strong></legend>
+          <fieldset class="fields">
+          <label>employeeID:</label> 1
+            <label> employeeName </label> <input type="text" value="Amy James" name="employeeName">
+            <label> phoneNumber </label> <input type="text"  name="phoneNumber" value="706-715-8865">
+    </fieldset>
+    <input class="btn" type="submit" id="UpdateSaveEmployee" value="Save Update Employee">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- update -->
+<p>&nbsp;</p>
+<div id="delete" style="display: block">
+  <form id="deleteEmployee">
+      <legend><strong>Delete Employee</strong></legend>
+          <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <label>employeeID:</label> 1
+            <label>employeeName</label> Amy James
+             <label>phoneNumber</label> 706-715-8865
+            
+    </fieldset>
+    <input class="btn" type="submit" id="DeleteEmployee" value="Delete Employee">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- delete -->
+</body>
+</html>
