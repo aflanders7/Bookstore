@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>Customers</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Customers</h1>
+
+<a href="index.html">Home</a> | <a href="books.html">Books</a> | <a href="merchandise.html">Merchandise</a> | <a href="sales.html">Sales</a> | <a href="customers.html">Customers</a> | <a href="employees.html">Employees</a> | <a href="merchandisesales.html">Merchandise Sales</a> | <a href="booksales.html">Book Sales</a> 
+<div id="browse" style="display: block">
+<p><strong>Browse Customers</strong></p>
+<table border="1" cellpadding="5">
+  <tr>
+    <th><a href="#">New</a></th>
+    <th></th>
+    <th>customerID</th>
+    <th>customerName</th>
+    <th>customerEmail</th>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >1</td>
+    <td >Jack Griffin</td>
+    <td align="right" >NULL</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >2</td>
+    <td >Martha Owen</td>
+    <td align="right" >mowen@gmail.com</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >3</td>
+    <td >Jennie Mcdaniel</td>
+    <td align="right" >jennieM96@yahoo.com</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert" style="display: block">
+    <form id="addCustomer">
+        <legend><strong>Add Customer</strong></legend>
+          <fieldset class="fields">
+            <label> customerName </label> <input type="text" name="customerName">
+             <label> customerEmail </label> <input type="text" name="customerEmail">
+          </fieldset>
+          <input class="btn" type="submit" id="addCustomer" value="Add Customer">
+          <input class="btn" type="button" value="cancel">
+	</form> <!--add new customer--
+</div><!-- insert -->
+
+<p>&nbsp;</p>
+<div id="update" style="display: block">
+  <form id="updateCustomer">
+      <legend><strong>Update Customer</strong></legend>
+          <fieldset class="fields">
+          <label>customerID:</label> 1
+            <label> customerName </label> <input type="text" value="Jack Griffin" name="customerName">
+            <label> customerEmail </label> <input type="text"  name="customerEmail" value="NULL">
+    </fieldset>
+    <input class="btn" type="submit" id="UpdateSaveCustomer" value="Save Update Customer">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- update -->
+<p>&nbsp;</p>
+<div id="delete" style="display: block">
+  <form id="deleteCustomer">
+      <legend><strong>Delete Employee</strong></legend>
+          <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <label>customerID:</label> 1
+            <label>customerName</label> Jack Griffin
+             <label>customerEmail</label> NULL
+            
+    </fieldset>
+    <input class="btn" type="submit" id="DeleteCustomer" value="Delete Customer">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- delete -->
+</body>
+</html>
