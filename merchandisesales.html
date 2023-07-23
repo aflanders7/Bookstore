@@ -1,0 +1,129 @@
+<html>
+<head>
+<title>Merchandise Sales</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript">
+		function showform(dowhat) {
+			/*
+			* four DIVS: browse, insert, update, delete
+			* this function sets one visible the others not
+			*/
+			if (dowhat == 'insert'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'block';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'none';
+			}
+			else if (dowhat == 'update'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'none';
+				document.getElementById('update').style.display = 'block';
+				document.getElementById('delete').style.display = 'none';
+			}
+			else if (dowhat == 'delete'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'none';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'block';
+			}
+      else if (dowhat == 'all'){
+				document.getElementById('browse').style.display = 'block';
+				document.getElementById('insert').style.display = 'block';
+				document.getElementById('update').style.display = 'block';
+				document.getElementById('delete').style.display = 'block';
+			}
+			else { //by default display browse
+				document.getElementById('browse').style.display = 'block';
+				document.getElementById('insert').style.display = 'none';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'none';
+			}
+		}
+    function newMerchSale() { showform('insert'); }
+    function updateMerchSale(pid) { showform('update'); }
+    function deleteMerchSale(pid) { showform ('delete'); }
+    function browseMerchSales() { showform ('browse'); }
+    function showAll() { showform ('all'); }
+</script>
+</head>
+
+<body>
+<h1>Merch Sales</h1>
+
+<a href="index.html">Home</a> | <a href="books.html">Books</a> | <a href="merchandise.html">Merchandise</a> | <a href="sales.html">Sales</a> | <a href="customers.html">Customers</a> | <a href="employees.html">Employees</a> | <a href="merchandisesales.html">Merchandise Sales</a> | <a href="booksales.html">Book Sales</a> 
+<div id="browse" style="display: block">
+<p><strong>Browse Merch Sales</strong></p>
+<table border="1" cellpadding="5">
+  <tr>
+    <th><a href="#">New</a></th>
+    <th></th>
+    <th>merchSaleID</th>
+    <th>merchID</th>
+    <th>invoiceNumber</th>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >1</td>
+    <td >1</td>
+    <td align="right" >1</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >2</td>
+    <td >3</td>
+    <td align="right" >1</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >3</td>
+    <td >1</td>
+    <td align="right" >2</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert" style="display: block">
+    <form id="addMerchSale">
+        <legend><strong>Add Merchandise Sale</strong></legend>
+          <fieldset class="fields">
+            <label> merchID </label> <input type="text" name="merchID">
+            <label> invoiceNumber </label> <input type="text" name="invoiceNumber">
+          </fieldset>
+          <input class="btn" type="submit" id="addMerchSale" value="Add a Merch Sale">
+          <input class="btn" type="button" value="cancel">
+	</form> <!--add new book sale--
+</div><!-- insert -->
+
+<p>&nbsp;</p>
+<div id="update" style="display: block">
+  <form id="updateMerchSale">
+      <legend><strong>Update Merchandise Sale</strong></legend>
+          <fieldset class="fields">
+          <label>merchSaleID:</label> 1
+            <label> merchID </label> <input type="text" value="1" name="merchID">
+            <label> invoiceNumber </label> <input type="text"  name="invoiceNumber" value="1">
+    </fieldset>
+    <input class="btn" type="submit" id="UpdateSaveMerchSale" value="Save Update Merch Sale">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- update -->
+<p>&nbsp;</p>
+<div id="delete" style="display: block">
+  <form id="deleteMerchSale">
+      <legend><strong>Delete Merchandise Sale</strong></legend>
+          <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <label>merchSaleID:</label> 1
+            <label>merchID</label> 1
+             <label>invoiceNumber</label> 1
+            
+    </fieldset>
+    <input class="btn" type="submit" id="DeleteMerchSale" value="Delete Merchandise Sale">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- delete -->
+</body>
+</html>
