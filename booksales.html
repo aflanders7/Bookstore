@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>Book Sales</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Book Sales</h1>
+
+<a href="index.html">Home</a> | <a href="books.html">Books</a> | <a href="merchandise.html">Merchandise</a> | <a href="sales.html">Sales</a> | <a href="customers.html">Customers</a> | <a href="employees.html">Employees</a> | <a href="merchandisesales.html">Merchandise Sales</a> | <a href="booksales.html">Book Sales</a> 
+<div id="browse" style="display: block">
+<p><strong>Browse Book Sales</strong></p>
+<table border="1" cellpadding="5">
+  <tr>
+    <th><a href="#">New</a></th>
+    <th></th>
+    <th>bookSaleID</th>
+    <th>bookID</th>
+    <th>invoiceNumber</th>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >1</td>
+    <td >1</td>
+    <td align="right" >2</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >2</td>
+    <td >3</td>
+    <td align="right" >2</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >3</td>
+    <td >1</td>
+    <td align="right" >3</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >4</td>
+    <td >1</td>
+    <td align="right" >4</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >5</td>
+    <td >1</td>
+    <td align="right" >4</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert" style="display: block">
+    <form id="addBookSale">
+        <legend><strong>Add Book Sale</strong></legend>
+          <fieldset class="fields">
+            <label> bookID </label> <input type="text" name="bookID">
+            <label> invoiceNumber </label> <input type="text" name="invoiceNumber">
+          </fieldset>
+          <input class="btn" type="submit" id="addPlanet" value="Add a Book Sale">
+          <input class="btn" type="button" value="cancel">
+	</form> <!--add new book sale--
+</div><!-- insert -->
+
+<p>&nbsp;</p>
+<div id="update" style="display: block">
+  <form id="updateBookSale">
+      <legend><strong>Update Book Sale</strong></legend>
+          <fieldset class="fields">
+          <label>bookSaleID:</label> 1
+            <label> bookID </label> <input type="text" value="1" name="bookID">
+            <label> invoiceNumber </label> <input type="text"  name="invoiceNumber" value="2">
+    </fieldset>
+    <input class="btn" type="submit" id="UpdateSaveBookSale" value="Save Update Book Sale">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- update -->
+<p>&nbsp;</p>
+<div id="delete" style="display: block">
+  <form id="deleteBookSale">
+      <legend><strong>Delete Book Sale</strong></legend>
+          <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <label>bookSaleID:</label> 1
+            <label>bookID</label> 1
+             <label>invoiceNumber</label> 2
+            
+    </fieldset>
+    <input class="btn" type="submit" id="DeleteBookSale" value="Delete Book Sale">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- delete -->
+</body>
+</html>
