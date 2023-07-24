@@ -61,7 +61,7 @@ CREATE OR REPLACE TABLE Sales (
     invoiceNumber INT(10) NOT NULL AUTO_INCREMENT,
     employeeID INT(10),
     customerID INT(10) NOT NULL,
-    saleRevenue DECIMAL(6,2),
+    saleRevenue DECIMAL(6,2) NOT NULL,
     PRIMARY KEY (invoiceNumber),
     FOREIGN KEY (employeeID) REFERENCES Employees(employeeID),
     FOREIGN KEY (customerID) REFERENCES Customers(customerID)
@@ -74,9 +74,9 @@ VALUES (1, 1, 14.29),
     (NULL, 3, 26.12);
 
 CREATE OR REPLACE TABLE MerchandiseSales (
-    merchSaleID INT(10) AUTO_INCREMENT,
-    merchID INT(10) ,
-    invoiceNumber INT(10),
+    merchSaleID INT(10) AUTO_INCREMENT NOT NULL,
+    merchID INT(10) NOT NULL,
+    invoiceNumber INT(10) NOT NULL,
     PRIMARY KEY (merchSaleID),
     CONSTRAINT FK_MerchandiseSales_merchID FOREIGN KEY (merchID) REFERENCES Merchandise(merchID),
     CONSTRAINT FK_MerchandiseSales_invoiceNumber FOREIGN KEY (invoiceNumber) REFERENCES Sales(invoiceNumber)
@@ -88,9 +88,9 @@ VALUES (1, 1),
     (1, 2);
     
 CREATE OR REPLACE TABLE BookSales (
-    bookSaleID INT(10) AUTO_INCREMENT,
-    bookID INT(10),
-    invoiceNumber INT(10), 
+    bookSaleID INT(10) AUTO_INCREMENT NOT NULL,
+    bookID INT(10) NOT NULL,
+    invoiceNumber INT(10) NOT NULL, 
     PRIMARY KEY (bookSaleID),
     CONSTRAINT FK_BookSales_bookID FOREIGN KEY (bookID) REFERENCES Books(bookID),
     CONSTRAINT FK_BookSales_invoiceNumber FOREIGN KEY (invoiceNumber) REFERENCES Sales(invoiceNumber)
