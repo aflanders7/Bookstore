@@ -47,13 +47,14 @@
 </script>
 </head>
 
-<body onload="browseBooks()">
+<!-- <body onload="browseBooks()"> -->
 <h1>Books</h1>
 
 <a href="index.html">Home</a> | <a href="books.html">Books</a> | <a href="merchandise.html">Merchandise</a> | <a href="sales.html">Sales</a> | <a href="customers.html">Customers</a> | <a href="employees.html">Employees</a> | <a href="merchandisesales.html">Merchandise Sales</a> | <a href="booksales.html">Book Sales</a> 
 
 <div id="browse">
-<p><a href="#" onClick="showAll()">Display all forms</a> </p>
+<!-- <p><a href="#" onClick="showAll()">Display all forms</a> </p> -->
+<p><strong>Browse Book Sales</strong></p>
 <table border="1" cellpadding="5">
   <tr>
     <th><a href="#" onClick="newBook()">New</a></th>
@@ -146,7 +147,7 @@
 </div><!-- update -->
 <p>&nbsp;</p>
 <div id="delete" style="display: block">
-  <form method="POST" id="deleteBook">
+  <form id="deleteBook">
       <legend><strong>Delete Book</strong></legend>
           <fieldset class="fields">
           <p>Are you sure you wish to delete the following?</p>
