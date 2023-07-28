@@ -54,6 +54,7 @@ CREATE OR REPLACE TABLE Sales (
     PRIMARY KEY (invoiceNumber),
     FOREIGN KEY (employeeID) REFERENCES Employees(employeeID),
     FOREIGN KEY (customerID) REFERENCES Customers(customerID)
+    ON DELETE SET NULL
 );
 
 /* Create Merchandise Sales Intersection Table - used to display intersection table facilitating M:M relationship between Merchandise and Sales entities. */
