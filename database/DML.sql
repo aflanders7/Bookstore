@@ -51,11 +51,13 @@ LEFT OUTER JOIN BookSales ON Sales.invoiceNumber = BookSales.invoiceNumber
 LEFT OUTER JOIN Books ON BookSales.bookID = Books.bookID
 LEFT OUTER JOIN MerchandiseSales ON Sales.invoiceNumber = MerchandiseSales.invoiceNumber
 LEFT OUTER JOIN Merchandise ON MerchandiseSales.merchID = Merchandise.merchID
-group by Sales.invoiceNumber
+group by Sales.invoiceNumber DESC
 
 -- add a new sale 
-INSERT INTO Sales (employeeID, customerID, saleRevenue)
-VALUES (:employeeID, :customerID, :saleRevenue)
+INSERT INTO Sales (employeeName, customerName, saleRevenue)
+VALUES (:employeeName, :customerName, :saleRevenue)
+
+-- update sale
 
 -- you cannot delete a sale
 
