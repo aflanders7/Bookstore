@@ -19,13 +19,13 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 			if (dowhat == 'insert'){
 				document.getElementById('browse').style.display = 'none';
 				document.getElementById('insert').style.display = 'block';
-				document.getElementById('update').style.display = 'none';
+				// document.getElementById('update').style.display = 'none';
 				document.getElementById('delete').style.display = 'none';
 			}
 			else if (dowhat == 'update'){
 				document.getElementById('browse').style.display = 'none';
 				document.getElementById('insert').style.display = 'none';
-				document.getElementById('update').style.display = 'block';
+				// document.getElementById('update').style.display = 'block';
 				document.getElementById('delete').style.display = 'none';
 			}
 			else if (dowhat == 'delete'){
@@ -63,7 +63,7 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 <p><strong>Browse Merchandise</strong></p>
 <table border="1" cellpadding="5">
   <tr>
-    <th><a href="#">New</a></th>
+    <!-- <th><a href="#">New</a></th> -->
     <th></th>
     <th>Merch ID</th>
     <th>Merch Name</th>
@@ -71,7 +71,7 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
     <th>Stock</th>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
+    <!-- <td><a href="#">Edit</a></td> -->
     <td><a href="#">Delete</a></td>
     <td align="right" >1</td>
     <td >Floral Bookmark</td>
@@ -79,7 +79,7 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
     <td align="right" >14</td>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
+    <!-- <td><a href="#">Edit</a></td> -->
     <td><a href="#">Delete</a></td>
     <td align="right" >2</td>
     <td >Bumblebee Spiral Notebook</td>
@@ -87,7 +87,7 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
     <td align="right" >8</td>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
+    <!-- <td><a href="#">Edit</a></td> -->
     <td><a href="#">Delete</a></td>
     <td align="right" >3</td>
     <td >Red Reading Light</td>
@@ -111,7 +111,7 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 </div><!-- insert -->
 
 <p>&nbsp;</p>
-<div id="update" style="display: block">
+<!-- <div id="update" style="display: block">
   <form id="updateMerchandise">
       <legend><strong>Update Merchandise</strong></legend>
           <fieldset class="fields">
@@ -123,15 +123,16 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
     <input class="btn" type="submit" id="UpdateSaveMerchandise" value="Save Update Merchandise">
           <input class="btn" type="button" value="cancel" >
   </form> 
-</div><!-- update -->
+</div>update -->
 <p>&nbsp;</p>
-<div id="delete" style="display: block">
+<!-- They will use the button to delete, i dont think we need this separate form -->
+<!-- <div id="delete" style="display: block">
   <form id="deleteMerchandise">
       <legend><strong>Delete Merchandise</strong></legend>
           <fieldset class="fields">
           <p>Are you sure you wish to delete the following?</p>
           <label>merchID:</label> 1
-            <label>merchName</label> Floral Bookmark
+            <label>merchName:</label> Floral Bookmark
              <label>merchPrice</label> 1.99
             <label>merchQuantity</label> 14
             
@@ -139,6 +140,6 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
     <input class="btn" type="submit" id="DeleteMerchandise" value="Delete Merchandise">
           <input class="btn" type="button" value="cancel" >
   </form> 
-</div><!-- delete -->
+</div>delete -->
 </body>
 </html>

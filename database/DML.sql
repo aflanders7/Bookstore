@@ -3,23 +3,24 @@
 
 -------------- Merchandise --------------
 -- display merch information
-SELECT merchName, merchPrice, merchQuantity FROM Merchandise 
+SELECT * FROM Merchandise 
 
 -- add a new merchandise 
 INSERT INTO Merchandise (merchName, merchPrice, merchQuantity)
 VALUES (:merchName, :merchPrice, :merchQuantity)
 
--- update the merch information
-UPDATE Merchandise SET merchName=:merchName, merchPrice:merchPrice, merchQuantity:merchQuantity WHERE merchID = :merchID
-
--- delete Merchandise (deletion from M:M relationship)
+-- delete Merchandise (deletion from M:M relationship); they will click a button to delete
 DELETE FROM Merchandise
-WHERE merchName=:merchName
+WHERE merchID=:merchID
 
 
 -------------- Books --------------
 -- display book information 
 SELECT * FROM Books
+
+-- add a new book
+INSERT INTO Books (bookTitle, bookAuthor, yearPublished, bookGenre, bookPrice, bookQuantity)
+VALUES (:bookTitle, :bookAuthor, :yearPublished, :bookGenre, :bookPrice, :bookQuantity)
 
 -------------- Customers --------------
 -- display customer information
