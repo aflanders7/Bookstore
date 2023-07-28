@@ -24,7 +24,7 @@ VALUES (:bookTitle, :bookAuthor, :yearPublished, :bookGenre, :bookPrice, :bookQu
 
 -------------- Customers --------------
 -- display customer information
-SELECT customerName, customerEmail FROM Customers
+SELECT * FROM Customers
 
 -- add a new customer
 INSERT INTO Customers (customerName, customerEmail)
@@ -33,17 +33,11 @@ VALUES (:customerName, :customerEmail)
 
 -------------- Employees --------------
 -- display Employee information
-SELECT employeeName, phoneNumber FROM Employees
+SELECT * FROM Employees
 
 -- add a new employee
 INSERT INTO Employees (employeeName, phoneNumber)
 VALUES (:employeeName, :phoneNumber)
-
---Update employee information
-UPDATE Employees SET employeeName=:employeeName, phoneNumber=:phoneNumber
-
--- delete employee
-DELETE FROM Employees WHERE employeeName = :employeeName
 
 
 -------------- Sales -------------- 
