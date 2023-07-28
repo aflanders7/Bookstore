@@ -18,37 +18,37 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 			if (dowhat == 'insert'){
 				document.getElementById('browse').style.display = 'none';
 				document.getElementById('insert').style.display = 'block';
-				document.getElementById('update').style.display = 'none';
-				document.getElementById('delete').style.display = 'none';
+				// document.getElementById('update').style.display = 'none';
+				// document.getElementById('delete').style.display = 'none';
 			}
 			else if (dowhat == 'update'){
 				document.getElementById('browse').style.display = 'none';
 				document.getElementById('insert').style.display = 'none';
-				document.getElementById('update').style.display = 'block';
-				document.getElementById('delete').style.display = 'none';
+				// document.getElementById('update').style.display = 'block';
+				// document.getElementById('delete').style.display = 'none';
 			}
 			else if (dowhat == 'delete'){
 				document.getElementById('browse').style.display = 'none';
 				document.getElementById('insert').style.display = 'none';
-				document.getElementById('update').style.display = 'none';
-				document.getElementById('delete').style.display = 'block';
+				// document.getElementById('update').style.display = 'none';
+				// document.getElementById('delete').style.display = 'block';
 			}
       else if (dowhat == 'all'){
 				document.getElementById('browse').style.display = 'block';
 				document.getElementById('insert').style.display = 'block';
-				document.getElementById('update').style.display = 'block';
-				document.getElementById('delete').style.display = 'block';
+				// document.getElementById('update').style.display = 'block';
+				// document.getElementById('delete').style.display = 'block';
 			}
 			else { //by default display browse
 				document.getElementById('browse').style.display = 'block';
 				document.getElementById('insert').style.display = 'none';
-				document.getElementById('update').style.display = 'none';
-				document.getElementById('delete').style.display = 'none';
+				// document.getElementById('update').style.display = 'none';
+				// document.getElementById('delete').style.display = 'none';
 			}
 		}
     function newBook() { showform('insert'); }
-    function updateBook(pid) { showform('update'); }
-    function deleteBook(pid) { showform ('delete'); }
+    // function updateBook(pid) { showform('update'); }
+    // function deleteBook(pid) { showform ('delete'); }
     function browseBooks() { showform ('browse'); }
     function showAll() { showform ('all'); }
 </script>
@@ -64,8 +64,8 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 <p><strong>Browse Book Sales</strong></p>
 <table border="1" cellpadding="5">
   <tr>
-    <th><a href="#" onClick="newBook()">New</a></th>
-    <th></th>
+    <!-- <th><a href="#" onClick="newBook()">New</a></th>
+    <th></th> -->
 <th>ID</th>
     <th>Title</th>
     <th>Author</th>
@@ -75,8 +75,8 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
     <th>Stock</th>
   </tr>
   <tr>
-    <td><a href="#" onClick="updateBook('this.bookID')">Edit</a></td>
-    <td><a href="#" onclick="deleteBook('this.bookID')">Delete</a></td>
+    <!-- <td><a href="#" onClick="updateBook('this.bookID')">Edit</a></td>
+    <td><a href="#" onclick="deleteBook('this.bookID')">Delete</a></td> -->
     <td align="right" >1</td>
     <td >Sapiens: A Brief History of Humankind</td>
     <td align="right" >Yuval Noah Harari</td>
@@ -86,8 +86,8 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
     <td>7</td>
   </tr>
   <tr>
-    <td><a href="#" onClick="updateBook('this.bookID')">Edit</a></td>
-    <td><a href="#" onclick="deleteBook('this.bookID')">Delete</a></td>
+    <!-- <td><a href="#" onClick="updateBook('this.bookID')">Edit</a></td>
+    <td><a href="#" onclick="deleteBook('this.bookID')">Delete</a></td> -->
     <td align="right" >2</td>
     <td >Circe</td>
     <td align="right" >Madeline Miller</td>
@@ -97,8 +97,8 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
     <td>8</td>
   </tr>
   <tr>
-    <td><a href="#" onClick="updatePerson('this.personID')">Edit</a></td>
-    <td><a href="#" onclick="deletePerson('this.personID')">Delete</a></td>
+    <!-- <td><a href="#" onClick="updatePerson('this.personID')">Edit</a></td>
+    <td><a href="#" onclick="deletePerson('this.personID')">Delete</a></td> -->
     <td>3</td>
     <td >To Kill a Mockingbird</td>
     <td align="right" >Harper Lee</td>
@@ -132,7 +132,7 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 	</form> 
 </div><!-- insert -->
 <p>&nbsp;</p>
-<div id="update">
+<!-- <div id="update">
     <form method="POST" id="UpdateBook">
         <legend><strong>Update Book</strong></legend>
           <fieldset class="fields">
@@ -151,10 +151,10 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
       </fieldset>
           <input class="btn" type="submit" id="UpdateSaveBook" value="Save Update Book">
           <input class="btn" type="button" value="cancel" onClick="browseBooks()">
-	</form> 
-</div><!-- update -->
+	</form>  -->
+<!-- </div><!-- update -->
 <p>&nbsp;</p>
-<div id="delete" style="display: block">
+<!-- <div id="delete" style="display: block">
   <form id="deleteBook">
       <legend><strong>Delete Book</strong></legend>
           <fieldset class="fields">
@@ -167,7 +167,7 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
     <input class="btn" type="submit" id="DeleteBook" value="Delete Book">
           <input class="btn" type="button" value="cancel" onClick="browseBooks()">
   </form> 
-</div><!-- delete -->
+</div> -->
 
 </body>
 </html>

@@ -19,15 +19,7 @@ WHERE merchName=:merchName
 
 -------------- Books --------------
 -- display book information 
-SELECT bookTitle, bookAuthor, yearPublished, bookGenre, bookPrice, bookQuantity FROM Books
-
--- add a new book
-INSERT INTO Books (bookTitle, bookAuthor, yearPublished, bookGenre, bookPrice, bookQuantity)
-VALUES (:bookTitle, :bookAuthor, :yearPublished, :bookGenre, :bookPrice, :bookQuantity)
-
--- update the book information
-UPDATE Books SET bookTitle=:bookTitle, bookAuthor=:bookAuthor, yearPublished=:yearPublished, bookGenre=:bookGenre, bookPrice=:bookPrice, bookQuantity=bookQuantity  WHERE bookID = :bookID
-
+SELECT * FROM Books
 
 -------------- Customers --------------
 -- display customer information
