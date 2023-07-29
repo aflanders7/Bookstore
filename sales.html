@@ -62,49 +62,44 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 <p><strong>Browse Sales</strong></p>
 <table border="1" cellpadding="5">
   <tr>
-    <th><a href="#">New</a></th>
-    <th></th>
     <th>Invoice Number</th>
-    <th>Employee ID</th>
-    <th>Customer ID</th>
+    <th>Employee Name</th>
+    <th>Customer Name</th>
     <th>Sale Revenue</th>
-	<th>Item Sold</th>
+	<th>Books Sold</th>
+  <th>Merch Sold</th>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
-    <td><a href="#">Delete</a></td>
     <td align="right" >1</td>
     <td >1</td>
     <td align="right" >1</td>
     <td align="right" >13.06</td>
 	<td>"Sapiens: A Brief History of Humankind</td>
+  <td>"Sapiens: A Brief History of Humankind</td>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
-    <td><a href="#">Delete</a></td>
     <td align="right" >2</td>
     <td >2</td>
     <td align="right" >2</td>
     <td align="right" >22.99</td>
 	  <td>Circe</td>
+    <td>Circe</td>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
-    <td><a href="#">Delete</a></td>
     <td align="right" >3</td>
     <td >2</td>
     <td align="right" >1</td>
     <td align="right" >15.49</td>
 	  <td>To Kill a Mockingbird</td>
+    <td>To Kill a Mockingbird</td>
   </tr>
   <tr>
-    <td><a href="#">Edit</a></td>
-    <td><a href="#">Delete</a></td>
     <td align="right" >4</td>
     <td >NULL</td>
     <td align="right" >3</td>
     <td align="right" >1.99</td>
 	  <td>Floral Bookmark</td>
+    <td>Floral Bookmark</td>
   </tr>
 </table>
 <p>&nbsp;</p>
@@ -113,10 +108,11 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
     <form id="addSale">
         <legend><strong>Add Sale</strong></legend>
           <fieldset class="fields">
-            <label> invoiceNumber </label> <input type="text" name="invoiceNumber">
-            <label> employeeID </label> <input type="text" name="employeeID">
-            <label> customerID </label> <input type="text" name="customerID">
-            <label> saleRevenue </label> <input type="text" name="saleRevenue">
+            <label> Invoice Number </label> <input type="text" name="invoiceNumber">
+            <label> Employee Name </label> <input type="text" name="employeeID">
+            <label> Customer Name </label> <input type="text" name="customerID">
+            <label> Revenue </label> <input type="text" name="saleRevenue">
+
           </fieldset>
           <input class="btn" type="submit" id="AddSale" value="Add a Sale">
           <input class="btn" type="button" value="cancel">
@@ -128,16 +124,17 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
   <form id="updateSale">
       <legend><strong>Update Sale</strong></legend>
           <fieldset class="fields">
-          <label>invoiceNumber:</label> 1
-            <label> employeeID </label> <input type="text" value="1" name="employeeID">
-            <label> customerID </label> <input type="text"  name="customerID" value="1">
+          <label>Invoice Number:</label> <input type="text" value="1" name="employeeID">
+            <label>Employee Name: </label> <input type="text" value="1" name="employeeID">
+            <label>Customer Name </label> <input type="text"  name="customerID" value="1">
+            <label>Revenue </label> <input type="text"  name="customerID">
     </fieldset>
     <input class="btn" type="submit" id="UpdateSaveSale" value="Save Update Sale">
           <input class="btn" type="button" value="cancel" >
   </form> 
 </div><!-- update -->
 <p>&nbsp;</p>
-<div id="delete" style="display: block">
+<!-- <div id="delete" style="display: block">
   <form id="deleteSale">
       <legend><strong>Delete Sale</strong></legend>
           <fieldset class="fields">
@@ -151,6 +148,6 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
     <input class="btn" type="submit" id="DeleteSale" value="Delete Sale">
           <input class="btn" type="button" value="cancel" >
   </form> 
-</div><!-- delete -->
+</div> -->
 </body>
 </html>
