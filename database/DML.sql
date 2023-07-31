@@ -43,6 +43,8 @@ VALUES (:employeeName, :phoneNumber)
 -- display employee name for dropdown
 SELECT employeeName FROM Employees
 
+SELECT employeeID FROM Employees WHERE employeeName = :employeeName
+
 -- update employee contact information
 UPDATE Employees SET phoneNumber = :phoneNumber WHERE
 employeeName = :employeeName
@@ -66,7 +68,7 @@ INSERT INTO Sales (employeeID, customerID, saleRevenue)
 VALUES ((SELECT employeeID from Employees WHERE employeeName = :employeeName), 
 (SELECT customerID from Customers WHERE customerName = :customerName), :saleRevenue)
 
--- update sale; CAN SET employeeName to NULL
+-- update sale; CAN SET employee to NULL
 UPDATE Sales SET employeeID = (SELECT employeeID from Employees WHERE employeeName = :employeeName), 
 customerID = (SELECT customerID from Customers WHERE customerName = :customerName), 
 saleRevenue = :saleRevenue
