@@ -64,7 +64,9 @@ VALUES (:employeeName, :customerName, :saleRevenue)
 
 -- update sale
 
--- you cannot delete a sale
+-- delete sale
+DELETE FROM Sales
+WHERE invoiceNumber = :invoiceNumber
 
 -------------- MerchSales --------------
 -- get information to update merch sales
@@ -99,6 +101,6 @@ WHERE bookID = :bookID and invoiceNumber = :invoiceNumber
 INSERT INTO BookSales (bookID, invoiceNumber)
 VALUES (:bookID, :invoiceNumber)
 
--- -- delete BookSales
+-- delete BookSales
 -- DELETE FROM MerchSales
 -- WHERE bookID = :bookID and invoiceNumber = :invoiceNumber
