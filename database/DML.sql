@@ -64,9 +64,7 @@ VALUES (:employeeName, :customerName, :saleRevenue)
 
 -- update sale
 
--- delete sale
-DELETE FROM Sales
-WHERE invoiceNumber = :invoiceNumber
+
 
 -------------- MerchSales --------------
 -- get information to update merch sales
