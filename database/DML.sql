@@ -62,16 +62,26 @@ LEFT OUTER JOIN Merchandise ON MerchandiseSales.merchID = Merchandise.merchID
 group by Sales.invoiceNumber ASC
 
 -- add a new sale 
-INSERT INTO Sales (employeeName, customerName, saleRevenue)
-VALUES (:employeeName, :customerName, :saleRevenue)
+INSERT INTO Sales (employeeID, customerID, saleRevenue)
+VALUES ((SELECT employeeID from Employees WHERE employeeName = :employeeName), 
+(SELECT customerID from Customers WHERE customerName = :customerName), :saleRevenue)
 
--- update sale
-UPDATE Sales SET employeeName = :employeeName, customerName = :customerName, saleRevenue = :saleRevenue
+-- update sale; CAN SET employeeName to NULL
+UPDATE Sales SET employeeID = (SELECT employeeID from Employees WHERE employeeName = :employeeName), 
+customerID = (SELECT customerID from Customers WHERE customerName = :customerName), 
+saleRevenue = :saleRevenue
 WHERE invoiceNumber = :invoiceNumber
 
 
 -------------- MerchSales --------------
--- get information to update merch sales
+-- get merch information 
+SELECT * 
+FROM MerchSales
+
+-- functions for updating merch sales
+DELETE FROM MerchSales
+WHERE invoiceNumber = :invoiceNumber
+
 SELECT * 
 FROM MerchSales
 WHERE merchID = :merchID and invoiceNumber = :invoiceNumber
@@ -86,7 +96,14 @@ VALUES (:merchId, :invoiceNumber)
 
 
 -------------- BookSales --------------
--- get information to update book sales 
+-- get book information
+SELECT * 
+FROM BookSales
+
+-- functions for updating book sales
+DELETE FROM BookSales
+WHERE invoiceNumber = :invoiceNumber
+
 SELECT * 
 FROM BookSales
 WHERE bookID = :bookID and invoiceNumber = :invoiceNumber
@@ -95,7 +112,7 @@ UPDATE BookSales
 SET bookID = :bookID, invoiceNumber = :invoiceNumber
 WHERE bookID = :bookID and invoiceNumber = :invoiceNumber
 
--- associate sale with a book
+-- associate a sale with a book
 INSERT INTO BookSales (bookID, invoiceNumber)
 VALUES (:bookID, :invoiceNumber)
 
