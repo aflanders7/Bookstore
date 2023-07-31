@@ -44,7 +44,7 @@ VALUES (:employeeName, :phoneNumber)
 SELECT employeeName FROM Employees
 
 -- update employee contact information
-UPDATE Employees SET phoneNumber = :phoneNumbert WHERE
+UPDATE Employees SET phoneNumber = :phoneNumber WHERE
 employeeName = :employeeName
 
 
@@ -59,7 +59,7 @@ LEFT OUTER JOIN BookSales ON Sales.invoiceNumber = BookSales.invoiceNumber
 LEFT OUTER JOIN Books ON BookSales.bookID = Books.bookID
 LEFT OUTER JOIN MerchandiseSales ON Sales.invoiceNumber = MerchandiseSales.invoiceNumber
 LEFT OUTER JOIN Merchandise ON MerchandiseSales.merchID = Merchandise.merchID
-group by Sales.invoiceNumber DESC
+group by Sales.invoiceNumber ASC
 
 -- add a new sale 
 INSERT INTO Sales (employeeName, customerName, saleRevenue)

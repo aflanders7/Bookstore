@@ -1,9 +1,6 @@
-/* 
+-- Audrey Flanders, Jacob Summers
+-- Team 29
 
-Audrey Flanders, Jacob Summers
-Team 29
-
-*/
 
 SET FOREIGN_KEY_CHECKS=0;
 SET AUTOCOMMIT = 0;
@@ -54,17 +51,17 @@ CREATE OR REPLACE TABLE Sales (
     PRIMARY KEY (invoiceNumber),
     FOREIGN KEY (employeeID) REFERENCES Employees(employeeID),
     FOREIGN KEY (customerID) REFERENCES Customers(customerID)
-    ON DELETE SET NULL
 );
 
 /* Create Merchandise Sales Intersection Table - used to display intersection table facilitating M:M relationship between Merchandise and Sales entities. */
+-- Cascade statements allow deletion from M:M realtionship
 CREATE OR REPLACE TABLE MerchandiseSales (
     merchSaleID INT(10) AUTO_INCREMENT NOT NULL,
     merchID INT(10) NOT NULL,
     invoiceNumber INT(10) NOT NULL,
     PRIMARY KEY (merchSaleID),
-    CONSTRAINT FK_MerchandiseSales_merchID FOREIGN KEY (merchID) REFERENCES Merchandise(merchID),
-    CONSTRAINT FK_MerchandiseSales_invoiceNumber FOREIGN KEY (invoiceNumber) REFERENCES Sales(invoiceNumber)
+    CONSTRAINT FK_MerchandiseSales_merchID FOREIGN KEY (merchID) REFERENCES Merchandise(merchID) ON DELETE CASCADE,
+    CONSTRAINT FK_MerchandiseSales_invoiceNumber FOREIGN KEY (invoiceNumber) REFERENCES Sales(invoiceNumber) ON DELETE CASCADE
 );
 
 /* Create Book Sales Intersection Tale - used to display intersection table facilitating M:M relationship between Books and Sales entities. */
