@@ -36,16 +36,16 @@ VALUES (:customerName, :customerEmail)
 -- display Employee information
 SELECT * FROM Employees
 
--- display employee name for dropdown
-SELECT employeeName FROM Employees
-
 -- add a new employee
 INSERT INTO Employees (employeeName, phoneNumber)
 VALUES (:employeeName, :phoneNumber)
 
+-- display employee name for dropdown
+SELECT employeeName FROM Employees
+
 -- update employee contact information
-UPDATE Employees SET phoneNumber = :phoneNumberInput WHERE
-employeeName = :employeeNameSelected
+UPDATE Employees SET phoneNumber = :phoneNumbert WHERE
+employeeName = :employeeName
 
 
 -------------- Sales -------------- 
