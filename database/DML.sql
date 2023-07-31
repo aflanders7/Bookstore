@@ -36,6 +36,9 @@ VALUES (:customerName, :customerEmail)
 -- display Employee information
 SELECT * FROM Employees
 
+-- display employee name for dropdown
+SELECT employeeName FROM Employees
+
 -- add a new employee
 INSERT INTO Employees (employeeName, phoneNumber)
 VALUES (:employeeName, :phoneNumber)
@@ -63,7 +66,8 @@ INSERT INTO Sales (employeeName, customerName, saleRevenue)
 VALUES (:employeeName, :customerName, :saleRevenue)
 
 -- update sale
-
+UPDATE Sales SET employeeName = :employeeName, customerName = :customerName, saleRevenue = :saleRevenue
+WHERE invoiceNumber = :invoiceNumber
 
 
 -------------- MerchSales --------------
@@ -76,17 +80,13 @@ UPDATE MerchSales
 SET merchID = :merchID, invoiceNumber = :invoiceNumber
 WHERE merchID = :merchID and invoiceNumber = :invoiceNumber
 
--- add a merch sale
+-- associate a sale with merchandise
 INSERT INTO MerchandiseSales (merchID, invoiceNumber)
 VALUES (:merchId, :invoiceNumber)
 
--- -- delete MerchSales
--- DELETE FROM MerchSales
--- WHERE merchID = :merchID and invoiceNumber = :invoiceNumber
-
 
 -------------- BookSales --------------
--- get information to update book sales
+-- get information to update book sales 
 SELECT * 
 FROM BookSales
 WHERE bookID = :bookID and invoiceNumber = :invoiceNumber
@@ -95,10 +95,7 @@ UPDATE BookSales
 SET bookID = :bookID, invoiceNumber = :invoiceNumber
 WHERE bookID = :bookID and invoiceNumber = :invoiceNumber
 
--- add a book sale
+-- associate sale with a book
 INSERT INTO BookSales (bookID, invoiceNumber)
 VALUES (:bookID, :invoiceNumber)
 
--- delete BookSales
--- DELETE FROM MerchSales
--- WHERE bookID = :bookID and invoiceNumber = :invoiceNumber
