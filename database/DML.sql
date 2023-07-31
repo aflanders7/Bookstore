@@ -9,7 +9,7 @@ SELECT * FROM Merchandise
 INSERT INTO Merchandise (merchName, merchPrice, merchQuantity)
 VALUES (:merchName, :merchPrice, :merchQuantity)
 
--- delete Merchandise (deletion from M:M relationship); they will click a button to delete
+-- delete Merchandise (deletion from M:M relationship); they will click the delete button in the table
 DELETE FROM Merchandise
 WHERE merchID=:merchID
 
@@ -21,6 +21,7 @@ SELECT * FROM Books
 -- add a new book
 INSERT INTO Books (bookTitle, bookAuthor, yearPublished, bookGenre, bookPrice, bookQuantity)
 VALUES (:bookTitle, :bookAuthor, :yearPublished, :bookGenre, :bookPrice, :bookQuantity)
+
 
 -------------- Customers --------------
 -- display customer information
@@ -38,6 +39,10 @@ SELECT * FROM Employees
 -- add a new employee
 INSERT INTO Employees (employeeName, phoneNumber)
 VALUES (:employeeName, :phoneNumber)
+
+-- update employee contact information
+UPDATE Employees SET phoneNumber = :phoneNumberInput WHERE
+employeeName = :employeeNameSelected
 
 
 -------------- Sales -------------- 
