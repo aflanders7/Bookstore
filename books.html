@@ -117,13 +117,8 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
             <label> Title </label> <input type="text" name="bookTitle">
             <label> Author </label> <input type="text" name="bookAuthor">
             <label> Year </label> <input type="text" name="yearPublished">
-            <label> Genre </label> <select name="bookGenre">
-            	<option value="0">&nbsp;</option>
-                <option value="1">Fiction</option>
-                <option value="2">Non-fiction</option>
-                <option value="3">Mystery</option>
-              <option value="4">Biography</option>
-                </select>
+            <label> Genre </label> <input type="text" name="bookGenre">
+ 
             <label> Price </label> <input type="text" name="bookPrice">
             <label> Quantity </label> <input type="text" name="bookQuantity">
       </fieldset>
@@ -132,26 +127,28 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 	</form> 
 </div><!-- insert -->
 <p>&nbsp;</p>
-<!-- <div id="update">
+<div id="update">
     <form method="POST" id="UpdateBook">
         <legend><strong>Update Book</strong></legend>
           <fieldset class="fields">
           <input type="hidden" name="bookID" id="updatebookID" value="1">
-          <label> ID: </label> 1
-            <label> Title </label> <input type="text" name="bookTitle" value="Sapiens: A Brief History of Humankind">
-            <label> Author </label> <input type="text" name="bookAuthor" value="Yuval Noah Harari">
+            <label> Title </label> <input type="text" name="bookTitle" >
+            <label> Author </label> <input type="text" name="bookAuthor" >
+            <label> Year </label> <input type="text" name="bookYear" >
             <label> Genre </label> <select name="bookGenre">
               <option value="0">&nbsp;</option>
-                <option value="1">Fiction</option>
-                <option value="2" selected>Non-fiction</option>
-                <option value="3">Mystery</option>
-              <option value="4">Biography</option>
+                <option value="1">Dynamic Dropdown</option>
+                <option value="2">Fiction</option>
+                <option value="3" selected>Non-fiction</option>
+                <option value="4">Mystery</option>
+              <option value="5">Biography</option>
                 </select>
-            <label> Price </label> <input type="text" name="bookPrice" value="13.06">
+            <label> Price </label> <input type="text" name="bookPrice" >
+            <label> Quantity </label> <input type="text" name="bookQuantity" >
       </fieldset>
           <input class="btn" type="submit" id="UpdateSaveBook" value="Save Update Book">
           <input class="btn" type="button" value="cancel" onClick="browseBooks()">
-	</form>  -->
+	</form> 
 <!-- </div> update -->
 <p>&nbsp;</p>
 <!-- <div id="delete" style="display: block">
