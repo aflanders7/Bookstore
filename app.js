@@ -9,6 +9,15 @@ PORT        = 8000;                 // Set a port number at the top so it's easy
 // Database
 var db = require('./db-connector')
 
+// Handlebars
+var exphbs = require('express-handlebars');
+const { query } = require('express');
+app.engine('.hbs', exphbs({
+    extname: ".hbs"
+}));
+app.set('view-engine', '.hbs');
+
+
 /*
     ROUTES
 */
