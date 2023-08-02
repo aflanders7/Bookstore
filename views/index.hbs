@@ -33,3 +33,18 @@
         {{/each}}
     </tbody>
 </table>
+<!-- /views/index.hbs -->
+<h2>Adding Data using an HTML form</h2>
+<p>To add new Merchandise, please enter the information below and click `Submit`!</p>
+<form id="add-merch-form" method="POST" action="/add-merch-form">
+    <label for="input-merchName">Merchandise Name: </label>
+    <input type="text" name="input-merchName" id="input-merchName">
+    
+    <label for="input-merchPrice">Price: </label>
+    <input type="text" name="input-merchPrice" id="input-merchPrice">
+
+    <label for="input-merchQuantity">Stock: </label>
+    <input type="number" name="input-merchQuantity" id="input-merchQuantity">
+
+    <input type="submit">
+</form>
