@@ -22,7 +22,10 @@ app.set('view-engine', '.hbs');
 */
 app.get('/', function(req, res)                 // This is the basic syntax for what is called a 'route'
     {
-        res.render('index');
+        let query1 = "SELECT * FROM Merchandise;";
+        db.pool.query(query1, function(error, rows, fields){
+        res.render('index', {data: rows});
+        })
     });                                 // requesting the web site.
 
 /*
