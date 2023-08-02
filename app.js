@@ -10,11 +10,10 @@ PORT        = 8000;                 // Set a port number at the top so it's easy
 var db = require('./db-connector')
 
 // Handlebars
+const { engine } = require('express-handlebars');
 var exphbs = require('express-handlebars');
 const { query } = require('express');
-app.engine('.hbs', exphbs({
-    extname: ".hbs"
-}));
+app.engine('.hbs', exphbs({extname: ".hbs"}));
 app.set('view-engine', '.hbs');
 
 
@@ -23,32 +22,7 @@ app.set('view-engine', '.hbs');
 */
 app.get('/', function(req, res)                 // This is the basic syntax for what is called a 'route'
     {
-        // Define our queries
-        query1 = 'DROP TABLE IF EXISTS diagnostic;';
-        query2 = 'CREATE TABLE diagnostic(id INT PRIMARY KEY AUTO_INCREMENT, text VARCHAR(255) NOT NULL);';
-        query3 = 'INSERT INTO diagnostic (text) VALUES ("MySQL is working!")';
-        query4 = 'SELECT * FROM diagnostic;';
-
-        // Execute every query in an asynchronous manner, we want each query to finish before the next one starts
-
-        // DROP TABLE...
-        db.pool.query(query1, function (err, results, fields){
-
-            // CREATE TABLE...
-            db.pool.query(query2, function(err, results, fields){
-
-                // INSERT INTO...
-                db.pool.query(query3, function(err, results, fields){
-
-                    // SELECT *...
-                    db.pool.query(query4, function(err, results, fields){
-
-                        // Send the results to the browser
-                        res.send(JSON.stringify(results));
-                    });
-                });
-            });
-        });
+        res.render('index');
     });                                 // requesting the web site.
 
 /*
