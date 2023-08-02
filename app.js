@@ -24,13 +24,42 @@ app.set('view-engine', '.hbs');
 /*
     ROUTES
 */
-app.get('/', function(req, res)                 // This is the basic syntax for what is called a 'route'
+app.get('/', function(req, res)
+{
+    // Declare Query 1
+    let query1;
+
+    // If there is no query string, we just perform a basic SELECT
+    if (req.query.merchName === undefined)
     {
-        let query1 = "SELECT * FROM Merchandise;";
-        db.pool.query(query1, function(error, rows, fields){
-        res.render('index', {data: rows});
+        query1 = "SELECT * FROM Merchandise;";
+    }
+
+    // If there is a query string, we assume this is a search, and return desired results
+    else
+    {
+        query1 = `SELECT * FROM Merchandise WHERE merchName LIKE "${req.query.merchName}%"`
+    }
+
+    // Query 2 is the same in both cases
+    let query2 = "SELECT * FROM Merchandise;";
+
+    // Run the 1st query
+    db.pool.query(query1, function(error, rows, fields){
+        
+        // Save the people
+        let Merchandise = rows;
+        
+        // Run the second query
+        db.pool.query(query2, (error, rows, fields) => {
+            
+            // Save the planets
+            let Merch = rows;  //NOT SURE HOW TO IMPLEMENT THIS YET, NOT YET CORRECT
+
+            return res.render('index', {data: Merchandise, Merch: Merch});
         })
-    });                                 // requesting the web site.
+    })
+});                        // requesting the web site.
 // app.js
 
 app.post('/add-merch-form', function(req, res){
