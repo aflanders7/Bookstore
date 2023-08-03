@@ -31,10 +31,12 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
       <input type="submit">
       <a href='/'><button>Search</button></a>
   </form>
+</table>
   <h2>Browse Merchandise</h2>
 <p>Click on "delete" to delete a product. Deleting a product will remove it from any associated invoices, but it will not delete
   the invoices.</p>
     {{!-- Header section --}}
+<table border="1" cellpadding="5" id="merch-table">
     <thead>
 
         {{!-- For just the first row, we print each key of the row object as a header cell so we
@@ -54,17 +56,18 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 
         {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
         {{#each data}}
-        <tr>
+        <tr data-value={{this.merchID}}>
             <td>{{this.merchID}}</td>
             <td>{{this.merchName}}</td>
             <td>{{this.merchPrice}}</td>
             <td>{{this.merchQuantity}}</td>
-            <td><button onclick="deleteMerch({{this.id}})">Delete</button></td>
+            <td><button onclick="deleteMerchandise({{this.merchID}})">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
 </table>
-<script src="./js/delete_person.js"></script>
+<script src="./js/delete_merchandise.js"></script>
+
 <!-- /views/index.hbs -->
 <h2>Add New Merchandise</h2>
 <p>To add new Merchandise, please enter the information below and click `Submit`!</p>

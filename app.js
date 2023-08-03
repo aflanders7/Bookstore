@@ -88,7 +88,38 @@ app.get('/merchandise', function(req, res)
        db.pool.query(query1, function(error, rows, fields){
        res.render('merchandise', {data: rows});
        })
-   });    
+   });   
+   
+app.delete('/delete-merchandise-ajax/', function(req,res,next){
+    let data = req.body;
+    let merchID = parseInt(data.id);
+    let deleteMerchSales = `DELETE FROM MerchandiseSales WHERE merchID = ?`;
+    let deleteMerch= `DELETE FROM Merchandise WHERE merchID = ?`;
+  
+  
+          // Run the 1st query
+          db.pool.query(deleteMerchSales, [merchID], function(error, rows, fields){
+              if (error) {
+  
+              // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+              console.log(error);
+              res.sendStatus(400);
+              }
+  
+              else
+              {
+                  // Run the second query
+                  db.pool.query(deleteMerch, [merchID], function(error, rows, fields) {
+  
+                      if (error) {
+                          console.log(error);
+                          res.sendStatus(400);
+                      } else {
+                          res.sendStatus(204);
+                      }
+                  })
+              }
+  })});
 
 app.get('/merchandisesales', function (req, res,html) {
     res.sendFile(path.join(__dirname+'/views/merchandisesales.html'));
