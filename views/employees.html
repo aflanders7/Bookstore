@@ -7,7 +7,7 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 
 <html>
 <head>
-<title>Merchandise Sales</title>
+<title>Employees</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript">
 		function showform(dowhat) {
@@ -46,83 +46,96 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 				document.getElementById('delete').style.display = 'none';
 			}
 		}
-    function newMerchSale() { showform('insert'); }
-    function updateMerchSale(pid) { showform('update'); }
-    function deleteMerchSale(pid) { showform ('delete'); }
-    function browseMerchSales() { showform ('browse'); }
+    function newEmployee() { showform('insert'); }
+    function updateEmployee(pid) { showform('update'); }
+    function deleteEmployee(pid) { showform ('delete'); }
+    function browseEmployees() { showform ('browse'); }
     function showAll() { showform ('all'); }
 </script>
 </head>
 
 <body>
-<h1>Merch Sales</h1>
+<h1>Employees</h1>
 
-<a href="index.html">Home</a> | <a href="books.html">Books</a> | <a href="merchandise.html">Merchandise</a> | <a href="sales.html">Sales</a> | <a href="customers.html">Customers</a> | <a href="employees.html">Employees</a> | <a href="merchandisesales.html">Merchandise Sales</a> | <a href="booksales.html">Book Sales</a> 
+<a href="/">Home</a> | <a href="/books">Books</a> | <a href="/merchandise">Merchandise</a> | <a href="/sales">Sales</a> | <a href="/customers">Customers</a> | <a href="/employees">Employees</a> | <a href="/merchandisesales">Merchandise Sales</a> | <a href="/booksales">Book Sales</a> 
+
 <div id="browse" style="display: block">
-<p><strong>Browse Merch Sales</strong></p>
+<p><strong>Browse Employees</strong></p>
 <table border="1" cellpadding="5">
   <tr>
-    <th>Merch Sale ID</th>
-    <th>Merch ID</th>
-    <th>Invoice Number</th>
+    <!-- <th><a href="#">New</a></th>
+    <th></th> -->
+    <th>Employee ID</th>
+    <th>Employee Name</th>
+    <th>Phone Number</th>
   </tr>
   <tr>
+    <!-- <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td> -->
     <td align="right" >1</td>
-    <td >1</td>
-    <td align="right" >1</td>
+    <td >Amy Jones</td>
+    <td align="right" >706-715-8865</td>
   </tr>
   <tr>
+    <!-- <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td> -->
     <td align="right" >2</td>
-    <td >3</td>
-    <td align="right" >1</td>
+    <td >Peter Foster</td>
+    <td align="right" >404-771-5112</td>
   </tr>
   <tr>
+    <!-- <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td> -->
     <td align="right" >3</td>
-    <td >1</td>
-    <td align="right" >2</td>
+    <td >Leah Santos</td>
+    <td align="right" >678-473-3521</td>
   </tr>
 </table>
 <p>&nbsp;</p>
-<!-- </div> <!-- browse -->
-<!-- <div id="insert" style="display: block">
-    <form id="addMerchSale">
-        <legend><strong>Add Merchandise Sale</strong></legend>
+</div> <!-- browse -->
+<div id="insert" style="display: block">
+    <form id="addEmployee">
+        <legend><strong>Add A New Employee</strong></legend>
           <fieldset class="fields">
-            <label> merchID </label> <input type="text" name="merchID">
-            <label> invoiceNumber </label> <input type="text" name="invoiceNumber">
+            <label> employeeName </label> <input type="text" name="employeeName">
+             <label> phoneNumber </label> <input type="text" name="phoneNumber">
           </fieldset>
-          <input class="btn" type="submit" id="addMerchSale" value="Add a Merch Sale">
+          <input class="btn" type="submit" id="addEmployee" value="Add Employee">
           <input class="btn" type="button" value="cancel">
-	</form> add new book sale -->
-<!-- </div> -->
+	</form> <!--add new employee-->
+</div><!-- insert -->
 
 <p>&nbsp;</p>
-<!-- <div id="update" style="display: block">
-  <form id="updateMerchSale">
-      <legend><strong>Update Merchandise Sale</strong></legend>
+<div id="update" style="display: block">
+  <form id="updateEmployee">
+      <legend><strong>Update Employee Contact Information</strong></legend>
           <fieldset class="fields">
-          <label>merchSaleID:</label> 1
-            <label> merchID </label> <input type="text" value="1" name="merchID">
-            <label> invoiceNumber </label> <input type="text"  name="invoiceNumber" value="1">
+            <label> employeeName </label> <select name="employeeName">
+              <option value="1" selected>Dynamic Dropdown</option>
+              <option value="2" >Amy Jones</option>
+              <option value="3" >Peter Foster</option>
+              <option value="4" >Leah Santos</option>
+              </select>
+            <label> phoneNumber </label> <input type="text"  name="phoneNumber">
     </fieldset>
-    <input class="btn" type="submit" id="UpdateSaveMerchSale" value="Save Update Merch Sale">
+    <input class="btn" type="submit" id="UpdateSaveEmployee" value="Save Update Employee">
           <input class="btn" type="button" value="cancel" >
   </form> 
-</div><!-- update -->
+</div>
 <p>&nbsp;</p>
 <!-- <div id="delete" style="display: block">
-  <form id="deleteMerchSale">
-      <legend><strong>Delete Merchandise Sale</strong></legend>
+  <form id="deleteEmployee">
+      <legend><strong>Delete Employee</strong></legend>
           <fieldset class="fields">
           <p>Are you sure you wish to delete the following?</p>
-          <label>merchSaleID:</label> 1
-            <label>merchID</label> 1
-             <label>invoiceNumber</label> 1
+          <label>employeeID:</label> 1
+            <label>employeeName</label> Amy James
+             <label>phoneNumber</label> 706-715-8865
             
     </fieldset>
-    <input class="btn" type="submit" id="DeleteMerchSale" value="Delete Merchandise Sale">
+    <input class="btn" type="submit" id="DeleteEmployee" value="Delete Employee">
           <input class="btn" type="button" value="cancel" >
   </form> 
-</div> -->
+</div>delete --> 
 </body>
 </html>

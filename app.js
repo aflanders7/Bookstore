@@ -5,20 +5,23 @@
 */
 var express = require('express');   // We are using the express library for the web server
 var app     = express();            // We need to instantiate an express object to interact with the server in our code
+const path = require('path');
 
-app.use(express.json())
-app.use(express.urlencoded({extended: true}))
-app.use(express.static('public'))
+// app.use(express.json())
+// app.use(express.urlencoded({extended: true}))
+// app.use(express.static('public'))
 PORT        = 8034;                 // Set a port number at the top so it's easy to change in the future
+
 // Database
 var db = require('./database/db-connector')
 
 // Handlebars
 const { engine } = require('express-handlebars');
 var exphbs = require('express-handlebars');
-const { query } = require('express');
 app.engine('.hbs', engine({extname: ".hbs"}));
 app.set('view-engine', '.hbs');
+
+const { query } = require('express');
 
 
 /*
@@ -61,6 +64,36 @@ app.get('/', function(req, res)
     })
 });                        // requesting the web site.
 // app.js
+
+app.get('/books', function (req, res,html) {
+    res.sendFile(path.join(__dirname+'/views/books.html'));
+   });
+
+app.get('/booksales', function (req, res,html) {
+    res.sendFile(path.join(__dirname+'/views/booksales.html'));
+   });
+
+app.get('/customers', function (req, res,html) {
+    res.sendFile(path.join(__dirname+'/views/customers.html'));
+   });
+
+app.get('/employees', function (req, res,html) {
+    res.sendFile(path.join(__dirname+'/views/employees.html'));
+   });
+
+app.get('/merchandise', function (req, res,html) {
+    res.sendFile(path.join(__dirname+'/views/merchandise.html'));
+   });
+
+app.get('/merchandisesales', function (req, res,html) {
+    res.sendFile(path.join(__dirname+'/views/merchandisesales.html'));
+   });
+
+app.get('/sales', function (req, res,html) {
+    res.sendFile(path.join(__dirname+'/views/sales.html'));
+   });
+
+
 
 app.post('/add-merch-form', function(req, res){
     // Capture the incoming data and parse it back to a JS object
