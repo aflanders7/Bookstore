@@ -40,12 +40,12 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
         {{!-- For just the first row, we print each key of the row object as a header cell so we
         know what each column means when the page renders --}}
         <tr>
-            <th></th>
             {{#each data.[0]}}
             <th>
                 {{@key}}
             </th>
             {{/each}}
+            <th>delete</th>
         </tr>
     </thead>
 
@@ -55,15 +55,16 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
         {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
         {{#each data}}
         <tr>
-            <td><a href="#">Delete</a></td>
             <td>{{this.merchID}}</td>
             <td>{{this.merchName}}</td>
             <td>{{this.merchPrice}}</td>
             <td>{{this.merchQuantity}}</td>
+            <td><button onclick="deleteMerch({{this.id}})">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
 </table>
+<script src="./js/delete_person.js"></script>
 <!-- /views/index.hbs -->
 <h2>Add New Merchandise</h2>
 <p>To add new Merchandise, please enter the information below and click `Submit`!</p>
