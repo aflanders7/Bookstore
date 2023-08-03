@@ -114,5 +114,29 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
           <input class="btn" type="button" value="cancel" >
   </form> 
 </div>delete -->
+  <h2>Update Merchandise</h2>
+<p>To update a specific merchandise, select the name from the drop-down menu on the left and the new price</p>
+<form id="update-merch-form-ajax">
+
+    <label for="input-merchName">Full name: </label>
+    <select name="input-merchName" id="mySelect">
+        <option value="test">Select Merchandise</option>
+        {{#each data}}
+        <option value="{{this.id}}">{{this.merchName}} {{this.merchPrice}} {{this.merchQuantity}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-merchPrice">Price: </label>
+    <select name="input-merchPrice" id="input-merchPrice-update">
+        <option>Select a Price</option>
+        {{#each merchPrice}}
+        <option value="{{this.id}}">{{this.merchPrice}}</option>
+        {{/each}}
+    </select>
+    <input type="submit">
+
+</form>
+
+<script src="./js/update_merchPrice.js"></script>
 </body>
 </html>
