@@ -59,7 +59,7 @@ app.post('/add-merch-ajax', function(req, res)
         else
         {
             // If there was no error, perform a SELECT 
-            query2 = `SELECT * FROM merchandise;`;
+            query2 = `SELECT * FROM Merchandise;`;
             db.pool.query(query2, function(error, rows, fields){
 
                 // If there was an error on the second query, send a 400
@@ -83,22 +83,11 @@ app.post('/add-merch-form', function(req, res){
     // Capture the incoming data and parse it back to a JS object
     let data = req.body;
 
-    // Capture NULL values
-    let merchName = parseInt(data['input-merchName']);
-    if (isNaN(merchName))
-    {
-        merchName = 'NULL'
-    }
-
-    let merchPrice = parseInt(data['input-merchPrice']);
-    if (isNaN(merchPrice))
-    {
-        merchPrice = 'NULL'
-    }
+    // Capture NULL values- no null values
 
     let merchQuantity = parseInt(data['input-merchQuantity']);
     // Create the query and run it on the database
-    query1 = `INSERT INTO Merchandise (merchName, merchPrice, merchQuantity) VALUES ('${data['input-merchName']}', '${data['input-merchPrice']}', '${data['input-merchQuantity']}' ${merchName}, ${merchPrice}, ${merchQuantity})`;
+    query1 = `INSERT INTO Merchandise (merchName, merchPrice, merchQuantity) VALUES ('${data['input-merchName']}', '${data['input-merchPrice']}', '${data['input-merchQuantity']}')`;
     db.pool.query(query1, function(error, rows, fields){
 
         // Check to see if there was an error
