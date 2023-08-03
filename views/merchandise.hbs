@@ -4,7 +4,7 @@ Date: 7/25/2023
 Adapted from CS340 Canvas Page: Web Application Technology. Used example structure to make own HTML pages, and copied view functions used for inserting, updating, deleting and showing specific forms.
 URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-application-technology?module_item_id=23329626
 -->
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 <html>
 <head>
@@ -38,13 +38,8 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
     {{!-- Header section --}}
 
 
-<script src="./delete_merchandise.js"></script>
-
 <table border="1" cellpadding="5" id="merch-table">
     <thead>
-
-        {{!-- For just the first row, we print each key of the row object as a header cell so we
-        know what each column means when the page renders --}}
         <tr>
             {{#each data.[0]}}
             <th>
@@ -57,8 +52,6 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 
     {{!-- Body section --}}
     <tbody>
-
-        {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
         {{#each data}}
         <tr data-value={{this.merchID}}>
             <td>{{this.merchID}}</td>
@@ -70,7 +63,7 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
         {{/each}}
     </tbody>
 </table>
-
+<script src="./delete_merchandise.js"></script>
 
 <!-- /views/index.hbs -->
 <h2>Add New Merchandise</h2>
