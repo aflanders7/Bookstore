@@ -92,7 +92,7 @@ app.get('/merchandise', function(req, res)
    
 app.delete('/delete-merchandise-ajax/', function(req,res,next){
     let data = req.body;
-    let merchID = parseInt(data.id);
+    let merchID = parseInt(data.merchID);
     let deleteMerchSales = `DELETE FROM MerchandiseSales WHERE merchID = ?`;
     let deleteMerch= `DELETE FROM Merchandise WHERE merchID = ?`;
   
