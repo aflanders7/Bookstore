@@ -102,7 +102,7 @@ app.post('/add-merch-form', function(req, res){
         // presents it on the screen
         else
         {
-            res.redirect('/');
+            res.redirect('/merchandise');
         }
     })
 })
@@ -123,9 +123,13 @@ app.get('/employees', function (req, res,html) {
     res.sendFile(path.join(__dirname+'/views/employees.html'));
    });
 
-app.get('/merchandise', function (req, res,html) {
-    res.sendFile(path.join(__dirname+'/views/merchandise.html'));
-   });
+app.get('/merchandise', function(req, res)
+   {
+       let query1 = "SELECT * FROM Merchandise;";
+       db.pool.query(query1, function(error, rows, fields){
+       res.render('merchandise', {data: rows});
+       })
+   });    
 
 app.get('/merchandisesales', function (req, res,html) {
     res.sendFile(path.join(__dirname+'/views/merchandisesales.html'));

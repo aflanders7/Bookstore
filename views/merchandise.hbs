@@ -1,0 +1,118 @@
+<! -- 
+Citation for the following HTML page:
+Date: 7/25/2023
+Adapted from CS340 Canvas Page: Web Application Technology. Used example structure to make own HTML pages, and copied view functions used for inserting, updating, deleting and showing specific forms.
+URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-application-technology?module_item_id=23329626
+-->
+
+
+<html>
+<head>
+<title>Merchandise</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+
+
+<body>
+<h1>Merchandise</h1>
+
+<a href="/">Home</a> | <a href="/books">Books</a> | <a href="/merchandise">Merchandise</a> | <a href="/sales">Sales</a> | <a href="/customers">Customers</a> | <a href="/employees">Employees</a> | <a href="/merchandisesales">Merchandise Sales</a> | <a href="/booksales">Book Sales</a> 
+
+<div id="browse" style="display: block">
+
+{{!-- Create a table --}}
+
+<table border="1" cellpadding="5">
+  <h2>Search Using an HTML Form</h2>
+  <p>Search by merchandise name using the field below. Partial names are OK too!</p>
+  <form id="search-merch-html" method='GET' action='/'>
+      <label for="input-merchName">Search by Merchandise Name: </label>
+      <input type="text" name="merch-Name" id="input-merchName-html-search">
+      
+      <input type="submit">
+      <a href='/'><button>Search</button></a>
+  </form>
+  <h2>Browse Merchandise</h2>
+<p>Click on "delete" to delete a product. Deleting a product will remove it from any associated invoices, but it will not delete
+  the invoices.</p>
+    {{!-- Header section --}}
+    <thead>
+
+        {{!-- For just the first row, we print each key of the row object as a header cell so we
+        know what each column means when the page renders --}}
+        <tr>
+            <th></th>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+
+        {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
+        {{#each data}}
+        <tr>
+            <td><a href="#">Delete</a></td>
+            <td>{{this.merchID}}</td>
+            <td>{{this.merchName}}</td>
+            <td>{{this.merchPrice}}</td>
+            <td>{{this.merchQuantity}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<!-- /views/index.hbs -->
+<h2>Add New Merchandise</h2>
+<p>To add new Merchandise, please enter the information below and click `Submit`!</p>
+<form id="add-merch-form" method="POST" action="/add-merch-form">
+    <label for="input-merchName">Merchandise Name: </label>
+    <input type="text" name="input-merchName" id="input-merchName">
+    
+    <label for="input-merchPrice">Price: </label>
+    <input type="text" name="input-merchPrice" id="input-merchPrice">
+
+    <label for="input-merchQuantity">Stock: </label>
+    <input type="number" name="input-merchQuantity" id="input-merchQuantity">
+
+    <input type="submit">
+</form>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+
+
+<p>&nbsp;</p>
+<!-- <div id="update" style="display: block">
+  <form id="updateMerchandise">
+      <legend><strong>Update Merchandise</strong></legend>
+          <fieldset class="fields">
+          <label>merchID:</label> 1
+            <label> merchName </label> <input type="text" value="Floral Bookmark" name="merchName">
+            <label> merchPrice </label> <input type="text"  name="merchPrice" value="1.99">
+            <label> merchQuantity </label> <input type="text"  name="merchQuantity" value="14">
+    </fieldset>
+    <input class="btn" type="submit" id="UpdateSaveMerchandise" value="Save Update Merchandise">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div>update -->
+<p>&nbsp;</p>
+<!-- They will use the button to delete, i dont think we need this separate form -->
+<!-- <div id="delete" style="display: block">
+  <form id="deleteMerchandise">
+      <legend><strong>Delete Merchandise</strong></legend>
+          <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <label>merchID:</label> 1
+            <label>merchName:</label> Floral Bookmark
+             <label>merchPrice</label> 1.99
+            <label>merchQuantity</label> 14
+            
+    </fieldset>
+    <input class="btn" type="submit" id="DeleteMerchandise" value="Delete Merchandise">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div>delete -->
+</body>
+</html>

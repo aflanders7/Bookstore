@@ -32,62 +32,7 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 <h1>The server is running!</h1>
 <p>If you see this text, the server is <strong>definitely</strong> working!</p>
 
-<h2>Search Using an HTML Form</h2>
-<p>Search by merchandise name using the field below. Partial names are OK too!</p>
-<form id="search-merch-html" method='GET' action='/'>
-    <label for="input-merchName">Search by Merchandise Name: </label>
-    <input type="text" name="merch-Name" id="input-merchName-html-search">
-    
-    <input type="submit">
-    <a href='/'><button>Search</button></a>
-</form>
 
-{{!-- Create a table --}}
-<table>
-
-    {{!-- Header section --}}
-    <thead>
-
-        {{!-- For just the first row, we print each key of the row object as a header cell so we
-        know what each column means when the page renders --}}
-        <tr>
-            {{#each data.[0]}}
-            <th>
-                {{@key}}
-            </th>
-            {{/each}}
-        </tr>
-    </thead>
-
-    {{!-- Body section --}}
-    <tbody>
-
-        {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
-        {{#each data}}
-        <tr>
-            <td>{{this.merchID}}</td>
-            <td>{{this.merchName}}</td>
-            <td>{{this.merchPrice}}</td>
-            <td>{{this.merchQuantity}}</td>
-        </tr>
-        {{/each}}
-    </tbody>
-</table>
-<!-- /views/index.hbs -->
-<h2>Adding Data using an HTML form</h2>
-<p>To add new Merchandise, please enter the information below and click `Submit`!</p>
-<form id="add-merch-form" method="POST" action="/add-merch-form">
-    <label for="input-merchName">Merchandise Name: </label>
-    <input type="text" name="input-merchName" id="input-merchName">
-    
-    <label for="input-merchPrice">Price: </label>
-    <input type="text" name="input-merchPrice" id="input-merchPrice">
-
-    <label for="input-merchQuantity">Stock: </label>
-    <input type="number" name="input-merchQuantity" id="input-merchQuantity">
-
-    <input type="submit">
-</form>
 
 
 
