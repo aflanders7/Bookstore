@@ -72,7 +72,7 @@ function updateRow(data, merchID){
             let td = updateRowIndex.getElementsByTagName("td")[3];
 
             // Reassign homeworld to our value we updated to
-            td.innerHTML = parsedData[0].name; 
+            td.innerHTML = parsedData[0].merchName; 
        }
     }
 }
