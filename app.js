@@ -108,13 +108,29 @@ app.get('/employees', function (req, res,html) {
     res.sendFile(path.join(__dirname+'/views/employees.html'));
    });
 
-app.get('/merchandise', function(req, res)
+   
+
+app.get('/merchandise', function(req, res) {  
+   // Declare Query 
+   let query1;
+
+   // If there is no query string, we just perform a basic SELECT
+   if (req.query.inputmerchName === undefined)
    {
-       let query1 = "SELECT * FROM Merchandise;";
-       db.pool.query(query1, function(error, rows, fields){
-       res.render('merchandise', {data: rows});
-       })
-   });   
+       query1 = "SELECT * FROM Merchandise;";
+   }
+
+   // If there is a query string, we assume this is a search, and return desired results
+   else
+   {
+       query1 = `SELECT * FROM Merchandise WHERE merchName LIKE "${req.query.inputmerchName}%"`
+
+   }
+       db.pool.query(query1, function(error, rows, fields){    // Execute the query
+
+           res.render('merchandise', {data: rows});                  
+       })                                                      
+   });
    
 app.delete('/delete-merchandise-ajax/', function(req,res,next){
     let data = req.body;

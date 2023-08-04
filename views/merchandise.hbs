@@ -22,14 +22,16 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 
 <table border="1" cellpadding="5">
   <h2>Search Using an HTML Form</h2>
-  <p>Search by merchandise name using the field below. Partial names are OK too!</p>
-  <form id="search-merch-html" method='GET' action='/'>
-      <label for="input-merchName">Search by Merchandise Name: </label>
-      <input type="text" name="merch-Name" id="input-merchName-html-search">
+  <p>Search by merchandise name using the field below.</p>
+
+  <form id="search-merch-html" method='GET' action='/merchandise'>
+      <label for="inputmerchName">Search by Merchandise Name: </label>
+      <input type="text" name="inputmerchName" id="inputmerchName">
       
       <input type="submit">
-      <a href='/'><button>Search</button></a>
+      <a href='/merchandise'><button>Reset</button></a>
   </form>
+
 </table>
   <h2>Browse Merchandise</h2>
 <p>Click on "delete" to delete a product. Deleting a product will remove it from any associated invoices, but it will not delete
@@ -84,7 +86,7 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 
 
 <h2>Update Merchandise</h2>
-<p>To update a specific merchandise, select the name from the drop-down menu on the left and the new price</p>
+<p>To update a specific merchandise, select the name from the drop-down menu on the left and enter in the new values.</p>
 
 <form id="update-merch" method="POST" action="/update-merch">
 
