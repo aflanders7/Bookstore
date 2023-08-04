@@ -20,8 +20,9 @@ app.set('view engine', '.hbs');                 // Tell express to use the handl
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-app.use(express.static('public'))
+app.use(express.static('public'));
 const { query } = require('express');
+app.use(express.static('public'));
 /*
     ROUTES
 */
@@ -66,31 +67,6 @@ app.post('/add-merch-form', function(req, res){
     })
 });
 
-app.put('/put-merch-ajax', function(req,res){
-    let data = req.body;
-
-    let merchID = parseInt(data.merchID);
-    let merchName = parseInt(data.merchName);
-    let merchPrice = parseInt(data.merchPrice);
-    let merchQuantity = parseInt(data.merchQuantity);
-  
-    let queryUpdateMerch = `UPDATE Merchandise SET merchName = ?, merchPrice = ?, merchQuantity = ? WHERE merchID = ?`;
-  
-          // Run the 1st query
-    db.pool.query(queryUpdateMerch, [merchName, merchPrice, merchQuantity, merchID], function(error, rows, fields){
-            if (error) {
-  
-              // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
-              console.log(error);
-              res.sendStatus(400);
-            }
-  
-              // If there was no error, we run our second query and return that data so we can use it to update the people's
-              // table on the front-end
-            else{
-                res.sendStatus(200);
-            }
-      })});
 
 app.get('/books', function (req, res,html) {
     res.sendFile(path.join(__dirname+'/views/books.html'));
@@ -146,6 +122,40 @@ app.delete('/delete-merchandise-ajax/', function(req,res,next){
                   })
               }
   })});
+
+app.put('/put-merch-ajax/', function(req,res,next){
+    let data = req.body;
+    console.log(data)
+    let merchID = parseInt(data.merchID);
+    let merchName = data.merchName;
+    let merchPrice = data.merchPrice;
+    let merchQuantity = data.merchQuantity;
+  
+    let queryUpdateMerch = `UPDATE Merchandise SET merchName = ?, merchPrice = ?, merchQuantity = ? WHERE merchID = ?`;
+    let selectMerch = `SELECT * FROM Merchandise WHERE merchID = ?`
+
+          // Run the 1st query
+        db.pool.query(queryUpdateMerch, [merchName, merchPrice, merchQuantity, merchID], function(error, rows, fields){
+            if (error) {
+  
+              // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+              console.log(error);
+              res.sendStatus(400);
+            }
+  
+            else
+            {
+              db.pool.query(selectMerch, [merchID], function(error, rows, fields) {
+
+                  if (error) {
+                      console.log(error);
+                      res.sendStatus(400);
+                  } else {
+                      res.send(rows);
+                  }
+              })
+            }
+})});
 
 app.get('/merchandisesales', function (req, res,html) {
     res.sendFile(path.join(__dirname+'/views/merchandisesales.html'));

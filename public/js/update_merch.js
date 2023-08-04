@@ -9,10 +9,10 @@ updateMerchForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
     // Get form fields we need to get data from
-    let inputMerchID = document.getElementById("input-merchID");
-    let inputMerchName = document.getElementById("input-merchName");
-    let inputMerchPrice = document.getElementById("input-merchPrice");
-    let inputMerchQuantity = document.getElementById("input-merchQuantity");
+    let inputMerchID = document.getElementById("mySelect");
+    let inputMerchName = document.getElementById("input-merchName-update");
+    let inputMerchPrice = document.getElementById("input-merchPrice-update");
+    let inputMerchQuantity = document.getElementById("input-merchQuantity-update");
 
     // Get the values from the form fields
     let merchIDValue = inputMerchID.value;
@@ -45,7 +45,7 @@ updateMerchForm.addEventListener("submit", function (e) {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
 
             // Add the new data to the table
-            updateRow(xhttp.response, merchNameValue);
+            updateRow(xhttp.response, merchID);
 
         }
         else if (xhttp.readyState == 4 && xhttp.status != 200) {
@@ -59,7 +59,7 @@ updateMerchForm.addEventListener("submit", function (e) {
 })
 
 
-function updateRow(data){
+function updateRow(data, merchID){
     let parsedData = JSON.parse(data);
     
     let table = document.getElementById("merch-table");
@@ -69,10 +69,17 @@ function updateRow(data){
        //rows would be accessed using the "row" variable assigned in the for loop
        if (table.rows[i].getAttribute("data-value") == merchID) {
 
-        table.rows[i].cells[1].innerText = data.merchName;
-        table.rows[i].cells[2].innerText = data.merchPrice;
-        table.rows[i].cells[3].innerText = data.merchQuantity;
-        break;
+        let updateRowIndex = table.getElementsByTagName("tr")[i];
+
+        // Get td of homeworld value
+        let merchNameTD = updateRowIndex.getElementsByTagName("td")[1];
+        let merchPriceTD = updateRowIndex.getElementsByTagName("td")[2];
+        let merchQuantityTD = updateRowIndex.getElementsByTagName("td")[3];
+
+        // Reassign homeworld to our value we updated to
+        merchNameTD.innerHTML = parsedData[0].merchName;
+        merchPriceTD.innerHTML = parsedData[0].merchPrice;
+        merchQuantityTD.innerHTML = parsedData[0].merchQuantity;
        }
     }
 }
