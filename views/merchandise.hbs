@@ -83,37 +83,6 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 </div> <!-- browse -->
 
 
-<p>&nbsp;</p>
-<!-- <div id="update" style="display: block">
-  <form id="updateMerchandise">
-      <legend><strong>Update Merchandise</strong></legend>
-          <fieldset class="fields">
-          <label>merchID:</label> 1
-            <label> merchName </label> <input type="text" value="Floral Bookmark" name="merchName">
-            <label> merchPrice </label> <input type="text"  name="merchPrice" value="1.99">
-            <label> merchQuantity </label> <input type="text"  name="merchQuantity" value="14">
-    </fieldset>
-    <input class="btn" type="submit" id="UpdateSaveMerchandise" value="Save Update Merchandise">
-          <input class="btn" type="button" value="cancel" >
-  </form> 
-</div>update -->
-<p>&nbsp;</p>
-<!-- They will use the button to delete, i dont think we need this separate form -->
-<!-- <div id="delete" style="display: block">
-  <form id="deleteMerchandise">
-      <legend><strong>Delete Merchandise</strong></legend>
-          <fieldset class="fields">
-          <p>Are you sure you wish to delete the following?</p>
-          <label>merchID:</label> 1
-            <label>merchName:</label> Floral Bookmark
-             <label>merchPrice</label> 1.99
-            <label>merchQuantity</label> 14
-            
-    </fieldset>
-    <input class="btn" type="submit" id="DeleteMerchandise" value="Delete Merchandise">
-          <input class="btn" type="button" value="cancel" >
-  </form> 
-</div>delete -->
   <h2>Update Merchandise</h2>
 <p>To update a specific merchandise, select the name from the drop-down menu on the left and the new price</p>
 <form id="update-merch-form-ajax">
@@ -122,7 +91,7 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
     <select name="input-merchName" id="mySelect">
         <option value="test">Select Merchandise</option>
         {{#each data}}
-        <option value="{{this.id}}">{{this.merchName}}</option>
+        <option value="{{this.merchID}}">{{this.merchName}} {{this.merchPrice}} {{this.merchQuantity}}</option>
         {{/each}}
     </select>
 
@@ -130,13 +99,13 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
     <select name="input-merchPrice" id="input-merchPrice-update">
         <option>Select a Price</option>
         {{#each merchPrice}}
-        <option value="{{this.id}}">{{this.merchPrice}}</option>
+        <option value="{{this.merchID}}">{{this.merchPrice}}</option>
         {{/each}}
     </select>
     <input type="submit">
 
 </form>
 
-<script src="./public/update_merch.js"></script>
+<script src="./js/update_merchPrice.js"></script>
 </body>
 </html>
