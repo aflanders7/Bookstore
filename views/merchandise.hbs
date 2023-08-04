@@ -86,10 +86,10 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 <h2>Update Merchandise</h2>
 <p>To update a specific merchandise, select the name from the drop-down menu on the left and the new price</p>
 
-<form id="update-merch-form-ajax">
+<form id="update-merch" method="POST" action="/update-merch">
 
-    <label for="input-merchName">Merchandise Name: </label>
-    <select name="input-merchName" id="mySelect">
+    <label for="input-merchID">Merchandise Name: </label>
+    <select name="input-merchID" id="input-merchID">
         <option value="test">Select Merchandise</option>
         {{#each data}}
         <option value="{{this.merchID}}">{{this.merchName}}</option>
@@ -108,6 +108,6 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
     <button type="submit">Submit</button>  
 
 </form>
-<script src="./js/update_merch.js"></script>
+
 
 

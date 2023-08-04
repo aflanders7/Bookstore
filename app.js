@@ -65,7 +65,31 @@ app.post('/add-merch-form', function(req, res){
             res.redirect('/merchandise');
         }
     })
-});
+})
+
+app.post('/update-merch', function(req,res){
+    let data = req.body;
+
+    let inputmerchQuantity = parseInt(data['input-merchQuantity']);
+  
+    let queryUpdateMerch = `UPDATE Merchandise SET merchName = '${data['input-merchName']}', merchPrice = '${data['input-merchPrice']}', merchQuantity = '${inputmerchQuantity}' WHERE merchID = ${data['input-merchID']}`;
+
+    // Run the query on the database
+    db.pool.query(queryUpdateMerch, function(error, rows, fields) {
+        // Check to see if there was an error
+        if (error) {
+            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+            console.log(error);
+            return res.status(400).send(error.sqlMessage);
+        }
+
+        // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
+        // presents it on the screen
+        else {
+            res.redirect('/merchandise');
+        }
+    })
+})
 
 
 app.get('/books', function (req, res,html) {
@@ -123,39 +147,6 @@ app.delete('/delete-merchandise-ajax/', function(req,res,next){
               }
   })});
 
-app.put('/put-merch-ajax/', function(req,res,next){
-    let data = req.body;
-    console.log(data)
-    let merchID = parseInt(data.merchID);
-    let merchName = data.merchName;
-    let merchPrice = data.merchPrice;
-    let merchQuantity = data.merchQuantity;
-  
-    let queryUpdateMerch = `UPDATE Merchandise SET merchName = ?, merchPrice = ?, merchQuantity = ? WHERE merchID = ?`;
-    let selectMerch = `SELECT * FROM Merchandise WHERE merchID = ?`
-
-          // Run the 1st query
-        db.pool.query(queryUpdateMerch, [merchName, merchPrice, merchQuantity, merchID], function(error, rows, fields){
-            if (error) {
-  
-              // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
-              console.log(error);
-              res.sendStatus(400);
-            }
-  
-            else
-            {
-              db.pool.query(selectMerch, [merchID], function(error, rows, fields) {
-
-                  if (error) {
-                      console.log(error);
-                      res.sendStatus(400);
-                  } else {
-                      res.send(rows);
-                  }
-              })
-            }
-})});
 
 app.get('/merchandisesales', function (req, res,html) {
     res.sendFile(path.join(__dirname+'/views/merchandisesales.html'));
