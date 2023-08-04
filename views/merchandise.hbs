@@ -85,27 +85,29 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 
   <h2>Update Merchandise</h2>
 <p>To update a specific merchandise, select the name from the drop-down menu on the left and the new price</p>
+
 <form id="update-merch-form-ajax">
-
-    <label for="input-merchName">Full name: </label>
-    <select name="input-merchName" id="mySelect">
-        <option value="test">Select Merchandise</option>
+  <fieldset>
+    <label for="input-merchID">Merchandise ID: </label>
+    <select name="input-merchID" id="input-merchID">
+        <option value="">Select ID</option>
         {{#each data}}
-        <option value="{{this.merchID}}">{{this.merchName}}</option>
+        <option value="{{this.merchID}}">{{this.merchID}}</option>
         {{/each}}
     </select>
 
+    <label for="input-merchName">Merchandise Name: </label>
+    <input type="text" name="input-merchName" id="input-merchName">
+    
     <label for="input-merchPrice">Price: </label>
-    <select name="input-merchPrice" id="input-merchPrice-update">
-        <option>Select a Price</option>
-        {{#each merchPrice}}
-        <option value="{{this.merchID}}">{{this.merchPrice}}</option>
-        {{/each}}
-    </select>
-    <input type="submit">
+    <input type="text" name="input-merchPrice" id="input-merchPrice">
 
+    <label for="input-merchQuantity">Stock: </label>
+    <input type="number" name="input-merchQuantity" id="input-merchQuantity">
+
+    <button type="submit">Submit</button>  
+  </fieldset>
 </form>
-
-<script src="./js/update_merch.js"></script>
+<script src="js/update_merch.js"></script>
 </body>
 </html>
