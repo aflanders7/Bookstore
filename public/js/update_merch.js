@@ -9,7 +9,7 @@ updateMerchForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
     // Get form fields we need to get data from
-    let inputMerchID = = document.getElementById("input-merchID");
+    let inputMerchID = document.getElementById("input-merchID");
     let inputMerchName = document.getElementById("input-merchName");
     let inputMerchPrice = document.getElementById("input-merchPrice");
     let inputMerchQuantity = document.getElementById("input-merchQuantity");
@@ -20,13 +20,11 @@ updateMerchForm.addEventListener("submit", function (e) {
     let merchPriceValue = inputMerchPrice.value;
     let merchQuantityValue = inputMerchQuantity.value;
     
-    // currently the database table for bsg_people does not allow updating values to NULL
-    // so we must abort if being bassed NULL for homeworld
 
-    if (isNaN(merchNameValue)) 
-    {
-        return;
-    }
+    // if (isNaN(merchNameValue)) 
+    // {
+    //     return;
+    // }
 
 
     // Put our data we want to send in a javascript object
@@ -74,7 +72,6 @@ function updateRow(data){
         table.rows[i].cells[1].innerText = data.merchName;
         table.rows[i].cells[2].innerText = data.merchPrice;
         table.rows[i].cells[3].innerText = data.merchQuantity;
-        document.getElementById("updateMerchForm").style.display = "none"
         break;
        }
     }

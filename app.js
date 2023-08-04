@@ -68,7 +68,7 @@ app.post('/add-merch-form', function(req, res){
 
 app.put('/put-merch-ajax', function(req,res){
     let data = req.body;
-    console.log(data);
+
     let merchID = parseInt(data.merchID);
     let merchName = parseInt(data.merchName);
     let merchPrice = parseInt(data.merchPrice);
@@ -77,7 +77,7 @@ app.put('/put-merch-ajax', function(req,res){
     let queryUpdateMerch = `UPDATE Merchandise SET merchName = ?, merchPrice = ?, merchQuantity = ? WHERE merchID = ?`;
   
           // Run the 1st query
-          db.pool.query(queryUpdateMerch, [merchName, merchPrice, merchQuantity], function(error, rows, fields){
+    db.pool.query(queryUpdateMerch, [merchName, merchPrice, merchQuantity, merchID], function(error, rows, fields){
             if (error) {
   
               // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.

@@ -5,13 +5,13 @@ Adapted from CS340 Canvas Page: Web Application Technology. Used example structu
 URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-application-technology?module_item_id=23329626
 -->
 
-<html>
-<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 <title>Merchandise</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
 
 
-<body>
+
 <h1>Merchandise</h1>
 
 <a href="/">Home</a> | <a href="/books">Books</a> | <a href="/merchandise">Merchandise</a> | <a href="/sales">Sales</a> | <a href="/customers">Customers</a> | <a href="/employees">Employees</a> | <a href="/merchandisesales">Merchandise Sales</a> | <a href="/booksales">Book Sales</a> 
@@ -87,14 +87,9 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 <p>To update a specific merchandise, select the name from the drop-down menu on the left and the new price</p>
 
 <form id="update-merch-form-ajax">
-  <fieldset>
+
     <label for="input-merchID">Merchandise ID: </label>
-    <select name="input-merchID" id="input-merchID">
-        <option value="">Select ID</option>
-        {{#each data}}
-        <option value="{{this.merchID}}">{{this.merchID}}</option>
-        {{/each}}
-    </select>
+    <input type="text" name="input-merchID" id="input-merchID">
 
     <label for="input-merchName">Merchandise Name: </label>
     <input type="text" name="input-merchName" id="input-merchName">
@@ -106,8 +101,8 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
     <input type="number" name="input-merchQuantity" id="input-merchQuantity">
 
     <button type="submit">Submit</button>  
-  </fieldset>
+
 </form>
-<script src="js/update_merch.js"></script>
-</body>
-</html>
+<script src="./js/update_merch.js"></script>
+
+
