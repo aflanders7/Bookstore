@@ -10,7 +10,7 @@ updateMerchForm.addEventListener("submit", function (e) {
 
     // Get form fields we need to get data from
     let inputmerchName = document.getElementById("mySelect");
-    let inputHomeworld = document.getElementById("input-merchPrice-update");
+    let inputMerchPrice = document.getElementById("input-merchPrice-update");
 
     // Get the values from the form fields
     let merchNameValue = inputmerchName.value;
