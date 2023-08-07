@@ -1,0 +1,47 @@
+<! -- 
+Citation for the following HTML page:
+Date: 7/25/2023
+Adapted from CS340 Canvas Page: Web Application Technology. Used example structure to make own HTML pages, and copied view functions used for inserting, updating, deleting and showing specific forms.
+URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-application-technology?module_item_id=23329626
+-->
+
+<html>
+
+<title>Merchandise Sales</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+
+<body>
+<h1>Merchandise Sales</h1>
+
+<a href="/">Home</a> | <a href="/books">Books</a> | <a href="/merchandise">Merchandise</a> | <a href="/sales">Sales</a> | <a href="/customers">Customers</a> | <a href="/employees">Employees</a> | <a href="/merchandisesales">Merchandise Sales</a> | <a href="/booksales">Book Sales</a> 
+
+<div id="browse" style="display: block">
+<p><strong>Browse Merchandise Sales</strong></p>
+<table border="1" cellpadding="5" id="merch-sales-table">
+  <thead>
+      <tr>
+          {{#each data.[0]}}
+          <th>
+              {{@key}}
+          </th>
+          {{/each}}
+          <!-- <th>delete</th> -->
+      </tr>
+  </thead>
+
+  {{!-- Body section --}}
+  <tbody>
+      {{#each data}}
+      <tr data-value={{this.merchSaleID}}>
+          <td>{{this.merchSaleID}}</td>
+          <td>{{this.merchID}}</td>
+          <td>{{this.invoiceNumber}}</td>
+      </tr>
+      {{/each}}
+  </tbody>
+</table>
+<p>&nbsp;</p>
+
+
+</body>
+</html>

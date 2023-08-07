@@ -85,9 +85,13 @@ app.get('/merchandise', function(req, res) {
    });
 
 
-app.get('/merchandisesales', function (req, res,html) {
-    res.sendFile(path.join(__dirname+'/views/merchandisesales.html'));
-   });
+
+app.get('/merchandisesales', function (req, res) {
+    let query3 = "SELECT * FROM MerchandiseSales;";
+    db.pool.query(query3, function(error, rows, fields){
+    res.render('merchandisesales', {data: rows});
+    })
+});  
 
 app.get('/sales', function (req, res,html) {
     res.sendFile(path.join(__dirname+'/views/sales.html'));
