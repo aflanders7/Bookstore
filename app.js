@@ -41,10 +41,12 @@ app.get('/', function(req, res)
 });                                    // will process this file, before sending the finished HTML to the client.
 
 
-
-app.get('/books', function (req, res,html) {
-    res.sendFile(path.join(__dirname+'/views/books.html'));
-   });
+app.get('/books', function (req, res) {
+        let query2 = "SELECT * FROM Books;";
+        db.pool.query(query2, function(error, rows, fields){
+        res.render('books', {data: rows});
+        })
+    });  
 
 app.get('/booksales', function (req, res,html) {
     res.sendFile(path.join(__dirname+'/views/booksales.html'));
@@ -117,6 +119,34 @@ app.post('/add-merch-form', function(req, res){
         else
         {
             res.redirect('/merchandise');
+        }
+    })
+});
+
+
+app.post('/add-book-form', function(req, res){
+    // Capture the incoming data and parse it back to a JS object
+    let data = req.body;
+
+    // Capture NULL values- no null values
+
+    // Create the query and run it on the database
+    query1 = `INSERT INTO Books (bookTitle, bookAuthor, yearPublished, bookGenre, bookPrice, bookQuantity) VALUES ('${data['input-bookTitle']}', '${data['input-bookAuthor']}', '${data['input-bookYear']}', '${data['input-bookGenre']}', '${data['input-bookPrice']}', '${data['input-bookQuantity']}')`;
+    db.pool.query(query1, function(error, rows, fields){
+
+        // Check to see if there was an error
+        if (error) {
+
+            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+            console.log(error)
+            res.sendStatus(400);
+        }
+
+        // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
+        // presents it on the screen
+        else
+        {
+            res.redirect('/books');
         }
     })
 });

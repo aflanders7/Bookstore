@@ -1,0 +1,77 @@
+<! -- 
+Citation for the following HTML page:
+Date: 7/25/2023
+Adapted from CS340 Canvas Page: Web Application Technology. Used example structure to make own HTML pages, and copied view functions used for inserting, updating, deleting and showing specific forms.
+URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-application-technology?module_item_id=23329626
+-->
+
+<html>
+<head>
+<title>Books</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+
+<!-- <body onload="browseBooks()"> -->
+<h1>Books</h1>
+
+<a href="/">Home</a> | <a href="/books">Books</a> | <a href="/merchandise">Merchandise</a> | <a href="/sales">Sales</a> | <a href="/customers">Customers</a> | <a href="/employees">Employees</a> | <a href="/merchandisesales">Merchandise Sales</a> | <a href="/booksales">Book Sales</a> 
+
+<table border="1" cellpadding="5" id="books-table">
+  <thead>
+      <tr>
+          {{#each data.[0]}}
+          <th>
+              {{@key}}
+          </th>
+          {{/each}}
+          <!-- <th>delete</th> -->
+      </tr>
+  </thead>
+
+  {{!-- Body section --}}
+  <tbody>
+      {{#each data}}
+      <tr data-value={{this.bookID}}>
+          <td>{{this.bookID}}</td>
+          <td>{{this.bookTitle}}</td>
+          <td>{{this.bookAuthor}}</td>
+          <td>{{this.yearPublished}}</td>
+          <td>{{this.bookGenre}}</td>
+          <td>{{this.bookPrice}}</td>
+          <td>{{this.bookQuantity}}</td>
+          <!-- <td><button onclick="deleteMerchandise({{this.merchID}})">Delete</button></td> -->
+      </tr>
+      {{/each}}
+  </tbody>
+</table>
+<!-- insert book -->
+<h2>Add New Book</h2>
+<p>To add a new book, please enter the information below and click `Submit`!</p>
+<form id="add-book-form" method="POST" action="/add-book-form">
+    <label for="input-bookTitle">Title: </label>
+    <input type="text" name="input-bookTitle" id="input-bookTitle">
+
+    <label for="input-bookAuthor">Author: </label>
+    <input type="text" name="input-bookAuthor" id="input-bookAuthor">
+    
+    <label for="input-bookYear">Year Published: </label>
+    <input type="text" name="input-bookYear" id="input-bookYear">
+    
+    <label for="input-bookGenre">Genre: </label>
+    <input type="text" name="input-bookGenre" id="input-bookGenre">
+
+    <label for="input-bookPrice">Price: </label>
+    <input type="text" name="input-bookPrice" id="input-bookPrice">
+
+    <label for="input-merchQuantity">Stock: </label>
+    <input type="number" name="input-bookQuantity" id="input-bookQuantity">
+
+    <input type="submit">
+</form>
+<p>&nbsp;</p>
+
+</div> <!-- browse -->
+
+
+
+</body>
+</html>
