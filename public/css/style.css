@@ -12,6 +12,7 @@ html {
     background-color: var(--light);
     display: flex;
     flex-direction: column;
+
 }
 
 table {}
@@ -20,11 +21,12 @@ table {}
     overflow: hidden;
     position: fixed; 
     top: 0; 
+    left: 0;
     border-bottom: 2px solid var(--dark);
     display: inline-flex;
     background-color: var(--light);
-    width: 97%;
-    margin-left: 1%
+    width: 100%;
+    padding-left: 20px;
 }
 
 .logo {
@@ -52,15 +54,17 @@ nav {
     disply: block;
     margin-top: 100px;
     margin-bottom: 100px;
-    margin-left: 2%
+    margin-left: 2%;
 }
 
 .footer {
     overflow: hidden;
     position: fixed;
     background-color: var(--light);
-    width: 97%;
+    width: 100%;
     border-top: 2px solid var(--dark);
     bottom: 0;
-    margin-left: 1%
+    left: 0;
+    padding-left: 20px;
+    color: black;
 }
