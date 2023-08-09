@@ -49,7 +49,7 @@ app.get('/books', function (req, res) {
     });  
 
 app.get('/booksales', function (req, res) {
-    let query3 = "SELECT * FROM BookSales;";
+    let query3 = "SELECT BookSales.bookSaleID, Books.bookTitle, BookSales.invoiceNumber FROM BookSales JOIN Books ON Books.bookID = BookSales.bookID;";
     db.pool.query(query3, function(error, rows, fields){
     res.render('booksales', {data: rows});
     })
