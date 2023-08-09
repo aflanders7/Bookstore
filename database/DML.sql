@@ -65,8 +65,8 @@ group by Sales.invoiceNumber ASC
 
 -- add a new sale 
 INSERT INTO Sales (employeeID, customerID, saleRevenue)
-VALUES ((SELECT employeeID from Employees WHERE employeeName = :employeeName), 
-(SELECT customerID from Customers WHERE customerName = :customerName), :saleRevenue)
+VALUES ((SELECT employeeName from Employees WHERE employeeID = :employeeID), 
+(SELECT customerName from Customers WHERE customerID = :customerID), :saleRevenue)
 
 -- update sale; CAN SET employee to NULL
 UPDATE Sales SET employeeID = (SELECT employeeID from Employees WHERE employeeName = :employeeName), 

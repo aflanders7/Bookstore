@@ -44,95 +44,40 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 
 <p>&nbsp;</p>
 
-</div> <!-- browse -->
-<div id="insert" style="display: block">
-    <form id="addSale">
-        <legend><strong>Add A New Sale</strong></legend>
-          <fieldset class="fields">
-            <label> Invoice Number </label> <input type="text" name="invoiceNumber">
-            <label> Employee Name </label> <input type="text" name="employeeID">
-            <label> Customer Name </label> <input type="text" name="customerID">
-            <label> Revenue </label> <input type="text" name="saleRevenue">
-            <p> Books Purchased:
-              <label><input type= "checkbox"/>
-                Sapiens: A Brief History of Humankind
-              </label>
-              <label><input type= "checkbox"/>
-                Circe
-              </label>
-              <label><input type= "checkbox"/>
-                To Kill a Mockingbird
-              </label>
-            </p>
-            <p> Merchandise Purchased:
-              <label><input type= "checkbox"/>
-                Floral Bookmark
-              </label>
-              <label><input type= "checkbox"/>
-                Bumblebee Spiral Notebook
-              </label>
-              <label><input type= "checkbox"/>
-                Red Reading Light
-              </label>
-            </p>
-          </fieldset>
-          <input class="btn" type="submit" id="AddSale" value="Add a Sale">
-          <input class="btn" type="button" value="cancel">
-	</form> <!--add new sale-->
-</div><!-- insert -->
+
+<!-- insert sale -->
+<h2>Add a New Sale</h2>
+<p>To add a new Sale, please enter the information below and click `Submit`!</p>
+<form id="add-sale-form" method="POST" action="/add-sale-form">
+
+    <label for="input-employee">Employee: </label>
+    <select name="input-employee" id="input-employee">
+        <option value="">Select Employee</option>
+        <option value="">None</option>
+        {{#each Employees}}
+        <option value="{{this.employeeID}}">{{this.employeeName}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-customer">Customer: </label>
+    <select name="input-customer" id="input-customer">
+        <option value="">Select Customer</option>
+        {{#each Customers}}
+        <option value="{{this.customerID}}">{{this.customerName}}</option>
+        {{/each}}
+    </select>
+    
+    <label for="input-saleRevenue">Sale Revenue: </label>
+    <input type="text" name="input-saleRevenue" id="input-saleRevenue">
+    
+
+    <input type="submit">
+</form>
+<p>&nbsp;</p>
 
 <p>&nbsp;</p>
-<div id="update" style="display: block">
-  <form id="updateSale">
-      <legend><strong>Update An Existing Sale</strong></legend>
-          <p>Set the employee name to "NULL" to remove the employee.</p>
-          <fieldset class="fields">
-          <label>Invoice Number:</label> <input type="text" name="employeeID">
-            <label>Employee Name: </label> <input type="text" name="employeeID">
-            <label>Customer Name </label> <input type="text"  name="customerID">
-            <label>Revenue </label> <input type="text"  name="customerID">
-            <p> Books Purchased:
-              <label><input type= "checkbox"/>
-                Sapiens: A Brief History of Humankind
-              </label>
-              <label><input type= "checkbox"/>
-                Circe
-              </label>
-              <label><input type= "checkbox"/>
-                To Kill a Mockingbird
-              </label>
-            </p>
-            <p> Merchandise Purchased:
-              <label><input type= "checkbox"/>
-                Floral Bookmark
-              </label>
-              <label><input type= "checkbox"/>
-                Bumblebee Spiral Notebook
-              </label>
-              <label><input type= "checkbox"/>
-                Red Reading Light
-              </label>
-            </p>
-    </fieldset>
-    <input class="btn" type="submit" id="UpdateSaveSale" value="Save Update Sale">
-          <input class="btn" type="button" value="cancel" >
-  </form> 
-</div><!-- update -->
+
 <p>&nbsp;</p>
-<!-- <div id="delete" style="display: block">
-  <form id="deleteSale">
-      <legend><strong>Delete Sale</strong></legend>
-          <fieldset class="fields">
-          <p>Are you sure you wish to delete the following?</p>
-          <label>invoiceNumber:</label> 1
-            <label>employeeID</label> 1
-             <label>customerID</label> 2
-             <label>saleRevenue</label> 14.29
-            
-    </fieldset>
-    <input class="btn" type="submit" id="DeleteSale" value="Delete Sale">
-          <input class="btn" type="button" value="cancel" >
-  </form> 
-</div> -->
+
 </body>
 </html>

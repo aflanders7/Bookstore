@@ -103,10 +103,27 @@ app.get('/merchandisesales', function (req, res) {
 
 app.get('/sales', function (req, res) {
     let query1 = "SELECT Sales.invoiceNumber, Employees.employeeName, Customers.customerName, Sales.saleRevenue, GROUP_CONCAT(Books.bookTitle) AS 'Books', GROUP_CONCAT(Merchandise.merchName) AS 'Merchandise' FROM Sales LEFT JOIN Employees ON Sales.employeeID = Employees.employeeID JOIN Customers ON Sales.customerID = Customers.customerID LEFT JOIN BookSales ON Sales.invoiceNumber = BookSales.invoiceNumber LEFT JOIN Books ON BookSales.bookID = Books.bookID LEFT JOIN MerchandiseSales ON Sales.invoiceNumber = MerchandiseSales.invoiceNumber LEFT JOIN Merchandise ON MerchandiseSales.merchID = Merchandise.merchID group by Sales.invoiceNumber ASC;";
+    let query2 = "SELECT * FROM Employees;";
+    let query3 = "SELECT * FROM Customers;";
     db.pool.query(query1, function(error, rows, fields){
-    res.render('sales', {data: rows});
+        
+        // Save the sale
+        let sales = rows;
+        
+        // Run the second query
+        db.pool.query(query2, (error, rows, fields) => {
+            
+            // Save the Employees
+            let Employees = rows;
+
+            db.pool.query(query3, (error, rows, fields) => {   
+
+                let Customers = rows;        
+                return res.render('sales', {data: sales, Employees: Employees, Customers: Customers});
+        }) 
     })
-});  
+})
+});
 
 
 ////////////// Add Operations
@@ -217,6 +234,39 @@ app.post('/add-employee-form', function(req, res){
         else
         {
             res.redirect('/employees');
+        }
+    })
+});
+
+app.post('/add-sale-form', function(req, res){
+    // Capture the incoming data and parse it back to a JS object
+    let data = req.body;
+
+    // Capture NULL values
+
+    let employee = parseInt(data['input-employee']);
+    if (isNaN(employee))
+    {
+        employee = 'NULL'
+    }
+
+    // Create the query and run it on the database
+    query1 = `INSERT INTO Sales (employeeID, customerID, saleRevenue) VALUES (${employee}, '${data['input-customer']}', '${data['input-saleRevenue']}')`;
+    db.pool.query(query1, function(error, rows, fields){
+
+        // Check to see if there was an error
+        if (error) {
+
+            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+            console.log(error)
+            res.sendStatus(400);
+        }
+
+        // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
+        // presents it on the screen
+        else
+        {
+            res.redirect('/sales');
         }
     })
 });
