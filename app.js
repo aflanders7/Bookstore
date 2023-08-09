@@ -438,6 +438,34 @@ app.post('/update-merch-sale', function(req, res){
     })
 });
 
+app.post('/update-book-sale', function(req, res){
+    // Capture the incoming data and parse it back to a JS object
+    let data = req.body;
+
+    // Capture NULL values- none
+
+
+    // Create the query and run it on the database
+    let query1 = `UPDATE BookSales SET bookID = '${data['input-book']}', invoiceNumber = '${data['input-invoiceNumber']}' WHERE bookSaleID = ${data['input-bookSale']}`;
+    db.pool.query(query1, function(error, rows, fields){
+
+        // Check to see if there was an error
+        if (error) {
+
+            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+            console.log(error)
+            res.sendStatus(400);
+        }
+
+        // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
+        // presents it on the screen
+        else
+        {
+            res.redirect('/booksales');
+        }
+    })
+});
+
 ////////////// Delete Operations
 
 app.delete('/delete-merchandise-ajax/', function(req,res,next){
