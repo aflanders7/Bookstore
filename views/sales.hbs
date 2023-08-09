@@ -75,9 +75,42 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 </form>
 <p>&nbsp;</p>
 
-<p>&nbsp;</p>
+<h2>Update Sale</h2>
 
-<p>&nbsp;</p>
+<form id="update-sale" method="POST" action="/update-sale">
+
+    <label for="input-invoiceNumber">Invoice: </label>
+    <select name="input-invoiceNumber" id="input-invoiceNumber">
+        <option value="">Select Invoice</option>
+        {{#each data}}
+        <option value="{{this.invoiceNumber}}">{{this.invoiceNumber}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-employee">Employee: </label>
+    <select name="input-employee" id="input-employee">
+        <option value="">Select Employee</option>
+        <option value="">None</option>
+        {{#each Employees}}
+        <option value="{{this.employeeID}}">{{this.employeeName}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-customer">Customer: </label>
+    <select name="input-customer" id="input-customer">
+        <option value="">Select Customer</option>
+        {{#each Customers}}
+        <option value="{{this.customerID}}">{{this.customerName}}</option>
+        {{/each}}
+    </select>
+    
+    <label for="input-saleRevenue">Sale Revenue: </label>
+    <input type="text" name="input-saleRevenue" id="input-saleRevenue">
+
+
+    <button type="submit">Submit</button>  
+
+</form>
 
 </body>
 </html>
