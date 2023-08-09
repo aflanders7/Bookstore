@@ -49,11 +49,25 @@ app.get('/books', function (req, res) {
     });  
 
 app.get('/booksales', function (req, res) {
-    let query3 = "SELECT BookSales.bookSaleID, Books.bookTitle, BookSales.invoiceNumber FROM BookSales JOIN Books ON Books.bookID = BookSales.bookID;";
-    db.pool.query(query3, function(error, rows, fields){
-    res.render('booksales', {data: rows});
+    let query1 = "SELECT BookSales.bookSaleID, Books.bookTitle, BookSales.invoiceNumber FROM BookSales JOIN Books ON Books.bookID = BookSales.bookID;";
+    let query2 = "SELECT * FROM Books;";
+    let query3 = "SELECT * FROM Sales;";
+    db.pool.query(query1, function(error, rows, fields){
+        let booksales = rows;
+        
+        // Run the second query
+        db.pool.query(query2, (error, rows, fields) => {
+            
+            let Books = rows;
+
+            db.pool.query(query3, (error, rows, fields) => {   
+
+                let Sales = rows;        
+                return res.render('booksales', {data: booksales, Books: Books, Sales: Sales});
+        }) 
     })
-});  
+})
+});
 
 app.get('/customers', function (req, res) {
     let query4 = "SELECT * FROM Customers;";
@@ -267,6 +281,32 @@ app.post('/add-sale-form', function(req, res){
         else
         {
             res.redirect('/sales');
+        }
+    })
+});
+
+app.post('/add-book-sale-form', function(req, res){
+    // Capture the incoming data and parse it back to a JS object
+    let data = req.body;
+
+
+    // Create the query and run it on the database
+    query1 = `INSERT INTO BookSales (bookID, invoiceNumber) VALUES  ('${data['input-book']}', '${data['input-invoiceNumber']}')`;
+    db.pool.query(query1, function(error, rows, fields){
+
+        // Check to see if there was an error
+        if (error) {
+
+            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+            console.log(error)
+            res.sendStatus(400);
+        }
+
+        // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
+        // presents it on the screen
+        else
+        {
+            res.redirect('/booksales');
         }
     })
 });
