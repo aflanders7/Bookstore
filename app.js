@@ -101,8 +101,8 @@ app.get('/merchandisesales', function (req, res) {
     })
 });  
 
-app.get('/sales', function (req, res,html) {
-    let query1 = "SELECT * FROM Sales;";
+app.get('/sales', function (req, res) {
+    let query1 = "SELECT Sales.invoiceNumber, Employees.employeeName, Customers.customerName, Sales.saleRevenue, GROUP_CONCAT(Books.bookTitle) AS 'Books', GROUP_CONCAT(Merchandise.merchName) AS 'Merchandise' FROM Sales LEFT JOIN Employees ON Sales.employeeID = Employees.employeeID JOIN Customers ON Sales.customerID = Customers.customerID LEFT JOIN BookSales ON Sales.invoiceNumber = BookSales.invoiceNumber LEFT JOIN Books ON BookSales.bookID = Books.bookID LEFT JOIN MerchandiseSales ON Sales.invoiceNumber = MerchandiseSales.invoiceNumber LEFT JOIN Merchandise ON MerchandiseSales.merchID = Merchandise.merchID group by Sales.invoiceNumber ASC;";
     db.pool.query(query1, function(error, rows, fields){
     res.render('sales', {data: rows});
     })

@@ -21,7 +21,7 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
             <th>Customer Name</th>
             <th>Sale Revenue</th>
           <th>Books Sold</th>
-          <th>Merch Sold</th>
+          <th>Merchandise Sold</th>
           <!-- <th>delete</th> -->
       </tr>
   </thead>
@@ -31,11 +31,11 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
       {{#each data}}
       <tr data-value={{this.invoiceNumber}}>
           <td>{{this.invoiceNumber}}</td>
-          <td>{{this.employeeID}}</td>
-          <td>{{this.customerID}}</td>
+          <td>{{this.employeeName}}</td>
+          <td>{{this.customerName}}</td>
           <td>{{this.saleRevenue}}</td>
-          <td>{{this.books}}</td>
-          <td>{{this.merch}}</td>
+          <td>{{this.Books}}</td>
+          <td>{{this.Merchandise}}</td>
           <!-- <td><button onclick="deleteMerchandise({{this.merchID}})">Delete</button></td> -->
       </tr>
       {{/each}}

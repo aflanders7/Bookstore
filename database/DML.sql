@@ -55,12 +55,12 @@ employeeName = :employeeName
 SELECT Sales.invoiceNumber, Employees.employeeName, Customers.customerName, Sales.saleRevenue, GROUP_CONCAT(Books.bookTitle) AS "Books",
 GROUP_CONCAT(Merchandise.merchName) AS "Merchandise"
 FROM Sales 
-LEFT OUTER JOIN Employees ON Sales.employeeID = Employees.employeeID
-INNER JOIN Customers ON Sales.customerID = Customers.customerID
-LEFT OUTER JOIN BookSales ON Sales.invoiceNumber = BookSales.invoiceNumber
-LEFT OUTER JOIN Books ON BookSales.bookID = Books.bookID
-LEFT OUTER JOIN MerchandiseSales ON Sales.invoiceNumber = MerchandiseSales.invoiceNumber
-LEFT OUTER JOIN Merchandise ON MerchandiseSales.merchID = Merchandise.merchID
+LEFT JOIN Employees ON Sales.employeeID = Employees.employeeID
+JOIN Customers ON Sales.customerID = Customers.customerID
+LEFT JOIN BookSales ON Sales.invoiceNumber = BookSales.invoiceNumber
+LEFT JOIN Books ON BookSales.bookID = Books.bookID
+LEFT JOIN MerchandiseSales ON Sales.invoiceNumber = MerchandiseSales.invoiceNumber
+LEFT JOIN Merchandise ON MerchandiseSales.merchID = Merchandise.merchID
 group by Sales.invoiceNumber ASC
 
 -- add a new sale 
