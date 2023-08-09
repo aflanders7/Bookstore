@@ -95,7 +95,7 @@ app.get('/merchandise', function(req, res) {
 
 
 app.get('/merchandisesales', function (req, res) {
-    let query1 = "SELECT * FROM MerchandiseSales;";
+    let query1 = "SELECT MerchandiseSales.merchSaleID, Merchandise.merchName, MerchandiseSales.invoiceNumber FROM MerchandiseSales JOIN Merchandise ON Merchandise.merchID = MerchandiseSales.merchID;";
     db.pool.query(query1, function(error, rows, fields){
     res.render('merchandisesales', {data: rows});
     })
