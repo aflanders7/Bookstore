@@ -1,0 +1,92 @@
+<! -- 
+Citation for the following HTML page:
+Date: 7/25/2023
+Adapted from CS340 Canvas Page: Web Application Technology. Used example structure to make own HTML pages, and copied view functions used for inserting, updating, deleting and showing specific forms.
+URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-application-technology?module_item_id=23329626
+-->
+
+<html>
+
+
+<body>
+<h1>Employees</h1>
+
+<div id="browse" style="display: block">
+  <p><strong>Browse Employees</strong></p>
+  <table border="1" cellpadding="5" id="employees-table">
+    <thead>
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+            <!-- <th>delete</th> -->
+        </tr>
+    </thead>
+  
+    {{!-- Body section --}}
+    <tbody>
+        {{#each data}}
+        <tr data-value={{this.employeeID}}>
+            <td>{{this.employeeID}}</td>
+            <td>{{this.employeeName}}</td>
+            <td>{{this.phoneNumber}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+  </table>
+
+
+
+<p>&nbsp;</p>
+</div> 
+
+
+
+<div id="insert" style="display: block">
+    <form id="addEmployee">
+        <legend><strong>Add A New Employee</strong></legend>
+          <fieldset class="fields">
+            <label> employeeName </label> <input type="text" name="employeeName">
+             <label> phoneNumber </label> <input type="text" name="phoneNumber">
+          </fieldset>
+          <input class="btn" type="submit" id="addEmployee" value="Add Employee">
+          <input class="btn" type="button" value="cancel">
+	</form> <!--add new employee-->
+</div><!-- insert -->
+
+<p>&nbsp;</p>
+<div id="update" style="display: block">
+  <form id="updateEmployee">
+      <legend><strong>Update Employee Contact Information</strong></legend>
+          <fieldset class="fields">
+            <label> employeeName </label> <select name="employeeName">
+              <option value="1" selected>Dynamic Dropdown</option>
+              <option value="2" >Amy Jones</option>
+              <option value="3" >Peter Foster</option>
+              <option value="4" >Leah Santos</option>
+              </select>
+            <label> phoneNumber </label> <input type="text"  name="phoneNumber">
+    </fieldset>
+    <input class="btn" type="submit" id="UpdateSaveEmployee" value="Save Update Employee">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div>
+<p>&nbsp;</p>
+<!-- <div id="delete" style="display: block">
+  <form id="deleteEmployee">
+      <legend><strong>Delete Employee</strong></legend>
+          <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <label>employeeID:</label> 1
+            <label>employeeName</label> Amy James
+             <label>phoneNumber</label> 706-715-8865
+            
+    </fieldset>
+    <input class="btn" type="submit" id="DeleteEmployee" value="Delete Employee">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div>delete --> 
+</body>
+</html>

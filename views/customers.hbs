@@ -1,0 +1,63 @@
+<! -- 
+Citation for the following HTML page:
+Date: 7/25/2023
+Adapted from CS340 Canvas Page: Web Application Technology. Used example structure to make own HTML pages, and copied view functions used for inserting, updating, deleting and showing specific forms.
+URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-application-technology?module_item_id=23329626
+-->
+
+<html>
+
+<title>Customers</title>
+
+
+<body>
+<h1>Customers</h1>
+
+
+<div id="browse" style="display: block">
+  <p><strong>Browse Customers</strong></p>
+  <table border="1" cellpadding="5" id="customers-table">
+    <thead>
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+            <!-- <th>delete</th> -->
+        </tr>
+    </thead>
+  
+    {{!-- Body section --}}
+    <tbody>
+        {{#each data}}
+        <tr data-value={{this.customerID}}>
+            <td>{{this.customerID}}</td>
+            <td>{{this.customerName}}</td>
+            <td>{{this.customerEmail}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+  </table>
+
+
+
+<p>&nbsp;</p>
+</div> 
+
+<div id="insert" style="display: block">
+    <form id="addCustomer">
+        <legend><strong>Add A New Customer</strong></legend>
+          <fieldset class="fields">
+            <label> Customer Name </label> <input type="text" name="customerName">
+             <label> Customer Email </label> <input type="text" name="customerEmail">
+          </fieldset>
+          <input class="btn" type="submit" id="addCustomer" value="Add Customer">
+          <input class="btn" type="button" value="cancel">
+	</form> <!--add new customer-->
+</div><!-- insert -->
+
+<p>&nbsp;</p>
+
+</body>
+</html>

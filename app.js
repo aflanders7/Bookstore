@@ -55,13 +55,19 @@ app.get('/booksales', function (req, res) {
     })
 });  
 
-app.get('/customers', function (req, res,html) {
-    res.sendFile(path.join(__dirname+'/views/customers.html'));
-   });
+app.get('/customers', function (req, res) {
+    let query4 = "SELECT * FROM Customers;";
+    db.pool.query(query4, function(error, rows, fields){
+    res.render('customers', {data: rows});
+    })
+});
 
 app.get('/employees', function (req, res,html) {
-    res.sendFile(path.join(__dirname+'/views/employees.html'));
-   });
+    let query5 = "SELECT * FROM Employees;";
+    db.pool.query(query5, function(error, rows, fields){
+    res.render('employees', {data: rows});
+    })
+});
 
    
 
