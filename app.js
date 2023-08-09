@@ -94,17 +94,20 @@ app.get('/merchandise', function(req, res) {
    });
 
 
-
 app.get('/merchandisesales', function (req, res) {
-    let query3 = "SELECT * FROM MerchandiseSales;";
-    db.pool.query(query3, function(error, rows, fields){
+    let query1 = "SELECT * FROM MerchandiseSales;";
+    db.pool.query(query1, function(error, rows, fields){
     res.render('merchandisesales', {data: rows});
     })
 });  
 
 app.get('/sales', function (req, res,html) {
-    res.sendFile(path.join(__dirname+'/views/sales.html'));
-   });
+    let query1 = "SELECT * FROM Sales;";
+    db.pool.query(query1, function(error, rows, fields){
+    res.render('sales', {data: rows});
+    })
+});  
+
 
 ////////////// Add Operations
 

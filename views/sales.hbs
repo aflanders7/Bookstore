@@ -6,106 +6,45 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 -->
 
 <html>
-<head>
-<title>Sales</title>
-<link href="style.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript">
-		function showform(dowhat) {
-			/*
-			* four DIVS: browse, insert, update, delete
-			* this function sets one visible the others not
-			*/
-			if (dowhat == 'insert'){
-				document.getElementById('browse').style.display = 'none';
-				document.getElementById('insert').style.display = 'block';
-				document.getElementById('update').style.display = 'none';
-				document.getElementById('delete').style.display = 'none';
-			}
-			else if (dowhat == 'update'){
-				document.getElementById('browse').style.display = 'none';
-				document.getElementById('insert').style.display = 'none';
-				document.getElementById('update').style.display = 'block';
-				document.getElementById('delete').style.display = 'none';
-			}
-			else if (dowhat == 'delete'){
-				document.getElementById('browse').style.display = 'none';
-				document.getElementById('insert').style.display = 'none';
-				document.getElementById('update').style.display = 'none';
-				document.getElementById('delete').style.display = 'block';
-			}
-      else if (dowhat == 'all'){
-				document.getElementById('browse').style.display = 'block';
-				document.getElementById('insert').style.display = 'block';
-				document.getElementById('update').style.display = 'block';
-				document.getElementById('delete').style.display = 'block';
-			}
-			else { //by default display browse
-				document.getElementById('browse').style.display = 'block';
-				document.getElementById('insert').style.display = 'none';
-				document.getElementById('update').style.display = 'none';
-				document.getElementById('delete').style.display = 'none';
-			}
-		}
-    function newSale() { showform('insert'); }
-    function updateSale(pid) { showform('update'); }
-    function deleteSale(pid) { showform ('delete'); }
-    function browseSales() { showform ('browse'); }
-    function showAll() { showform ('all'); }
-</script>
-</head>
+
 
 <body>
 <h1>Sales</h1>
 
-<a href="/">Home</a> | <a href="/books">Books</a> | <a href="/merchandise">Merchandise</a> | <a href="/sales">Sales</a> | <a href="/customers">Customers</a> | <a href="/employees">Employees</a> | <a href="/merchandisesales">Merchandise Sales</a> | <a href="/booksales">Book Sales</a> 
 
-<div id="browse" style="display: block">
-<p><strong>Browse Sales</strong></p>
-<table border="1" cellpadding="5">
-  <tr>
-    <th>Invoice Number</th>
-    <th>Employee Name</th>
-    <th>Customer Name</th>
-    <th>Sale Revenue</th>
-	<th>Books Sold</th>
-  <th>Merch Sold</th>
-  </tr>
-  <tr>
-    <td align="right" >1</td>
-    <td >1</td>
-    <td align="right" >1</td>
-    <td align="right" >13.06</td>
-	<td>NULL</td>
-  <td>Floral Bookmark, Red Reading Light</td>
-  </tr>
-  <tr>
 
-    <td align="right" >2</td>
-    <td >2</td>
-    <td align="right" >2</td>
-    <td align="right" >22.99</td>
-	  <td>Sapiens: A Brief History of Humankind, To Kill a Mockingbird</td>
-    <td>Floral Bookmark</td>
-  </tr>
-  <tr>
+<table border="1" cellpadding="5" id="sales-table">
+  <thead>
+      <tr>
+          {{#each data.[0]}}
+          <th>
+              {{@key}}
+          </th>
+          {{/each}}
+          <th>Books Sold</th>
+          <th>Merch Sold</th>
+          <!-- <th>delete</th> -->
+      </tr>
+  </thead>
 
-    <td align="right" >3</td>
-    <td >2</td>
-    <td align="right" >1</td>
-    <td align="right" >15.49</td>
-	  <td>Sapiens: A Brief History of Humankind</td>
-    <td>NULL</td>
-  </tr>
-  <tr>
-    <td align="right" >4</td>
-    <td >NULL</td>
-    <td align="right" >3</td>
-    <td align="right" >13.06</td>
-	  <td>Sapiens: A Brief History of Humankind</td>
-    <td>NULL</td>
-  </tr>
+  {{!-- Body section --}}
+  <tbody>
+      {{#each data}}
+      <tr data-value={{this.invoiceNumber}}>
+          <td>{{this.invoiceNumber}}</td>
+          <td>{{this.employeeID}}</td>
+          <td>{{this.customerID}}</td>
+          <td>{{this.saleRevenue}}</td>
+          <td>{{this.books}}</td>
+          <td>{{this.merch}}</td>
+          <!-- <td><button onclick="deleteMerchandise({{this.merchID}})">Delete</button></td> -->
+      </tr>
+      {{/each}}
+  </tbody>
 </table>
+
 <p>&nbsp;</p>
+
 </div> <!-- browse -->
 <div id="insert" style="display: block">
     <form id="addSale">
