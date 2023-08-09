@@ -38,55 +38,21 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
   </table>
 
 
-
 <p>&nbsp;</p>
 </div> 
 
+<h2>Add New Employee</h2>
+<p>To add a new employee, please enter the information below and click `Submit`!</p>
+<form id="add-employee-form" method="POST" action="/add-employee-form">
+    <label for="input-employeeName">Employee Name: </label>
+    <input type="text" name="input-employeeName" id="input-employeeName">
+    
+    <label for="input-phoneNumber">Phone Number: </label>
+    <input type="text" name="input-phoneNumber" id="input-phoneNumber">
 
-
-<div id="insert" style="display: block">
-    <form id="addEmployee">
-        <legend><strong>Add A New Employee</strong></legend>
-          <fieldset class="fields">
-            <label> employeeName </label> <input type="text" name="employeeName">
-             <label> phoneNumber </label> <input type="text" name="phoneNumber">
-          </fieldset>
-          <input class="btn" type="submit" id="addEmployee" value="Add Employee">
-          <input class="btn" type="button" value="cancel">
-	</form> <!--add new employee-->
-</div><!-- insert -->
-
+    <input type="submit">
+</form>
 <p>&nbsp;</p>
-<div id="update" style="display: block">
-  <form id="updateEmployee">
-      <legend><strong>Update Employee Contact Information</strong></legend>
-          <fieldset class="fields">
-            <label> employeeName </label> <select name="employeeName">
-              <option value="1" selected>Dynamic Dropdown</option>
-              <option value="2" >Amy Jones</option>
-              <option value="3" >Peter Foster</option>
-              <option value="4" >Leah Santos</option>
-              </select>
-            <label> phoneNumber </label> <input type="text"  name="phoneNumber">
-    </fieldset>
-    <input class="btn" type="submit" id="UpdateSaveEmployee" value="Save Update Employee">
-          <input class="btn" type="button" value="cancel" >
-  </form> 
-</div>
-<p>&nbsp;</p>
-<!-- <div id="delete" style="display: block">
-  <form id="deleteEmployee">
-      <legend><strong>Delete Employee</strong></legend>
-          <fieldset class="fields">
-          <p>Are you sure you wish to delete the following?</p>
-          <label>employeeID:</label> 1
-            <label>employeeName</label> Amy James
-             <label>phoneNumber</label> 706-715-8865
-            
-    </fieldset>
-    <input class="btn" type="submit" id="DeleteEmployee" value="Delete Employee">
-          <input class="btn" type="button" value="cancel" >
-  </form> 
-</div>delete --> 
+
 </body>
 </html>

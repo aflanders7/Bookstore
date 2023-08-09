@@ -45,19 +45,19 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 <p>&nbsp;</p>
 </div> 
 
-<div id="insert" style="display: block">
-    <form id="addCustomer">
-        <legend><strong>Add A New Customer</strong></legend>
-          <fieldset class="fields">
-            <label> Customer Name </label> <input type="text" name="customerName">
-             <label> Customer Email </label> <input type="text" name="customerEmail">
-          </fieldset>
-          <input class="btn" type="submit" id="addCustomer" value="Add Customer">
-          <input class="btn" type="button" value="cancel">
-	</form> <!--add new customer-->
-</div><!-- insert -->
+<h2>Add New Customer</h2>
+<p>To add a new customer, please enter the information below and click `Submit`!</p>
+<form id="add-customer-form" method="POST" action="/add-customer-form">
+    <label for="input-customerName">Customer Name: </label>
+    <input type="text" name="input-customerName" id="input-customerName">
+    
+    <label for="input-customerEmail">Email: </label>
+    <input type="text" name="input-customerEmail" id="input-customerEmail">
 
+    <input type="submit">
+</form>
 <p>&nbsp;</p>
+
 
 </body>
 </html>
