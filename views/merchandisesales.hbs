@@ -63,6 +63,37 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 </form>
 <p>&nbsp;</p>
 
+<h2>Update Merchandise Sale</h2>
+
+<form id="update-merch-sale" method="POST" action="/update-merch-sale">
+
+    <label for="input-merchSale">Merch Sale ID: </label>
+    <select name="input-merchSale" id="input-merchSale">
+        <option value="">Merch Sale ID</option>
+        {{#each data}}
+        <option value="{{this.merchSaleID}}">{{this.merchSaleID}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-merch">Merchandise: </label>
+    <select name="input-merch" id="input-merch">
+        <option value="">Select Merchandise</option>
+        {{#each Merch}}
+        <option value="{{this.merchID}}">{{this.merchName}}</option>
+        {{/each}}
+    </select>
+    
+    <label for="input-invoiceNumber">Invoice: </label>
+    <select name="input-invoiceNumber" id="input-invoiceNumber">
+        <option value="">Select Invoice</option>
+        {{#each Sales}}
+        <option value="{{this.invoiceNumber}}">{{this.invoiceNumber}}</option>
+        {{/each}}
+    </select>
+    
+    <button type="submit">Submit</button>  
+
+</form>
 
 </body>
 </html>
