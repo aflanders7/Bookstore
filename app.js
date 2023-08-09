@@ -110,10 +110,24 @@ app.get('/merchandise', function(req, res) {
 
 app.get('/merchandisesales', function (req, res) {
     let query1 = "SELECT MerchandiseSales.merchSaleID, Merchandise.merchName, MerchandiseSales.invoiceNumber FROM MerchandiseSales JOIN Merchandise ON Merchandise.merchID = MerchandiseSales.merchID;";
+    let query2 = "SELECT * FROM Merchandise;";
+    let query3 = "SELECT * FROM Sales;";
     db.pool.query(query1, function(error, rows, fields){
-    res.render('merchandisesales', {data: rows});
+        let merchsales = rows;
+        
+        // Run the second query
+        db.pool.query(query2, (error, rows, fields) => {
+            
+            let Merch = rows;
+
+            db.pool.query(query3, (error, rows, fields) => {   
+
+                let Sales = rows;        
+                return res.render('merchandisesales', {data: merchsales, Merch: Merch, Sales: Sales});
+        }) 
     })
-});  
+})
+}); 
 
 app.get('/sales', function (req, res) {
     let query1 = "SELECT Sales.invoiceNumber, Employees.employeeName, Customers.customerName, Sales.saleRevenue, GROUP_CONCAT(Books.bookTitle) AS 'Books', GROUP_CONCAT(Merchandise.merchName) AS 'Merchandise' FROM Sales LEFT JOIN Employees ON Sales.employeeID = Employees.employeeID JOIN Customers ON Sales.customerID = Customers.customerID LEFT JOIN BookSales ON Sales.invoiceNumber = BookSales.invoiceNumber LEFT JOIN Books ON BookSales.bookID = Books.bookID LEFT JOIN MerchandiseSales ON Sales.invoiceNumber = MerchandiseSales.invoiceNumber LEFT JOIN Merchandise ON MerchandiseSales.merchID = Merchandise.merchID group by Sales.invoiceNumber ASC;";
@@ -307,6 +321,32 @@ app.post('/add-book-sale-form', function(req, res){
         else
         {
             res.redirect('/booksales');
+        }
+    })
+});
+
+app.post('/add-merch-sale-form', function(req, res){
+    // Capture the incoming data and parse it back to a JS object
+    let data = req.body;
+
+
+    // Create the query and run it on the database
+    query1 = `INSERT INTO MerchandiseSales (merchID, invoiceNumber) VALUES  ('${data['input-merch']}', '${data['input-invoiceNumber']}')`;
+    db.pool.query(query1, function(error, rows, fields){
+
+        // Check to see if there was an error
+        if (error) {
+
+            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+            console.log(error)
+            res.sendStatus(400);
+        }
+
+        // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
+        // presents it on the screen
+        else
+        {
+            res.redirect('/merchandisesales');
         }
     })
 });

@@ -39,6 +39,30 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 </table>
 <p>&nbsp;</p>
 
+<h2>Add Merchandise to a Sale</h2>
+
+<form id="add-merch-sale-form" method="POST" action="/add-merch-sale-form">
+
+    <label for="input-merch">Merchandise: </label>
+    <select name="input-merch" id="input-merch">
+        <option value="">Select Merchandise</option>
+        {{#each Merch}}
+        <option value="{{this.merchID}}">{{this.merchName}}</option>
+        {{/each}}
+    </select>
+    
+    <label for="input-invoiceNumber">Invoice: </label>
+    <select name="input-invoiceNumber" id="input-invoiceNumber">
+        <option value="">Select Invoice</option>
+        {{#each Sales}}
+        <option value="{{this.invoiceNumber}}">{{this.invoiceNumber}}</option>
+        {{/each}}
+    </select>
+
+    <input type="submit">
+</form>
+<p>&nbsp;</p>
+
 
 </body>
 </html>
