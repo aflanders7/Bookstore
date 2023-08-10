@@ -28,7 +28,7 @@ function deleteMerchandiseSale(merchandiseSaleID) {
 
 function deleteRow(merchandiseSaleID){
 
-  let table = document.getElementById("merch-table");
+  let table = document.getElementById("merch-sales-table");
   for (let i = 0, row; row = table.rows[i]; i++) {
      //iterate through rows
      //rows would be accessed using the "row" variable assigned in the for loop
