@@ -46,7 +46,7 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 
 
 <!-- insert sale -->
-<h2>Add a New Sale</h2>
+<h2>Add New Sale</h2>
 <p>To add a new Sale, please enter the information below and click `Submit`!</p>
 <form id="add-sale-form" method="POST" action="/add-sale-form">
 
@@ -64,6 +64,22 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
         <option value="">Select Customer</option>
         {{#each Customers}}
         <option value="{{this.customerID}}">{{this.customerName}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-book">Book Purchased: </label>
+    <select name="input-book" id="input-book">
+        <option value="">None</option>
+        {{#each Books}}
+        <option value="{{this.bookID}}">{{this.bookTitle}}</option>
+        {{/each}}
+    </select>
+
+<label for="input-merch">Merchandise Purchased: </label>
+    <select name="input-merch" id="input-merch">
+        <option value="">None</option>
+        {{#each Merchandise}}
+        <option value="{{this.merchID}}">{{this.merchName}}</option>
         {{/each}}
     </select>
     
@@ -113,7 +129,7 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 
   <label for="input-book">Book Purchased: </label>
     <select name="input-book" id="input-book">
-        <option value="">Select Book</option>
+        <option value="">None</option>
         {{#each Books}}
         <option value="{{this.bookID}}">{{this.bookTitle}}</option>
         {{/each}}
@@ -121,7 +137,7 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 
 <label for="input-merch">Merchandise Purchased: </label>
     <select name="input-merch" id="input-merch">
-        <option value="">Select Merchandise</option>
+        <option value="">None</option>
         {{#each Merchandise}}
         <option value="{{this.merchID}}">{{this.merchName}}</option>
         {{/each}}
