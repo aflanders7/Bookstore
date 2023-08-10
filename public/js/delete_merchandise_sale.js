@@ -6,7 +6,7 @@ function deleteMerchandiseSale(merchandiseSaleID) {
 
   // Setup our AJAX request
   var xhttp = new XMLHttpRequest();
-  xhttp.open("DELETE", "/delete-merchandise-ajax", true);
+  xhttp.open("DELETE", "/delete-merchandise-sale-ajax", true);
   xhttp.setRequestHeader("Content-type", "application/json");
 
   // Tell our AJAX request how to resolve
