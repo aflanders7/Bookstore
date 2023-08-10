@@ -22,7 +22,7 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
           <th>Book Sale ID</th>
           <th>Book Title</th>
           <th>Invoice Number</th>
-            <!-- <th>delete</th> -->
+            <th>Delete</th>
         </tr>
     </thead>
   
@@ -33,10 +33,14 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
             <td>{{this.bookSaleID}}</td>
             <td>{{this.bookTitle}}</td>
             <td>{{this.invoiceNumber}}</td>
+            <td><button onclick="deleteBookSale({{this.bookSaleID}})">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
   </table>
+
+  <script src="./js/delete_book_sale.js"></script>
+  
   <p>&nbsp;</p>
 </div> <!-- browse -->
 
