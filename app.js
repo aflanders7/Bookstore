@@ -275,11 +275,20 @@ app.post('/add-sale-form', function(req, res){
     let employee = parseInt(data['input-employee']);
     if (isNaN(employee))
     {
-        employee = 'NULL'
+        employee = 'NULL';
     }
 
+    let itemSold = parseInt(data['input-book']);
+    let table = "BookSales"
+    if (isNan(itemSold))
+    {
+        itemSold = parseInt(data['input-merch']);
+        table = "MerchandiseSales"
+    }
     // Create the query and run it on the database
     query1 = `INSERT INTO Sales (employeeID, customerID, saleRevenue) VALUES (${employee}, '${data['input-customer']}', '${data['input-saleRevenue']}')`;
+   
+
     db.pool.query(query1, function(error, rows, fields){
 
         // Check to see if there was an error
@@ -294,9 +303,21 @@ app.post('/add-sale-form', function(req, res){
         // presents it on the screen
         else
         {
-            res.redirect('/sales');
+             const invoiceNumber = result.insertId; // Get the auto-generated invoiceNumber
+            
+            // Insert into the intersection table (MerchandiseSales or BookSales)
+            query2 = `INSERT INTO ${table} (${table == 'BookSales' ? 'bookID' : 'merchID'}, invoiceNumber) VALUES ('${itemSold}', '${invoiceNumber}')`;
+
+            db.pool.query(query2, function(error, rows, fields) {
+                if (error) {
+                    console.log(error);
+                    res.sendStatus(400);
+                } else {
+                    res.redirect('/sales');
+                }
+            });
         }
-    })
+    });
 });
 
 app.post('/add-book-sale-form', function(req, res){
@@ -533,7 +554,7 @@ app.delete('/delete-merchandise-sale-ajax/', function(req,res,next){
 app.delete('/delete-book-sale-ajax/', function(req,res,next){
     let data = req.body;
     let bookSaleID = parseInt(data.bookSaleID);
-    let deleteBookSales = `DELETE FROM bookSales WHERE bookSaleID = ?`;
+    let deleteBookSales = `DELETE FROM BookSales WHERE bookSaleID = ?`;
     //let deleteBook= `DELETE FROM Merchandise WHERE merchID = ?`; - should not delete book when deleting a sale
   
   
