@@ -499,6 +499,67 @@ app.delete('/delete-merchandise-ajax/', function(req,res,next){
               }
   })});
 
+app.delete('/delete-merchandise-sale-ajax/', function(req,res,next){
+    let data = req.body;
+    let merchSaleID = parseInt(data.merchSaleID);
+    let deleteMerchSales = `DELETE FROM MerchandiseSales WHERE merchSaleID = ?`;
+    //let deleteMerch= `DELETE FROM Merchandise WHERE merchID = ?`; - should not delete merchandise when deleting a sale
+  
+  
+          // Run the 1st query
+          db.pool.query(deleteMerchSales, [merchSaleID], function(error, rows, fields){
+              if (error) {
+  
+              // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+              console.log(error);
+              res.sendStatus(400);
+              }
+  
+              //else
+              //{
+                  // Run the second query
+              //    db.pool.query(deleteMerch, [merchID], function(error, rows, fields) {
+  
+              //        if (error) {
+              //            console.log(error);
+              //            res.sendStatus(400);
+              //        } else {
+              //            res.sendStatus(204);
+              //        }
+              //    })
+              //}
+  })});
+
+app.delete('/delete-book-sale-ajax/', function(req,res,next){
+    let data = req.body;
+    let bookSaleID = parseInt(data.bookSaleID);
+    let deleteBookSales = `DELETE FROM bookSales WHERE bookSaleID = ?`;
+    //let deleteBook= `DELETE FROM Merchandise WHERE merchID = ?`; - should not delete book when deleting a sale
+  
+  
+          // Run the 1st query
+          db.pool.query(deleteBookSales, [bookSaleID], function(error, rows, fields){
+              if (error) {
+  
+              // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+              console.log(error);
+              res.sendStatus(400);
+              }
+  
+              //else
+              //{
+                  // Run the second query
+              //    db.pool.query(deleteMerch, [merchID], function(error, rows, fields) {
+  
+              //        if (error) {
+              //            console.log(error);
+              //            res.sendStatus(400);
+              //        } else {
+              //            res.sendStatus(204);
+              //        }
+              //    })
+              //}
+  })});
 /*
     LISTENER
 */
