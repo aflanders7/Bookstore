@@ -26,7 +26,7 @@ function deleteMerchandiseSale(merchandiseSaleID) {
 }
 
 
-function deleteRow(merchandiseID){
+function deleteRow(merchandiseSaleID){
 
   let table = document.getElementById("merch-table");
   for (let i = 0, row; row = table.rows[i]; i++) {
