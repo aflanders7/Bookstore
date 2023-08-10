@@ -110,7 +110,23 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
         <option value="{{this.customerID}}">{{this.customerName}}</option>
         {{/each}}
     </select>
-    
+
+  <label for="input-book">Book Purchased: </label>
+    <select name="input-book" id="input-book">
+        <option value="">Select Book</option>
+        {{#each Books}}
+        <option value="{{this.bookID}}">{{this.bookTitle}}</option>
+        {{/each}}
+    </select>
+
+<label for="input-merch">Merchandise Purchased: </label>
+    <select name="input-merch" id="input-merch">
+        <option value="">Select Merchandise</option>
+        {{#each Merchandise}}
+        <option value="{{this.merchID}}">{{this.merchName}}</option>
+        {{/each}}
+    </select>
+  
     <label for="input-saleRevenue">Sale Revenue: </label>
     <input type="text" name="input-saleRevenue" id="input-saleRevenue">
 
