@@ -12,12 +12,9 @@ html {
     margin: 0 auto;
 }
 
-table {}
 
 header {
-
     top: 0; 
-
     border-bottom: 2px solid var(--dark);
     display: inline-flex;
     background-color: var(--light);
@@ -55,11 +52,12 @@ body {
 .body1 {
     display: block;
     margin-top: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 100px;
     margin-left: 2%;
 }
 
 footer {
+    position: fixed;
     overflow: hidden;
     background-color: var(--light);
     width: 100%;
