@@ -9,24 +9,21 @@
 }
 
 html {
-    background-color: var(--white);
-    display: flex;
-    flex-direction: column;
-
+    margin: 0 auto;
 }
 
 table {}
 
-.header {
-    overflow: hidden;
-    position: fixed; 
+header {
+
     top: 0; 
-    left: 0;
+
     border-bottom: 2px solid var(--dark);
     display: inline-flex;
     background-color: var(--light);
     width: 100%;
     padding-left: 20px;
+    margin: 0;
 }
 
 .logo {
@@ -50,16 +47,20 @@ nav {
     text-decoration:none;
 }
 
-.body {
-    disply: block;
-    margin-top: 100px;
-    margin-bottom: 100px;
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.body1 {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 15px;
     margin-left: 2%;
 }
 
-.footer {
+footer {
     overflow: hidden;
-    position: fixed;
     background-color: var(--light);
     width: 100%;
     border-top: 2px solid var(--dark);
