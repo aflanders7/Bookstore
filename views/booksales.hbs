@@ -70,16 +70,16 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 <form id="add-book-sale-form" method="POST" action="/add-book-sale-form">
 
     <label for="input-book">Book: </label>
-    <select name="input-book" id="input-book">
-        <option value="">Select Book</option>
+    <select name="input-book" id="input-book" required>
+        <option value="" selected disabled hidden>Select Book</option>
         {{#each Books}}
         <option value="{{this.bookID}}">{{this.bookTitle}}</option>
         {{/each}}
     </select>
     
     <label for="input-invoiceNumber">Invoice: </label>
-    <select name="input-invoiceNumber" id="input-invoiceNumber">
-        <option value="">Select Invoice</option>
+    <select name="input-invoiceNumber" id="input-invoiceNumber" required>
+        <option value="" selected disabled hidden>Select Invoice</option>
         {{#each Sales}}
         <option value="{{this.invoiceNumber}}">{{this.invoiceNumber}}</option>
         {{/each}}
@@ -93,24 +93,24 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 <form id="update-book-sale" method="POST" action="/update-book-sale">
 
     <label for="input-bookSale">Book Sale ID: </label>
-    <select name="input-bookSale" id="input-bookSale">
-        <option value="">Book Sale ID</option>
+    <select name="input-bookSale" id="input-bookSale" required>
+        <option value="" selected disabled hidden>Book Sale ID</option>
         {{#each data}}
         <option value="{{this.bookSaleID}}">{{this.bookSaleID}}</option>
         {{/each}}
     </select>
 
     <label for="input-book">Book: </label>
-    <select name="input-book" id="input-book">
-        <option value="">Select Book</option>
+    <select name="input-book" id="input-book" required>
+        <option value="" selected disabled hidden>Select Book</option>
         {{#each Books}}
         <option value="{{this.bookID}}">{{this.bookTitle}}</option>
         {{/each}}
     </select>
     
     <label for="input-invoiceNumber">Invoice: </label>
-    <select name="input-invoiceNumber" id="input-invoiceNumber">
-        <option value="">Select Invoice</option>
+    <select name="input-invoiceNumber" id="input-invoiceNumber" required>
+        <option value="" selected disabled hidden>Select Invoice</option>
         {{#each Sales}}
         <option value="{{this.invoiceNumber}}">{{this.invoiceNumber}}</option>
         {{/each}}

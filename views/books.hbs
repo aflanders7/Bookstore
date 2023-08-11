@@ -60,22 +60,22 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 <p>To add a new book, please enter the information below and click `Submit`!</p>
 <form id="add-book-form" method="POST" action="/add-book-form">
     <label for="input-bookTitle">Title: </label>
-    <input type="text" name="input-bookTitle" id="input-bookTitle">
+    <input type="text" name="input-bookTitle" id="input-bookTitle" required>
 
     <label for="input-bookAuthor">Author: </label>
-    <input type="text" name="input-bookAuthor" id="input-bookAuthor">
+    <input type="text" name="input-bookAuthor" id="input-bookAuthor" required>
     
     <label for="input-bookYear">Year Published: </label>
-    <input type="text" name="input-bookYear" id="input-bookYear">
+    <input type="text" name="input-bookYear" id="input-bookYear" required>
     
     <label for="input-bookGenre">Genre: </label>
-    <input type="text" name="input-bookGenre" id="input-bookGenre">
+    <input type="text" name="input-bookGenre" id="input-bookGenre" required>
 
     <label for="input-bookPrice">Price: </label>
-    <input type="text" name="input-bookPrice" id="input-bookPrice">
+    <input type="text" name="input-bookPrice" id="input-bookPrice" required>
 
     <label for="input-merchQuantity">Stock: </label>
-    <input type="number" name="input-bookQuantity" id="input-bookQuantity">
+    <input type="number" name="input-bookQuantity" id="input-bookQuantity" required>
 
     <input type="submit">
 </form>

@@ -94,13 +94,13 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 <p>To add new Merchandise, please enter the information below and click `Submit`!</p>
 <form id="add-merch-form" method="POST" action="/add-merch-form">
     <label for="input-merchName">Merchandise Name: </label>
-    <input type="text" name="input-merchName" id="input-merchName">
+    <input type="text" name="input-merchName" id="input-merchName" required>
     
     <label for="input-merchPrice">Price: </label>
-    <input type="text" name="input-merchPrice" id="input-merchPrice">
+    <input type="text" name="input-merchPrice" id="input-merchPrice" required>
 
     <label for="input-merchQuantity">Stock: </label>
-    <input type="number" name="input-merchQuantity" id="input-merchQuantity">
+    <input type="number" name="input-merchQuantity" id="input-merchQuantity" required>
 
     <input type="submit">
 </form>
@@ -114,21 +114,21 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 <form id="update-merch" method="POST" action="/update-merch">
 
     <label for="input-merchID">Merchandise Name: </label>
-    <select name="input-merchID" id="input-merchID">
-        <option value="test">Select Merchandise</option>
+    <select name="input-merchID" id="input-merchID" required>
+        <option value="test" selected disabled hidden>Select Merchandise</option>
         {{#each data}}
         <option value="{{this.merchID}}">{{this.merchName}}</option>
         {{/each}}
     </select>
 
     <label for="input-merchName">Merchandise Name: </label>
-    <input type="text" name="input-merchName" id="input-merchName-update">
+    <input type="text" name="input-merchName" id="input-merchName-update" required>
     
     <label for="input-merchPrice">Price: </label>
-    <input type="text" name="input-merchPrice" id="input-merchPrice-update">
+    <input type="text" name="input-merchPrice" id="input-merchPrice-update" required>
 
     <label for="input-merchQuantity">Stock: </label>
-    <input type="number" name="input-merchQuantity" id="input-merchQuantity-update">
+    <input type="number" name="input-merchQuantity" id="input-merchQuantity-update" required>
 
     <button type="submit">Submit</button>  
 

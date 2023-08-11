@@ -71,16 +71,16 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 <form id="add-merch-sale-form" method="POST" action="/add-merch-sale-form">
 
     <label for="input-merch">Merchandise: </label>
-    <select name="input-merch" id="input-merch">
-        <option value="">Select Merchandise</option>
+    <select name="input-merch" id="input-merch" required>
+        <option value="" selected disabled hidden>Select Merchandise</option>
         {{#each Merch}}
         <option value="{{this.merchID}}">{{this.merchName}}</option>
         {{/each}}
     </select>
     
     <label for="input-invoiceNumber">Invoice: </label>
-    <select name="input-invoiceNumber" id="input-invoiceNumber">
-        <option value="">Select Invoice</option>
+    <select name="input-invoiceNumber" id="input-invoiceNumber" required>
+        <option value="" selected disabled hidden>Select Invoice</option>
         {{#each Sales}}
         <option value="{{this.invoiceNumber}}">{{this.invoiceNumber}}</option>
         {{/each}}
@@ -95,24 +95,24 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 <form id="update-merch-sale" method="POST" action="/update-merch-sale">
 
     <label for="input-merchSale">Merch Sale ID: </label>
-    <select name="input-merchSale" id="input-merchSale">
-        <option value="">Merch Sale ID</option>
+    <select name="input-merchSale" id="input-merchSale" required>
+        <option value="" selected disabled hidden>Merch Sale ID</option>
         {{#each data}}
         <option value="{{this.merchSaleID}}">{{this.merchSaleID}}</option>
         {{/each}}
     </select>
 
     <label for="input-merch">Merchandise: </label>
-    <select name="input-merch" id="input-merch">
-        <option value="">Select Merchandise</option>
+    <select name="input-merch" id="input-merch" required>
+        <option value="" selected disabled hidden>Select Merchandise</option>
         {{#each Merch}}
         <option value="{{this.merchID}}">{{this.merchName}}</option>
         {{/each}}
     </select>
     
     <label for="input-invoiceNumber">Invoice: </label>
-    <select name="input-invoiceNumber" id="input-invoiceNumber">
-        <option value="">Select Invoice</option>
+    <select name="input-invoiceNumber" id="input-invoiceNumber" required>
+        <option value="" selected disabled hidden>Select Invoice</option>
         {{#each Sales}}
         <option value="{{this.invoiceNumber}}">{{this.invoiceNumber}}</option>
         {{/each}}

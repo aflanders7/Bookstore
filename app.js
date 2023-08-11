@@ -248,10 +248,15 @@ app.post('/add-customer-form', function(req, res){
     // Capture the incoming data and parse it back to a JS object
     let data = req.body;
 
-    // Capture NULL values- no null values
+    // Capture NULL values
+    let email = parseInt(data['input-customerEmail']);
+    if (isNaN(email))
+    {
+        email = 'NULL';
+    }
 
     // Create the query and run it on the database
-    query1 = `INSERT INTO Customers (customerName, customerEmail) VALUES ('${data['input-customerName']}', '${data['input-customerEmail']}')`;
+    query1 = `INSERT INTO Customers (customerName, customerEmail) VALUES ('${data['input-customerName']}', ${email})`;
     db.pool.query(query1, function(error, rows, fields){
 
         // Check to see if there was an error
