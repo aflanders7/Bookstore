@@ -568,19 +568,7 @@ app.delete('/delete-merchandise-sale-ajax/', function(req,res,next){
               res.sendStatus(400);
               }
               else {res.redirect('/merchandisesales');}
-              //else
-              //{
-                  // Run the second query
-              //    db.pool.query(deleteMerch, [merchID], function(error, rows, fields) {
-  
-              //        if (error) {
-              //            console.log(error);
-              //            res.sendStatus(400);
-              //        } else {
-              //            res.sendStatus(204);
-              //        }
-              //    })
-              //}
+
   })});
 
 app.delete('/delete-book-sale-ajax/', function(req,res,next){
@@ -602,19 +590,7 @@ app.delete('/delete-book-sale-ajax/', function(req,res,next){
                 res.redirect('/booksales');
             };
 
-              //else
-              //{
-                  // Run the second query
-              //    db.pool.query(deleteMerch, [merchID], function(error, rows, fields) {
-  
-              //        if (error) {
-              //            console.log(error);
-              //            res.sendStatus(400);
-              //        } else {
-              //            res.sendStatus(204);
-              //        }
-              //    })
-              //}
+
   })});
 /*
     LISTENER
