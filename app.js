@@ -598,7 +598,8 @@ app.delete('/delete-book-sale-ajax/', function(req,res,next){
               console.log(error);
               res.sendStatus(400);
               }
-              else {res.sendSatus(204);
+              else {res.sendSatus(204)};
+
               //else
               //{
                   // Run the second query
