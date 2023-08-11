@@ -566,8 +566,9 @@ app.delete('/delete-merchandise-sale-ajax/', function(req,res,next){
               // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
               console.log(error);
               res.sendStatus(400);
-              }
-              else {res.redirect('/merchandisesales');}
+              } else {
+                res.sendStatus(204);
+            }
 
   })});
 
@@ -585,10 +586,9 @@ app.delete('/delete-book-sale-ajax/', function(req,res,next){
               // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
               console.log(error);
               res.sendStatus(400);
-              }
-              else {
-                res.redirect('/booksales');
-            };
+              } else {
+                res.sendStatus(204);
+            }
 
 
   })});
