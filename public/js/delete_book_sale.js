@@ -1,4 +1,4 @@
-function deleteBookeSale(bookSaleID) {
+function deleteBookSale(bookSaleID) {
   // Put our data we want to send in a javascript object
   let data = {
       bookSaleID: bookSaleID
