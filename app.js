@@ -567,7 +567,7 @@ app.delete('/delete-merchandise-sale-ajax/', function(req,res,next){
               console.log(error);
               res.sendStatus(400);
               }
-  
+              else {res.redirect('/merchandisesales');}
               //else
               //{
                   // Run the second query
