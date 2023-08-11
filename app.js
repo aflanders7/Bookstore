@@ -599,7 +599,6 @@ app.delete('/delete-book-sale-ajax/', function(req,res,next){
               res.sendStatus(400);
               }
               else {
-                res.sendSatus(204)
                 res.redirect('/booksales');
             };
 
