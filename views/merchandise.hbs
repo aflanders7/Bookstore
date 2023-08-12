@@ -36,32 +36,9 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 
 <title>Merchandise</title>
 
-
-
-
 <h1>Merchandise</h1>
-
-
-{{!-- Create a table --}}
-
-<table border="1" cellpadding="5">
-  <h2>Search Using an HTML Form</h2>
-  <p>Search by merchandise name using the field below.</p>
-
-  <form id="search-merch-html" method='GET' action='/merchandise'>
-      <label for="inputmerchName">Search by Merchandise Name: </label>
-      <input type="text" name="inputmerchName" id="inputmerchName">
-      
-      <input type="submit">
-      <a href='/merchandise'><button>Reset</button></a>
-  </form>
-
-</table>
-  <h2>Browse Merchandise</h2>
-<p>Click on "delete" to delete a product. Deleting a product will remove it from any associated invoices, but it will not delete
-  the invoices.</p>
-    {{!-- Header section --}}
-
+ 
+<!-- display merch in a table -->
 
 <table border="1" cellpadding="5" id="merch-table">
     <thead>
@@ -87,33 +64,56 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
         {{/each}}
     </tbody>
 </table>
+
 <script src="./js/delete_merchandise.js"></script>
+
+<p>Click on "delete" to delete a product. Deleting a product will remove it from any associated invoices, but it will not delete
+  the invoices.</p>
+
+<p>&nbsp;</p>
+
+<!-- search merch form -->
+
+<table border="1" cellpadding="5">
+  <h2>Search Merchandise</h2>
+  <p>Search for merchandise by name. Partial names are accepted.</p>
+
+  <form id="search-merch-html" method='GET' action='/merchandise'>
+      <label for="inputmerchName">Search by Merchandise Name: </label>
+      <input type="text" name="inputmerchName" id="inputmerchName">
+      
+      <input type="submit">
+      <a href='/merchandise'><button>Reset</button></a>
+  </form>
+</table>
+
+<p>&nbsp;</p>
 
 <!-- insert merch -->
 <h2>Add New Merchandise</h2>
-<p>To add new Merchandise, please enter the information below and click `Submit`!</p>
+<p>Add new merchandise to the database.</p>
 <form id="add-merch-form" method="POST" action="/add-merch-form">
-    <label for="input-merchName">Merchandise Name: </label>
+    <label for="input-merchName">Name: </label>
     <input type="text" name="input-merchName" id="input-merchName" required>
     
     <label for="input-merchPrice">Price: </label>
     <input type="text" name="input-merchPrice" id="input-merchPrice" required>
 
-    <label for="input-merchQuantity">Stock: </label>
+    <label for="input-merchQuantity">Quantity: </label>
     <input type="number" name="input-merchQuantity" id="input-merchQuantity" required>
 
     <input type="submit">
 </form>
 <p>&nbsp;</p>
 
-
+<!-- update merch -->
 
 <h2>Update Merchandise</h2>
-<p>To update a specific merchandise, select the name from the drop-down menu on the left and enter in the new values.</p>
+<p>Update merchandise by selecting the name of the merchandise product.</p>
 
 <form id="update-merch" method="POST" action="/update-merch">
 
-    <label for="input-merchID">Merchandise Name: </label>
+    <label for="input-merchID">Name: </label>
     <select name="input-merchID" id="input-merchID" required>
         <option value="test" selected disabled hidden>Select Merchandise</option>
         {{#each data}}
@@ -121,13 +121,13 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
         {{/each}}
     </select>
 
-    <label for="input-merchName">Merchandise Name: </label>
+    <label for="input-merchName">Name: </label>
     <input type="text" name="input-merchName" id="input-merchName-update" required>
     
     <label for="input-merchPrice">Price: </label>
     <input type="text" name="input-merchPrice" id="input-merchPrice-update" required>
 
-    <label for="input-merchQuantity">Stock: </label>
+    <label for="input-merchQuantity">Quantity: </label>
     <input type="number" name="input-merchQuantity" id="input-merchQuantity-update" required>
 
     <button type="submit">Submit</button>  

@@ -20,10 +20,9 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 <head>
 <title>Books</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
-
-<!-- <body onload="browseBooks()"> -->
 <h1>Books</h1>
 
+<!-- Display books in a table -->
 
 <table border="1" cellpadding="5" id="books-table">
   <thead>
@@ -55,9 +54,14 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
       {{/each}}
   </tbody>
 </table>
+
+<p>&nbsp;</p>
+
 <!-- insert book -->
+
 <h2>Add New Book</h2>
-<p>To add a new book, please enter the information below and click `Submit`!</p>
+<p>Add a new book to the database.</p>
+
 <form id="add-book-form" method="POST" action="/add-book-form">
     <label for="input-bookTitle">Title: </label>
     <input type="text" name="input-bookTitle" id="input-bookTitle" required>
@@ -74,15 +78,13 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
     <label for="input-bookPrice">Price: </label>
     <input type="text" name="input-bookPrice" id="input-bookPrice" required>
 
-    <label for="input-merchQuantity">Stock: </label>
+    <label for="input-merchQuantity">Qunatity: </label>
     <input type="number" name="input-bookQuantity" id="input-bookQuantity" required>
 
     <input type="submit">
 </form>
+
 <p>&nbsp;</p>
-
-</div> <!-- browse -->
-
 
 
 </body>

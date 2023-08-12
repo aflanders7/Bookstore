@@ -35,14 +35,16 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 <body>
 <h1>Book Sales</h1>
 
+<!-- Display book sales in a table -->
+
 <div id="browse" style="display: block">
-  <p><strong>Browse Book Sales</strong></p>
+
   <table border="1" cellpadding="5" id="book-sales-table">
     <thead>
         <tr>
           <th>Book Sale ID</th>
-          <th>Book Title</th>
           <th>Invoice Number</th>
+          <th>Book Title</th>
             <th>Delete</th>
         </tr>
     </thead>
@@ -52,8 +54,8 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
         {{#each data}}
         <tr data-value={{this.bookSaleID}}>
             <td>{{this.bookSaleID}}</td>
-            <td>{{this.bookTitle}}</td>
             <td>{{this.invoiceNumber}}</td>
+            <td>{{this.bookTitle}}</td>
             <td><button onclick="deleteBookSale({{this.bookSaleID}})">Delete</button></td>
         </tr>
         {{/each}}
@@ -61,22 +63,20 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
   </table>
 
   <script src="./js/delete_book_sale.js"></script>
-  
+
+  <p> <strong>Note:</strong> Deleting a book from Book Sales will remove the book from the corresponding invoice. <br>
+  Neither the invoice nor the book will not be deleted.</p>
   <p>&nbsp;</p>
-</div> <!-- browse -->
+</div> 
+
+
+<!-- Add book sale -->
 
 <h2>Add Books to a Sale</h2>
+<p>Add a book to a sale based on the sale's invoice number.</p>
 
 <form id="add-book-sale-form" method="POST" action="/add-book-sale-form">
 
-    <label for="input-book">Book: </label>
-    <select name="input-book" id="input-book" required>
-        <option value="" selected disabled hidden>Select Book</option>
-        {{#each Books}}
-        <option value="{{this.bookID}}">{{this.bookTitle}}</option>
-        {{/each}}
-    </select>
-    
     <label for="input-invoiceNumber">Invoice: </label>
     <select name="input-invoiceNumber" id="input-invoiceNumber" required>
         <option value="" selected disabled hidden>Select Invoice</option>
@@ -85,10 +85,22 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
         {{/each}}
     </select>
 
+    <label for="input-book">Book: </label>
+    <select name="input-book" id="input-book" required>
+        <option value="" selected disabled hidden>Select Book</option>
+        {{#each Books}}
+        <option value="{{this.bookID}}">{{this.bookTitle}}</option>
+        {{/each}}
+    </select>
+
     <input type="submit">
 </form>
 <p>&nbsp;</p>
+
+<!-- Update book sale -->
+
 <h2>Update Book Sale</h2>
+<p>Update a book sale based on the Book Sale ID.</p>
 
 <form id="update-book-sale" method="POST" action="/update-book-sale">
 
@@ -99,20 +111,20 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
         <option value="{{this.bookSaleID}}">{{this.bookSaleID}}</option>
         {{/each}}
     </select>
-
-    <label for="input-book">Book: </label>
-    <select name="input-book" id="input-book" required>
-        <option value="" selected disabled hidden>Select Book</option>
-        {{#each Books}}
-        <option value="{{this.bookID}}">{{this.bookTitle}}</option>
-        {{/each}}
-    </select>
     
     <label for="input-invoiceNumber">Invoice: </label>
     <select name="input-invoiceNumber" id="input-invoiceNumber" required>
         <option value="" selected disabled hidden>Select Invoice</option>
         {{#each Sales}}
         <option value="{{this.invoiceNumber}}">{{this.invoiceNumber}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-book">Book: </label>
+    <select name="input-book" id="input-book" required>
+        <option value="" selected disabled hidden>Select Book</option>
+        {{#each Books}}
+        <option value="{{this.bookID}}">{{this.bookTitle}}</option>
         {{/each}}
     </select>
     

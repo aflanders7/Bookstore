@@ -28,9 +28,10 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 
 <h1>Merchandise Sales</h1>
 
+<!-- Display merch sales in a table -->
 
 <div id="browse" style="display: block">
-<p><strong>Browse Merchandise Sales</strong></p>
+
 <table border="1" cellpadding="5" id="merch-sales-table">
   <thead>
       <tr>
@@ -55,10 +56,16 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 </table>
 
 <script src="./js/delete_merchandise_sale.js"></script>
+
+  <p> <strong>Note:</strong> Deleting merchandise from Merchandise Sales will remove the merchandise from the corresponding invoice. <br>
+  Neither the invoice nor the merchandise product will not be deleted.</p>
   
 <p>&nbsp;</p>
 
+<!-- Add new merch sale -->
+
 <h2>Add Merchandise to a Sale</h2>
+<p>Add merchandise to a sale based on the sale's invoice number.</p>
 
 <form id="add-merch-sale-form" method="POST" action="/add-merch-sale-form">
 
@@ -82,7 +89,11 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 </form>
 <p>&nbsp;</p>
 
+
+<!-- Update merch sales -->
+
 <h2>Update Merchandise Sale</h2>
+<p>Update a merchandise sale based on the Merch Sale ID.</p>
 
 <form id="update-merch-sale" method="POST" action="/update-merch-sale">
 

@@ -22,8 +22,10 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 <body>
 <h1>Employees</h1>
 
+<!-- display employees in a table -->
+
 <div id="browse" style="display: block">
-  <p><strong>Browse Employees</strong></p>
+
   <table border="1" cellpadding="5" id="employees-table">
     <thead>
         <tr>
@@ -50,8 +52,10 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 <p>&nbsp;</p>
 </div> 
 
+<!-- insert new employee -->
+
 <h2>Add New Employee</h2>
-<p>To add a new employee, please enter the information below and click `Submit`!</p>
+<p>Add a new employee to the database.</p>
 <form id="add-employee-form" method="POST" action="/add-employee-form">
     <label for="input-employeeName">Employee Name: </label>
     <input type="text" name="input-employeeName" id="input-employeeName" required>

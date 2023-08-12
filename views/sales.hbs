@@ -23,11 +23,10 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 
 <html>
 
-
 <body>
 <h1>Sales</h1>
 
-
+<!-- Display sales in a table -->
 
 <table border="1" cellpadding="5" id="sales-table">
   <thead>
@@ -62,8 +61,12 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 
 
 <!-- insert sale -->
+
 <h2>Add New Sale</h2>
-<p>To add a new Sale, please enter the information below and click `Submit`!</p>
+
+<p>Add a new sale to the database. The, use the buttons below to add books and merchandise to the sale based on the sale's invoice number.
+<br> <strong>Note: </strong>If a customer is new, the customer must be added to the database before the sale can be processed.
+</p>
 <form id="add-sale-form" method="POST" action="/add-sale-form">
 
     <label for="input-employee">Employee: </label>
@@ -116,8 +119,12 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 
 <p>&nbsp;</p>
 
+<!-- Update sales -->
+
 <h2>Update Sale</h2>
 
+<p>Update a sale based on the invoice number. Use the buttons below to update and/or delete the books and merchandise that appear on the invoice.
+</p>
 <form id="update-sale" method="POST" action="/update-sale">
 
     <label for="input-invoiceNumber">Invoice: </label>

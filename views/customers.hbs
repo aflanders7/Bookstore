@@ -24,9 +24,9 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 <body>
 <h1>Customers</h1>
 
+<!-- Display customers in a table -->
 
 <div id="browse" style="display: block">
-  <p><strong>Browse Customers</strong></p>
   <table border="1" cellpadding="5" id="customers-table">
     <thead>
         <tr>
@@ -49,13 +49,13 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
     </tbody>
   </table>
 
-
-
 <p>&nbsp;</p>
 </div> 
 
+<!-- insert new customer -->
+
 <h2>Add New Customer</h2>
-<p>To add a new customer, please enter the information below and click `Submit`!</p>
+<p>Add a new customer to the database.</p>
 <form id="add-customer-form" method="POST" action="/add-customer-form">
     <label for="input-customerName">Customer Name: </label>
     <input type="text" name="input-customerName" id="input-customerName" required>
