@@ -6,7 +6,8 @@
     --dark:#59372b;
     --medium:#9f624f;
     --medium2:#ae9e8f;
-    --contrast:#cca98d;
+    --contrast:#7b6c5c;
+    --contrast2:#e1e1e1;
     --light:#ede2d5;
     --white:#ffffff;
     --black: #000000;
@@ -16,6 +17,32 @@ html {
     margin: 0 auto;
 }
 
+form {
+    padding: 20px;
+    border-radius: 6px;
+    background-color: var(--light);
+    width:fit-content;
+    display: inline-flex;
+    align-items: left;
+    border: 2px solid var(--dark);
+}
+
+label {
+    display:block;
+    margin: 0px 8px;
+  }
+
+  input[type=submit] {
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: var(--contrast);
+    color: var(--white)
+  }
+
+button {
+    background-color: var(--contrast);
+    color: var(--white)
+}
 
 header {
     top: 0; 
@@ -78,18 +105,19 @@ nav {
 
 table {
     border-collapse: collapse;
-    border: 3px solid;
+    border: 2px solid var(--dark);
 }
 
 th {
     text-align: center;
     padding: 8px;
-    border-bottom: 4px solid;
+    border-bottom: 2px solid var(--dark);
+    background-color: var(--light);
   }
 
 td {
     padding: 5px;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid var(--dark);
     text-align: center;
 }
 

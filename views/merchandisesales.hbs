@@ -36,8 +36,8 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
   <thead>
       <tr>
           <th>Merch Sale ID</th>
+            <th>Invoice Number</th>
           <th>Merch Name</th>
-          <th>Invoice Number</th>
           <th>Delete</th>
       </tr>
   </thead>
@@ -47,8 +47,8 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
       {{#each data}}
       <tr data-value={{this.merchSaleID}}>
           <td>{{this.merchSaleID}}</td>
+        <td>{{this.invoiceNumber}}</td>
           <td>{{this.merchName}}</td>
-          <td>{{this.invoiceNumber}}</td>
         <td><button onclick="deleteMerchandiseSale({{this.merchSaleID}})">Delete</button></td>
       </tr>
       {{/each}}
@@ -69,19 +69,20 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 
 <form id="add-merch-sale-form" method="POST" action="/add-merch-sale-form">
 
-    <label for="input-merch" class="required">Merchandise: </label>
-    <select name="input-merch" id="input-merch" required>
-        <option value="" selected disabled hidden>Select Merchandise</option>
-        {{#each Merch}}
-        <option value="{{this.merchID}}">{{this.merchName}}</option>
-        {{/each}}
-    </select>
     
     <label for="input-invoiceNumber" class="required">Invoice: </label>
     <select name="input-invoiceNumber" id="input-invoiceNumber" required>
         <option value="" selected disabled hidden>Select Invoice</option>
         {{#each Sales}}
         <option value="{{this.invoiceNumber}}">{{this.invoiceNumber}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-merch" class="required">Merchandise: </label>
+    <select name="input-merch" id="input-merch" required>
+        <option value="" selected disabled hidden>Select Merchandise</option>
+        {{#each Merch}}
+        <option value="{{this.merchID}}">{{this.merchName}}</option>
         {{/each}}
     </select>
 
@@ -104,6 +105,14 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
         <option value="{{this.merchSaleID}}">{{this.merchSaleID}}</option>
         {{/each}}
     </select>
+    
+    <label for="input-invoiceNumber" class="required">Invoice: </label>
+    <select name="input-invoiceNumber" id="input-invoiceNumber" required>
+        <option value="" selected disabled hidden>Select Invoice</option>
+        {{#each Sales}}
+        <option value="{{this.invoiceNumber}}">{{this.invoiceNumber}}</option>
+        {{/each}}
+    </select>
 
     <label for="input-merch" class="required">Merchandise: </label>
     <select name="input-merch" id="input-merch" required>
@@ -113,15 +122,7 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
         {{/each}}
     </select>
     
-    <label for="input-invoiceNumber" class="required">Invoice: </label>
-    <select name="input-invoiceNumber" id="input-invoiceNumber" required>
-        <option value="" selected disabled hidden>Select Invoice</option>
-        {{#each Sales}}
-        <option value="{{this.invoiceNumber}}">{{this.invoiceNumber}}</option>
-        {{/each}}
-    </select>
-    
-    <button type="submit">Submit</button>  
+    <input type="submit"> 
 
 </form>
 
