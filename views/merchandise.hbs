@@ -67,7 +67,7 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 
 <script src="./js/delete_merchandise.js"></script>
 
-<p> <strong>Note:</strong> Deleting merchandise will remove the merchandise any corresponding invoices. <br>
+<p> <strong>Note:</strong> Deleting merchandise will remove the merchandise any corresponding invoices (M:N deletion). <br>
   No invoice will be deleted, but merchandise sales will be deleted from the merchandise sales page.</p>
 
 
@@ -94,13 +94,13 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 <h2>Add New Merchandise</h2>
 <p>Add new merchandise to the database.</p>
 <form id="add-merch-form" method="POST" action="/add-merch-form">
-    <label for="input-merchName">Name: </label>
+    <label for="input-merchName" class="required">Name: </label>
     <input type="text" name="input-merchName" id="input-merchName" required>
     
-    <label for="input-merchPrice">Price: </label>
+    <label for="input-merchPrice" class="required">Price: </label>
     <input type="text" name="input-merchPrice" id="input-merchPrice" required>
 
-    <label for="input-merchQuantity">Quantity: </label>
+    <label for="input-merchQuantity" class="required">Quantity: </label>
     <input type="number" name="input-merchQuantity" id="input-merchQuantity" required>
 
     <input type="submit">
@@ -110,11 +110,11 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 <!-- update merch -->
 
 <h2>Update Merchandise</h2>
-<p>Update merchandise by selecting the name of the merchandise product.</p>
+<p>Update merchandise by selecting the name of the merchandise product (M:N update).</p>
 
 <form id="update-merch" method="POST" action="/update-merch">
 
-    <label for="input-merchID">Name: </label>
+    <label for="input-merchID" class="required">Name: </label>
     <select name="input-merchID" id="input-merchID" required>
         <option value="test" selected disabled hidden>Select Merchandise</option>
         {{#each data}}
@@ -122,13 +122,13 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
         {{/each}}
     </select>
 
-    <label for="input-merchName">Name: </label>
+    <label for="input-merchName" class="required">Name: </label>
     <input type="text" name="input-merchName" id="input-merchName-update" required>
     
-    <label for="input-merchPrice">Price: </label>
+    <label for="input-merchPrice" class="required">Price: </label>
     <input type="text" name="input-merchPrice" id="input-merchPrice-update" required>
 
-    <label for="input-merchQuantity">Quantity: </label>
+    <label for="input-merchQuantity" class="required">Quantity: </label>
     <input type="number" name="input-merchQuantity" id="input-merchQuantity-update" required>
 
     <button type="submit">Submit</button>  

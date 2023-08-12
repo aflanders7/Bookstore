@@ -77,7 +77,7 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 
 <form id="add-book-sale-form" method="POST" action="/add-book-sale-form">
 
-    <label for="input-invoiceNumber">Invoice: </label>
+    <label for="input-invoiceNumber" class="required">Invoice: </label>
     <select name="input-invoiceNumber" id="input-invoiceNumber" required>
         <option value="" selected disabled hidden>Select Invoice</option>
         {{#each Sales}}
@@ -85,7 +85,7 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
         {{/each}}
     </select>
 
-    <label for="input-book">Book: </label>
+    <label for="input-book" class="required">Book: </label>
     <select name="input-book" id="input-book" required>
         <option value="" selected disabled hidden>Select Book</option>
         {{#each Books}}
@@ -104,7 +104,7 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 
 <form id="update-book-sale" method="POST" action="/update-book-sale">
 
-    <label for="input-bookSale">Book Sale ID: </label>
+    <label for="input-bookSale" class="required">Book Sale ID: </label>
     <select name="input-bookSale" id="input-bookSale" required>
         <option value="" selected disabled hidden>Book Sale ID</option>
         {{#each data}}
@@ -112,7 +112,7 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
         {{/each}}
     </select>
     
-    <label for="input-invoiceNumber">Invoice: </label>
+    <label for="input-invoiceNumber" class="required">Invoice: </label>
     <select name="input-invoiceNumber" id="input-invoiceNumber" required>
         <option value="" selected disabled hidden>Select Invoice</option>
         {{#each Sales}}
@@ -120,7 +120,7 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
         {{/each}}
     </select>
 
-    <label for="input-book">Book: </label>
+    <label for="input-book" class="required">Book: </label>
     <select name="input-book" id="input-book" required>
         <option value="" selected disabled hidden>Select Book</option>
         {{#each Books}}

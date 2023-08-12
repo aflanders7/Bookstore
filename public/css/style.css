@@ -98,7 +98,14 @@ body {
     padding: 0;
 }
 
+.required:after {
+    content:" *";
+    color: red;
+  }
 
+label.required {
+    content:" *";
+  }
 
 .body1 {
     display: block;
