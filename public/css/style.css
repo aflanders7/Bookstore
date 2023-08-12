@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;800&display=swap');
+
+
+
 :root {
     --dark:#59372b;
     --medium:#9f624f;
@@ -23,9 +27,21 @@ header {
     margin: 0;
 }
 
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+}
+
+h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+}
+
 .logo {
     padding-right: 40px;
     color: var(--dark);
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
 }
 
 nav {
@@ -33,6 +49,20 @@ nav {
     margin-bottom: 30px;
     padding-bottom: 5px;
     margin-top: 30px;
+
+}
+
+.button a{
+    background-color:var(--light);
+    border:2px solid var(--contrast);
+    border-radius:6px; 
+    color: var(--black);
+    font-weight:bold;
+    margin:0;
+    padding: 6px 15px 6px 15px;
+    text-decoration:none;
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
 }
 
 .main a {
@@ -42,12 +72,33 @@ nav {
     font-weight: bold;
     padding-right: 20px;
     text-decoration:none;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+}
+
+table {
+    border-collapse: collapse;
+    border: 3px solid;
+}
+
+th {
+    text-align: center;
+    padding: 8px;
+    border-bottom: 4px solid;
+  }
+
+td {
+    padding: 5px;
+    border-bottom: 1px solid;
+    text-align: center;
 }
 
 body {
     margin: 0;
     padding: 0;
 }
+
+
 
 .body1 {
     display: block;
