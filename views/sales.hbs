@@ -85,22 +85,6 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
         <option value="{{this.customerID}}">{{this.customerName}}</option>
         {{/each}}
     </select>
-
-    <label for="input-book">Book Purchased: </label>
-    <select name="input-book" id="input-book" required>
-        <option value="">None</option>
-        {{#each Books}}
-        <option value="{{this.bookID}}">{{this.bookTitle}}</option>
-        {{/each}}
-    </select>
-
-<label for="input-merch">Merchandise Purchased: </label>
-    <select name="input-merch" id="input-merch" required>
-        <option value="">None</option>
-        {{#each Merchandise}}
-        <option value="{{this.merchID}}">{{this.merchName}}</option>
-        {{/each}}
-    </select>
     
     <label for="input-saleRevenue" class="required">Sale Revenue: </label>
     <input type="text" name="input-saleRevenue" id="input-saleRevenue" required>
@@ -153,22 +137,6 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
         {{/each}}
     </select>
 
-  <label for="input-book">Book Purchased: </label>
-    <select name="input-book" id="input-book">
-        <option value="">None</option>
-        {{#each Books}}
-        <option value="{{this.bookID}}">{{this.bookTitle}}</option>
-        {{/each}}
-    </select>
-
-<label for="input-merch">Merchandise Purchased: </label>
-    <select name="input-merch" id="input-merch">
-        <option value="">None</option>
-        {{#each Merchandise}}
-        <option value="{{this.merchID}}">{{this.merchName}}</option>
-        {{/each}}
-    </select>
-  
     <label for="input-saleRevenue" class="required">Sale Revenue: </label>
     <input type="text" name="input-saleRevenue" id="input-saleRevenue" required>
 
