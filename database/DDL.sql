@@ -1,6 +1,10 @@
 -- Audrey Flanders, Jacob Summers
 -- Team 29
 
+-- Citation for the table queries:
+-- Date 7/17/23
+-- Adapted from OSU CS 340 module 3: Activity 1 and Activity 3 example code
+-- Source URL: https://canvas.oregonstate.edu/courses/1922991/modules/items/23329597
 
 SET FOREIGN_KEY_CHECKS=0;
 SET AUTOCOMMIT = 0;
