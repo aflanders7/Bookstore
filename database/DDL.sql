@@ -105,7 +105,7 @@ INSERT INTO Sales (employeeID, customerID, saleRevenue)
 VALUES (1, 1, 13.06),
     (2, 2, 22.99), 
     (2, 1, 15.49),
-    (NULL, 3, 13.06.12);
+    (NULL, 3, 13.06);
 
 INSERT INTO MerchandiseSales (merchID, invoiceNumber)
 VALUES (1, 1),
