@@ -20,7 +20,7 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 
 Citation for the delete operations:
 Date 8/11/23
-Adapted from OSU CS 340 nodejs-starter-app step 6, queries are entirely our own work
+Adapted from OSU CS 340 nodejs-starter-app step 7, queries are entirely our own work
 Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%207%20-%20Dynamically%20Deleting%20Data
 
 Citation for the update operations:
