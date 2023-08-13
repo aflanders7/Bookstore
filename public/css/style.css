@@ -27,7 +27,7 @@ html {
 
 form {
     padding: 20px;
-    border-radius: 6px;
+    border-radius: 2px;
     background-color: var(--light);
     width:fit-content;
     display: inline-flex;
@@ -88,10 +88,10 @@ nav {
 }
 
 .button a{
-    background-color:var(--light);
-    border:2px solid var(--contrast);
+    background-color:var(--contrast);
+    border:2px solid var(--dark);
     border-radius:6px; 
-    color: var(--black);
+    color: var(--white);
     font-weight:bold;
     margin:0;
     padding: 6px 15px 6px 15px;
@@ -114,6 +114,7 @@ nav {
 table {
     border-collapse: collapse;
     border: 2px solid var(--dark);
+    max-width: 90%;
 }
 
 th {
