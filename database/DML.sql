@@ -19,17 +19,24 @@
 --Adapted from W3Resource, the values are our own work
 --URL: https://www.w3resource.com/mysql/aggregate-functions-and-grouping/aggregate-functions-and-grouping-group_concat.php
 
+
 -------------- Merchandise --------------
 -- display merch information
 SELECT * FROM Merchandise 
 
+-- display merch search information
+SELECT * FROM Merchandise WHERE merchName LIKE :inputmerchName
+
 -- add a new merchandise 
 INSERT INTO Merchandise (merchName, merchPrice, merchQuantity)
-VALUES (:merchName, :merchPrice, :merchQuantity)
+VALUES (:input-merchName, :input-merchPrice, :input-merchQuantity)
 
--- delete Merchandise (deletion from M:M relationship); they will click the delete button in the table
+-- delete Merchandise (deletion from M:M relationship); also delete from intersection table
 DELETE FROM Merchandise
 WHERE merchID=:merchID
+
+DELETE FROM MerchandiseSales 
+WHERE merchID =:merchID
 
 
 -------------- Books --------------
@@ -38,7 +45,7 @@ SELECT * FROM Books
 
 -- add a new book
 INSERT INTO Books (bookTitle, bookAuthor, yearPublished, bookGenre, bookPrice, bookQuantity)
-VALUES (:bookTitle, :bookAuthor, :yearPublished, :bookGenre, :bookPrice, :bookQuantity)
+VALUES (:input-bookTitle, :input-bookAuthor, :input-bookYear, :input-bookGenre, :input-bookPrice, :input-bookQuantity)
 
 
 -------------- Customers --------------
@@ -47,7 +54,7 @@ SELECT * FROM Customers
 
 -- add a new customer
 INSERT INTO Customers (customerName, customerEmail)
-VALUES (:customerName, :customerEmail)
+VALUES (:input-customerName, :input-customerEmail)
 
 
 -------------- Employees --------------
@@ -56,16 +63,7 @@ SELECT * FROM Employees
 
 -- add a new employee
 INSERT INTO Employees (employeeName, phoneNumber)
-VALUES (:employeeName, :phoneNumber)
-
--- display employee name for dropdown
-SELECT employeeName FROM Employees
-
-SELECT employeeID FROM Employees WHERE employeeName = :employeeName
-
--- update employee contact information
-UPDATE Employees SET phoneNumber = :phoneNumber WHERE
-employeeName = :employeeName
+VALUES (:input-employeeName, :input-phoneNumber)
 
 
 -------------- Sales -------------- 
@@ -81,58 +79,60 @@ LEFT JOIN MerchandiseSales ON Sales.invoiceNumber = MerchandiseSales.invoiceNumb
 LEFT JOIN Merchandise ON MerchandiseSales.merchID = Merchandise.merchID
 group by Sales.invoiceNumber ASC
 
+-- allow for employee and customers FK dropdown
+SELECT * FROM Employees
+
+SELECT * FROM Customers
+
 -- add a new sale 
 INSERT INTO Sales (employeeID, customerID, saleRevenue)
-VALUES ((SELECT employeeName from Employees WHERE employeeID = :employeeID), 
-(SELECT customerName from Customers WHERE customerID = :customerID), :saleRevenue)
+VALUES (:input-employee, 
+:input-customer, :input-saleRevenue)
 
 -- update sale; CAN SET employee to NULL
-UPDATE Sales SET employeeID = (SELECT employeeID from Employees WHERE employeeName = :employeeName), 
-customerID = (SELECT customerID from Customers WHERE customerName = :customerName), 
-saleRevenue = :saleRevenue
-WHERE invoiceNumber = :invoiceNumber
+UPDATE Sales SET employeeID = :input-employee, customerID = :input-customer, saleRevenue = :input-saleRevenue
+WHERE invoiceNumber = :input-invoiceNumber
 
 
 -------------- MerchSales --------------
 -- get merch information 
-SELECT * 
-FROM MerchSales
+SELECT MerchandiseSales.merchSaleID, Merchandise.merchName, MerchandiseSales.invoiceNumber FROM MerchandiseSales JOIN Merchandise ON Merchandise.merchID = MerchandiseSales.merchID group by MerchandiseSales.merchSaleID ASC
 
--- functions for updating merch sales
-DELETE FROM MerchSales
-WHERE invoiceNumber = :invoiceNumber
+--allow for Merchandise and Sales FK dropdown
+SELECT * FROM Merchandise
 
-SELECT * 
-FROM MerchSales
-WHERE merchID = :merchID and invoiceNumber = :invoiceNumber
-
-UPDATE MerchSales
-SET merchID = :merchID, invoiceNumber = :invoiceNumber
-WHERE merchID = :merchID and invoiceNumber = :invoiceNumber
+SELECT * FROM Sales
 
 -- associate a sale with merchandise
 INSERT INTO MerchandiseSales (merchID, invoiceNumber)
-VALUES (:merchId, :invoiceNumber)
+VALUES (:input-merch, :input-invoiceNumber)
+
+-- function for updating merch sales
+UPDATE MerchandiseSales
+SET merchID = :input-merch, invoiceNumber = :input-invoiceNumber
+WHERE merchSaleID = :input-merchSale
+
+-- delete a merch sale
+DELETE FROM MerchandiseSales WHERE merchSaleID = :merchSaleID
 
 
 -------------- BookSales --------------
 -- get book information
-SELECT * 
-FROM BookSales
+SELECT BookSales.bookSaleID, Books.bookTitle, BookSales.invoiceNumber FROM BookSales JOIN Books ON Books.bookID = BookSales.bookID group by BookSales.bookSaleID ASC
 
--- functions for updating book sales
-DELETE FROM BookSales
-WHERE invoiceNumber = :invoiceNumber
+--allow for Books and Sales FK dropdown
+SELECT * FROM Books
 
-SELECT * 
-FROM BookSales
-WHERE bookID = :bookID and invoiceNumber = :invoiceNumber
-
-UPDATE BookSales
-SET bookID = :bookID, invoiceNumber = :invoiceNumber
-WHERE bookID = :bookID and invoiceNumber = :invoiceNumber
+SELECT * FROM Sales
 
 -- associate a sale with a book
 INSERT INTO BookSales (bookID, invoiceNumber)
-VALUES (:bookID, :invoiceNumber)
+VALUES (:input-book, :input-invoiceNumber)
 
+-- functions for updating book sales
+UPDATE BookSales
+SET bookID = :input-book, invoiceNumber = :input-invoiceNumber
+WHERE bookSaleID = :input-bookSale
+
+-- delete a book sale
+DELETE FROM BookSales WHERE bookSaleID = :bookSaleID
