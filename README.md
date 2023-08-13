@@ -80,3 +80,8 @@ Citation for understanding handlebars:
 Date: 8/10/23
 Based on the handlebarjs.com, but the overall data objects are our own work:
 URL: https://handlebarsjs.com/guide/builtin-helpers.html
+
+Citation for CSS
+Date: 8/8/23
+Adapted from W3Schools CSS Tutorial, but the details and specifications are our own work
+URL: https://www.w3schools.com/css/default.asp
