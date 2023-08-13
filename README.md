@@ -85,3 +85,8 @@ Citation for CSS
 Date: 8/8/23
 Adapted from W3Schools CSS Tutorial, but the details and specifications are our own work
 URL: https://www.w3schools.com/css/default.asp
+
+Citation for HTML dropdown disabled/hidden 
+Date: 8/12/23
+Adapted from GeeksForGeeks HTML overview, but the rest of the dropdown/select labels are our own work
+URL: https://www.geeksforgeeks.org/html-select-disabled-attribute/
