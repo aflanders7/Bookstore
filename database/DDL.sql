@@ -116,7 +116,7 @@ INSERT INTO BookSales (bookID, invoiceNumber)
 VALUES (1, 2),
     (3, 2),
     (1, 3),
-    (1, 4),
+    (1, 4);
 
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
