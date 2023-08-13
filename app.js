@@ -81,7 +81,7 @@ app.get('/books', function (req, res) {
     });  
 
 app.get('/booksales', function (req, res) {
-    let query1 = "SELECT BookSales.bookSaleID, Books.bookTitle, BookSales.invoiceNumber FROM BookSales JOIN Books ON Books.bookID = BookSales.bookID;";
+    let query1 = "SELECT BookSales.bookSaleID, Books.bookTitle, BookSales.invoiceNumber FROM BookSales JOIN Books ON Books.bookID = BookSales.bookID group by BookSales.bookSaleID ASC;";
     let query2 = "SELECT * FROM Books;";
     let query3 = "SELECT * FROM Sales;";
     db.pool.query(query1, function(error, rows, fields){
@@ -141,7 +141,7 @@ app.get('/merchandise', function(req, res) {
 
 
 app.get('/merchandisesales', function (req, res) {
-    let query1 = "SELECT MerchandiseSales.merchSaleID, Merchandise.merchName, MerchandiseSales.invoiceNumber FROM MerchandiseSales JOIN Merchandise ON Merchandise.merchID = MerchandiseSales.merchID;";
+    let query1 = "SELECT MerchandiseSales.merchSaleID, Merchandise.merchName, MerchandiseSales.invoiceNumber FROM MerchandiseSales JOIN Merchandise ON Merchandise.merchID = MerchandiseSales.merchID group by MerchandiseSales.merchSaleID ASC;";
     let query2 = "SELECT * FROM Merchandise;";
     let query3 = "SELECT * FROM Sales;";
     db.pool.query(query1, function(error, rows, fields){
