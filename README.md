@@ -59,3 +59,19 @@ Citation for the Search forms:
 Date: 8/11/23
 Adapted from from OSU CS 340 nodejs-starter-app Step 6, form labels are our own work
 Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%206%20-%20Dynamically%20Filling%20Dropdowns%20and%20Adding%20a%20Search%20Box
+
+Citation for the DML queries:
+Date: 7/24/23
+Adapted from OSU CS 340 JOINS and queries lecture notes, but the table and attribute names and join statement details are our own work
+URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-sql-joins?module_item_id=23329605
+URL: https://canvas.oregonstate.edu/courses/1922991/pages/activity-5-sql-queries-of-multiple-tables-joins?module_item_id=23329609
+
+Citation for cascade statements:
+Date: 7/24/23
+Adapted from OSU CS 340 Cascade module, but the statment locations are our own work
+URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-mysql-cascade?module_item_id=23329617
+
+Citation for group concat select statement
+Date: 7/24/23
+Adapted from W3Resource, the values are our own work
+URL: https://www.w3resource.com/mysql/aggregate-functions-and-grouping/aggregate-functions-and-grouping-group_concat.php
