@@ -75,3 +75,8 @@ Citation for group concat select statement
 Date: 7/24/23
 Adapted from W3Resource, the values are our own work
 URL: https://www.w3resource.com/mysql/aggregate-functions-and-grouping/aggregate-functions-and-grouping-group_concat.php
+
+Citation for understanding handlebars:
+Date: 8/10/23
+Based on the handlebarjs.com, but the overall data objects are our own work:
+URL: https://handlebarsjs.com/guide/builtin-helpers.html
