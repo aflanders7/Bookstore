@@ -102,10 +102,10 @@ VALUES ('Amy Jones', '706-715-8865'),
     ('Leah Santos', '678-473-3521');
 
 INSERT INTO Sales (employeeID, customerID, saleRevenue)
-VALUES (1, 1, 14.29),
-    (2, 2, 30.54), 
-    (2, 1, 13.06),
-    (NULL, 3, 26.12);
+VALUES (1, 1, 13.06),
+    (2, 2, 22.99), 
+    (2, 1, 15.49),
+    (NULL, 3, 13.06.12);
 
 INSERT INTO MerchandiseSales (merchID, invoiceNumber)
 VALUES (1, 1),
@@ -117,7 +117,6 @@ VALUES (1, 2),
     (3, 2),
     (1, 3),
     (1, 4),
-    (1,4);
 
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
