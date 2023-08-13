@@ -315,13 +315,7 @@ app.post('/add-sale-form', function(req, res){
         employee = 'NULL';
     }
 
-    let itemSold = parseInt(data['input-book']);
-    let table = "BookSales"
-    if (isNan(itemSold))
-    {
-        itemSold = parseInt(data['input-merch']);
-        table = "MerchandiseSales"
-    }
+    
     // Create the query and run it on the database
     query1 = `INSERT INTO Sales (employeeID, customerID, saleRevenue) VALUES (${employee}, '${data['input-customer']}', '${data['input-saleRevenue']}')`;
    
@@ -340,22 +334,13 @@ app.post('/add-sale-form', function(req, res){
         // presents it on the screen
         else
         {
-             const invoiceNumber = result.insertId; // Get the auto-generated invoiceNumber
             
-            // Insert into the intersection table (MerchandiseSales or BookSales)
-            query2 = `INSERT INTO ${table} (${table == 'BookSales' ? 'bookID' : 'merchID'}, invoiceNumber) VALUES ('${itemSold}', '${invoiceNumber}')`;
-
-            db.pool.query(query2, function(error, rows, fields) {
-                if (error) {
-                    console.log(error);
-                    res.sendStatus(400);
-                } else {
                     res.redirect('/sales');
                 }
             });
-        }
+        
     });
-});
+
 
 app.post('/add-book-sale-form', function(req, res){
     // Capture the incoming data and parse it back to a JS object
