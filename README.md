@@ -15,17 +15,17 @@ Search Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/
 
 Citation for the add operations:
 Date 8/11/23
-Adapted from OSU CS 340 nodejs-starter-app step 5, queries are entirely our own work
+Adapted from OSU CS 340 nodejs-starter-app step 5, used setup but queries are entirely our own work
 Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data
 
 Citation for the delete operations:
 Date 8/11/23
-Adapted from OSU CS 340 nodejs-starter-app step 7, queries are entirely our own work
+Adapted from OSU CS 340 nodejs-starter-app step 7, used setup but queries are entirely our own work
 Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%207%20-%20Dynamically%20Deleting%20Data
 
 Citation for the update operations:
 Date 8/11/23
-Adapted from OSU CS 340 nodejs-starter-app step 8, queries are entirely our own work
+Adapted from OSU CS 340 nodejs-starter-app step 8, used setup but queries are entirely our own work
 Update functions were modified based on the add function post requests
 Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%208%20-%20Dynamically%20Updating%20Data
 
@@ -36,17 +36,17 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-applic
 
 Citation for displaying the data in tables:
 Date: 8/11/23
-Adapted from from OSU CS 340 nodejs-starter-app Step 4, attribute names and table header layout are our own work
+Adapted from from OSU CS 340 nodejs-starter-app Step 4, used setup but attribute names and table header layout are our own work
 Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%204%20-%20Dynamically%20Displaying%20Data
 
 Citation for the adding data forms:
 Date: 8/11/23
-Adapted from from OSU CS 340 nodejs-starter-app Step 5, labels and ids are our own work
+Adapted from from OSU CS 340 nodejs-starter-app Step 5, used setup but labels and ids are our own work
 Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data
 
 Citation for deleting the data from tables:
 Date: 8/11/23
-Adapted from from OSU CS 340 nodejs-starter-app Step 6, labels and attribute names are our own work
+Adapted from from OSU CS 340 nodejs-starter-app Step 6, used setup but labels and attribute names are our own work
 Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%207%20-%20Dynamically%20Deleting%20Data
 
 Citation for the updating forms:
@@ -57,7 +57,7 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 
 Citation for the Search forms:
 Date: 8/11/23
-Adapted from from OSU CS 340 nodejs-starter-app Step 6, form labels are our own work
+Adapted from from OSU CS 340 nodejs-starter-app Step 6, used setup but form labels are our own work
 Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%206%20-%20Dynamically%20Filling%20Dropdowns%20and%20Adding%20a%20Search%20Box
 
 Citation for the DML queries:
@@ -68,12 +68,12 @@ URL: https://canvas.oregonstate.edu/courses/1922991/pages/activity-5-sql-queries
 
 Citation for cascade statements:
 Date: 7/24/23
-Adapted from OSU CS 340 Cascade module, but the statment locations are our own work
+Copied from OSU CS 340 Cascade module, but the statment locations are our own work
 URL: https://canvas.oregonstate.edu/courses/1922991/pages/exploration-mysql-cascade?module_item_id=23329617
 
 Citation for group concat select statement
 Date: 7/24/23
-Adapted from W3Resource, the values are our own work
+Adapted from W3Resource, used to understand framework - the values are our own work
 URL: https://www.w3resource.com/mysql/aggregate-functions-and-grouping/aggregate-functions-and-grouping-group_concat.php
 
 Citation for understanding handlebars:
@@ -83,15 +83,15 @@ URL: https://handlebarsjs.com/guide/builtin-helpers.html
 
 Citation for CSS
 Date: 8/8/23
-Adapted from W3Schools CSS Tutorial, but the details and specifications are our own work
+Adapted CSS from W3Schools CSS Tutorial, but the details and specifications are our own work
 URL: https://www.w3schools.com/css/default.asp
 
 Citation for HTML dropdown disabled/hidden 
 Date: 8/12/23
-Adapted from GeeksForGeeks HTML overview, but the rest of the dropdown/select labels are our own work
+Adapted the diasabled attribute from GeeksForGeeks HTML overview, but the rest of the dropdown/select labels are our own work
 URL: https://www.geeksforgeeks.org/html-select-disabled-attribute/
 
 Citation for the table insertion queries:
 Date 7/17/23
-Adapted from OSU CS 340 module 3: Activity 1 and Activity 3 example code
+Adapted from OSU CS 340 module 3: Activity 1 and Activity 3 example code, but the names and attribute details are our own work
 Source URL: https://canvas.oregonstate.edu/courses/1922991/modules/items/23329597
