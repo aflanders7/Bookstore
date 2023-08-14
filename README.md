@@ -2,9 +2,9 @@
 
 citations
 
-Citation for the code setup and listener:
+Citation for the code setup, DB connection, and listener:
 Date 8/11/23
-Copied from OSU CS 340 nodejs-starter-app
+Copied directly from OSU CS 340 nodejs-starter-app
 Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main
 
 Citation for the read and search operations:
