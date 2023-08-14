@@ -87,7 +87,7 @@ VALUES ('Floral Bookmark', 1.99, 14),
 ('Red Reading Light', 12.30, 10);
 
 INSERT INTO Books (bookTitle, bookAuthor, yearPublished, bookGenre, bookPrice, bookQuantity)
-VALUES ('Sapiens: A Brief History of Humankind', 'Yuval Noah Harari', 2011, 'Non-fiction', 13.06, 7),
+VALUES ('Sapiens', 'Yuval Noah Harari', 2011, 'Non-fiction', 13.06, 7),
 ('Circe', 'Madeline Miller', 2018, 'Fiction', 22.99, 8),
 ('To Kill a Mockingbird', 'Harper Lee', 1960, 'Fiction', 15.49, 6);
 

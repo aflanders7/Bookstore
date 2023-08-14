@@ -102,11 +102,26 @@ app.get('/booksales', function (req, res) {
 });
 
 app.get('/customers', function (req, res) {
-    let query4 = "SELECT * FROM Customers;";
-    db.pool.query(query4, function(error, rows, fields){
-    res.render('customers', {data: rows});
-    })
+    let query1;
+
+    // If there is no query string, we just perform a basic SELECT
+    if (req.query.inputcustomerName === undefined)
+    {
+        query1 = "SELECT * FROM Customers;";
+    }
+ 
+    // If there is a query string, we assume this is a search, and return desired results
+    else
+    {
+        query1 = `SELECT * FROM Customers WHERE customerName LIKE "${req.query.inputcustomerName}%"`
+ 
+    }
+        db.pool.query(query1, function(error, rows, fields){    // Execute the query
+ 
+            res.render('customers', {data: rows});                  
+        })                                                      
 });
+
 
 app.get('/employees', function (req, res,html) {
     let query5 = "SELECT * FROM Employees;";
@@ -118,26 +133,11 @@ app.get('/employees', function (req, res,html) {
    
 
 app.get('/merchandise', function(req, res) {  
-   // Declare Query 
-   let query1;
-
-   // If there is no query string, we just perform a basic SELECT
-   if (req.query.inputmerchName === undefined)
-   {
-       query1 = "SELECT * FROM Merchandise;";
-   }
-
-   // If there is a query string, we assume this is a search, and return desired results
-   else
-   {
-       query1 = `SELECT * FROM Merchandise WHERE merchName LIKE "${req.query.inputmerchName}%"`
-
-   }
-       db.pool.query(query1, function(error, rows, fields){    // Execute the query
-
-           res.render('merchandise', {data: rows});                  
-       })                                                      
-   });
+    let query5 = "SELECT * FROM Merchandise;";
+    db.pool.query(query5, function(error, rows, fields){
+    res.render('merchandise', {data: rows});
+    })
+});
 
 
 app.get('/merchandisesales', function (req, res) {
@@ -409,13 +409,38 @@ app.post('/update-merch', function(req,res){
         if (error) {
             // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
             console.log(error);
-            return res.status(400).send(error.sqlMessage);
+            res.sendStatus(400);
         }
 
         // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
         // presents it on the screen
         else {
             res.redirect('/merchandise');
+        }
+    })
+});
+
+
+app.post('/update-book', function(req,res){
+    let data = req.body;
+
+    let inputbookQuantity = parseInt(data['input-bookQuantity']);
+  
+    let queryUpdateBook = `UPDATE Books SET bookPrice = '${data['input-bookPrice']}', bookQuantity = '${inputbookQuantity}' WHERE bookID = ${data['input-bookID']}`;
+
+    // Run the query on the database
+    db.pool.query(queryUpdateBook, function(error, rows, fields) {
+        // Check to see if there was an error
+        if (error) {
+            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+            console.log(error);
+            res.sendStatus(400);
+        }
+
+        // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
+        // presents it on the screen
+        else {
+            res.redirect('/books');
         }
     })
 });

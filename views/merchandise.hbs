@@ -73,22 +73,6 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 
 <p>&nbsp;</p>
 
-<!-- search merch form -->
-
-
-  <h2>Search Merchandise</h2>
-  <p>Search for merchandise by name. Partial names are accepted.</p>
-
-  <form id="search-merch-html" method='GET' action='/merchandise'>
-      <label for="inputmerchName">Search by Merchandise Name: </label>
-      <input type="text" name="inputmerchName" id="inputmerchName">
-      
-      <input type="submit">
-      <a href='/merchandise'><button class = "merch">Reset</button></a>
-  </form>
-
-
-<p>&nbsp;</p>
 
 <!-- insert merch -->
 <h2>Add New Merchandise</h2>
@@ -110,7 +94,8 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 <!-- update merch -->
 
 <h2>Update Merchandise</h2>
-<p>Update merchandise by selecting the name of the merchandise product (M:N update).</p>
+<p>Update merchandise by selecting the name of the merchandise product (M:N update). <br>
+<strong>Note: </strong> The name will be updated on any corresponding invoices.</p>
 
 <form id="update-merch" method="POST" action="/update-merch">
 
@@ -131,7 +116,7 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
     <label for="input-merchQuantity" class="required">Quantity: </label>
     <input type="number" name="input-merchQuantity" id="input-merchQuantity-update" required>
 
-    <button type="submit">Submit</button>  
+    <input type="submit">
 
 </form>
 

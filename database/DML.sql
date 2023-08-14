@@ -24,8 +24,6 @@
 -- display merch information
 SELECT * FROM Merchandise 
 
--- display merch search information
-SELECT * FROM Merchandise WHERE merchName LIKE :inputmerchName
 
 -- add a new merchandise 
 INSERT INTO Merchandise (merchName, merchPrice, merchQuantity)
@@ -38,6 +36,11 @@ WHERE merchID=:merchID
 DELETE FROM MerchandiseSales 
 WHERE merchID =:merchID
 
+-- update merchandise
+UPDATE Merchandise SET merchName = :input-merchName, merchPrice = :input-merchPrice, merchQuantity = :inputmerchQuantity 
+WHERE merchID = :input-merchID
+
+
 
 -------------- Books --------------
 -- display book information 
@@ -47,10 +50,17 @@ SELECT * FROM Books
 INSERT INTO Books (bookTitle, bookAuthor, yearPublished, bookGenre, bookPrice, bookQuantity)
 VALUES (:input-bookTitle, :input-bookAuthor, :input-bookYear, :input-bookGenre, :input-bookPrice, :input-bookQuantity)
 
+-- update books
+UPDATE Books SET bookPrice = :input-bookPrice, bookQuantity = :inputbookQuantity 
+WHERE bookID = :input-bookID
+
 
 -------------- Customers --------------
 -- display customer information
 SELECT * FROM Customers
+
+-- display customer search information
+SELECT * FROM Customers WHERE customerName LIKE :inputcustomerName
 
 -- add a new customer
 INSERT INTO Customers (customerName, customerEmail)

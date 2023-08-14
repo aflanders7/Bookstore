@@ -12,7 +12,7 @@ URL: https://www.w3schools.com/css/default.asp
 
 :root {
     --dark:#59372b;
-    --medium:#9f624f;
+    --medium:#86412c;
     --medium2:#ae9e8f;
     --contrast:#7b6c5c;
     --contrast2:#e1e1e1;
@@ -33,6 +33,7 @@ form {
     display: inline-flex;
     align-items: left;
     border: 2px solid var(--dark);
+    max-width: 90%;
 }
 
 label {
@@ -40,16 +41,20 @@ label {
     margin: 0px 8px;
   }
 
-  input[type=submit] {
+
+input[type=submit] {
     margin-left: 10px;
-    margin-right: 10px;
     background-color: var(--contrast);
-    color: var(--white)
+    color: var(--white);
+    border-color: var(--dark);
   }
 
 button {
     background-color: var(--contrast);
-    color: var(--white)
+    color: var(--white);
+    border-color: var(--dark);
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 header {
@@ -74,7 +79,7 @@ h2, h3, h4, h5, h6 {
 
 .logo {
     padding-right: 40px;
-    color: var(--dark);
+    color: var(--medium);
     font-family: 'Playfair Display', serif;
     font-weight: 800;
 }
@@ -153,14 +158,22 @@ label.required {
 
 .index {
     border: solid 2px var(--dark); 
-    border-radius: 6px;
-    display: flex;
+    border-radius: 2px;
+    align-content: center;
     justify-content: center;
     width: 50%;
     margin-left: 20%;
-    margin-top: 7%;
+    margin-top: 6%;
     background-color: var(--light);
+    padding: 2%;
 }
+
+.header {
+    text-align: center;
+    color: var(--medium);
+ 
+}
+
 
 footer {
     position: fixed;

@@ -14,6 +14,12 @@ Date: 8/11/23
 Adapted from from OSU CS 340 nodejs-starter-app Step 5, labels and ids are our own work
 Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data
 
+Citation for the updating form:
+Date: 8/11/23
+Adapted from from OSU CS 340 nodejs-starter-app Step 8, code was also modified based on the adding data form post methods
+The post method action used to update was completely our own work
+Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%208%20-%20Dynamically%20Updating%20Data
+
 -->
 
 <html>
@@ -85,6 +91,31 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 </form>
 
 <p>&nbsp;</p>
+
+<!-- update book -->
+
+<h2>Update Books</h2>
+<p>Update the price and quantity of a book by selecting the title of the book.</p>
+
+<form id="update-book" method="POST" action="/update-book">
+
+    <label for="input-bookID" class="required">Book: </label>
+    <select name="input-bookID" id="input-bookID" required>
+        <option value="test" selected disabled hidden>Select Book</option>
+        {{#each data}}
+        <option value="{{this.bookID}}">{{this.bookTitle}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-bookPrice" class="required">Price: </label>
+    <input type="text" name="input-bookPrice" id="input-bookPrice-update" required size="8">
+
+    <label for="input-bookQuantity" class="required">Quantity: </label>
+    <input type="number" name="input-bookQuantity" id="input-bookQuantity-update" required>
+
+    <button type="submit">Submit</button>  
+
+</form>
 
 
 </body>

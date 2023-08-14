@@ -52,6 +52,24 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 <p>&nbsp;</p>
 </div> 
 
+<!-- search customers -->
+
+
+  <h2>Search Customers</h2>
+  <p>Search for customers by name. Partial names are accepted. Click "Reset" to reset the table. <br>
+  <strong>Note: </strong>If a customer is not found within the database, their customer information must be added before their sale can be processed.</p>
+
+  <form id="search-customer-html" method='GET' action='/customers'>
+      <label for="inputcustomerName">Search by Customer Name: </label>
+      <input type="text" name="inputcustomerName" id="inputcustomerName">
+      
+      <input type="submit">
+      <a href='/customers'><button class = "merch">Reset</button></a>
+  </form>
+
+
+<p>&nbsp;</p>
+
 <!-- insert new customer -->
 
 <h2>Add New Customer</h2>
