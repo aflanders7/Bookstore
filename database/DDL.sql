@@ -3,7 +3,7 @@
 
 -- Citation for the table queries:
 -- Date 7/17/23
--- Adapted from OSU CS 340 module 3: Activity 1 and Activity 3 example code
+-- Adapted from OSU CS 340 module 3: Activity 1 and Activity 3 example code, attributes and values are our own work
 -- Source URL: https://canvas.oregonstate.edu/courses/1922991/modules/items/23329597
 
 -- This file created tables for Merchandise, Books, Customers, Employees, Sales, Merchandise Sales, and Book Sales.
