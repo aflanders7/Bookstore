@@ -58,10 +58,10 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 <p>Add a new employee to the database.</p>
 <form id="add-employee-form" method="POST" action="/add-employee-form">
     <label for="input-employeeName" class="required">Employee Name: </label>
-    <input type="text" name="input-employeeName" id="input-employeeName" required>
+    <input type="text" name="input-employeeName" id="input-employeeName" required maxlength="45">
     
     <label for="input-phoneNumber" class="required">Phone Number: </label>
-    <input type="text" name="input-phoneNumber" id="input-phoneNumber" required>
+    <input type="text" name="input-phoneNumber" id="input-phoneNumber" required maxlength="20">
 
     <input type="submit">
 </form>

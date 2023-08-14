@@ -79,13 +79,13 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 <p>Add new merchandise to the database.</p>
 <form id="add-merch-form" method="POST" action="/add-merch-form">
     <label for="input-merchName" class="required">Name: </label>
-    <input type="text" name="input-merchName" id="input-merchName" required>
+    <input type="text" name="input-merchName" id="input-merchName" required maxlength="45">
     
     <label for="input-merchPrice" class="required">Price: </label>
-    <input type="text" name="input-merchPrice" id="input-merchPrice" required size="8">
+    <input type="text" name="input-merchPrice" id="input-merchPrice" required size="8" maxlength="7">
 
     <label for="input-merchQuantity" class="required">Quantity: </label>
-    <input type="number" name="input-merchQuantity" id="input-merchQuantity" required>
+    <input type="number" name="input-merchQuantity" id="input-merchQuantity" required maxlength="10">
 
     <input type="submit">
 </form>
@@ -107,14 +107,14 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
         {{/each}}
     </select>
 
-    <label for="input-merchName" class="required">Name: </label>
-    <input type="text" name="input-merchName" id="input-merchName-update" required>
+    <label for="input-merchName" class="required">Updated Name: </label>
+    <input type="text" name="input-merchName" id="input-merchName-update" required maxlength="45">
     
     <label for="input-merchPrice" class="required">Price: </label>
-    <input type="text" name="input-merchPrice" id="input-merchPrice-update" required size="8">
+    <input type="text" name="input-merchPrice" id="input-merchPrice-update" required size="8" maxlength="7">
 
     <label for="input-merchQuantity" class="required">Quantity: </label>
-    <input type="number" name="input-merchQuantity" id="input-merchQuantity-update" required>
+    <input type="number" name="input-merchQuantity" id="input-merchQuantity-update" required maxlength="10">
 
     <input type="submit">
 
