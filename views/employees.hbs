@@ -32,7 +32,7 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
           <th>Employee ID</th>
           <th>Name</th>
           <th>Phone Number</th>
-            <!-- <th>delete</th> -->
+           <th>Delete</th>
         </tr>
     </thead>
   
@@ -43,11 +43,13 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
             <td>{{this.employeeID}}</td>
             <td>{{this.employeeName}}</td>
             <td>{{this.phoneNumber}}</td>
+            <td><button onclick="deleteEmployee({{this.employeeID}})">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
   </table>
 
+  <script src="./js/delete_employee.js"></script>
 
 <p>&nbsp;</p>
 </div> 

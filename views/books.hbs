@@ -40,7 +40,7 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
             <th>Genre</th>
             <th>Price</th>
             <th>Qunatity</th>
-          <!-- <th>delete</th> -->
+            <th>Delete</th>
       </tr>
   </thead>
 
@@ -55,11 +55,17 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
           <td>{{this.bookGenre}}</td>
           <td>{{this.bookPrice}}</td>
           <td>{{this.bookQuantity}}</td>
-          <!-- <td><button onclick="deleteMerchandise({{this.merchID}})">Delete</button></td> -->
+            <td><button onclick="deleteBook({{this.bookID}})">Delete</button></td>
       </tr>
       {{/each}}
   </tbody>
 </table>
+
+  <script src="./js/delete_book.js"></script>
+
+<p> <strong>Note:</strong> Deleting books will remove the book from any corresponding invoices (M:N deletion). <br>
+  No invoice will be deleted, but corresponding book sales will be deleted from the book sales page.</p>
+
 
 <p>&nbsp;</p>
 

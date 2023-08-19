@@ -59,7 +59,7 @@ CREATE OR REPLACE TABLE Sales (
     customerID INT(10) NOT NULL,
     saleRevenue DECIMAL(6,2) NOT NULL,
     PRIMARY KEY (invoiceNumber),
-    FOREIGN KEY (employeeID) REFERENCES Employees(employeeID),
+    FOREIGN KEY (employeeID) REFERENCES Employees(employeeID) ON DELETE SET NULL,
     FOREIGN KEY (customerID) REFERENCES Customers(customerID)
 );
 
@@ -80,8 +80,8 @@ CREATE OR REPLACE TABLE BookSales (
     bookID INT(10) NOT NULL,
     invoiceNumber INT(10) NOT NULL, 
     PRIMARY KEY (bookSaleID),
-    CONSTRAINT FK_BookSales_bookID FOREIGN KEY (bookID) REFERENCES Books(bookID),
-    CONSTRAINT FK_BookSales_invoiceNumber FOREIGN KEY (invoiceNumber) REFERENCES Sales(invoiceNumber)
+    CONSTRAINT FK_BookSales_bookID FOREIGN KEY (bookID) REFERENCES Books(bookID) ON DELETE CASCADE,
+    CONSTRAINT FK_BookSales_invoiceNumber FOREIGN KEY (invoiceNumber) REFERENCES Sales(invoiceNumber) ON DELETE CASCADE
 );
 
 

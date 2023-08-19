@@ -607,6 +607,57 @@ app.delete('/delete-book-sale-ajax/', function(req,res,next){
 
 
   })});
+
+  app.delete('/delete-book-ajax/', function(req,res,next){
+    let data = req.body;
+    let bookID = parseInt(data.bookID);
+    let deleteBookSales = `DELETE FROM BookSales WHERE bookID = ?`;
+    let deleteBook = `DELETE FROM Books WHERE bookID = ?`;
+  
+  
+          // Run the 1st query
+          db.pool.query(deleteBookSales, [bookID], function(error, rows, fields){
+            if (error) {
+
+            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+            console.log(error);
+            res.sendStatus(400);
+            }
+
+            else
+            {
+                // Run the second query
+                db.pool.query(deleteBook, [bookID], function(error, rows, fields) {
+
+                    if (error) {
+                        console.log(error);
+                        res.sendStatus(400);
+                    } else {
+                        res.sendStatus(204);
+                    }
+                })
+            }
+})});
+
+app.delete('/delete-employee-ajax/', function(req,res,next){
+    let data = req.body;
+    let employeeID = parseInt(data.employeeID);
+    let deleteEmployee = `DELETE FROM Employees WHERE employeeID = ?`;
+  
+  
+          // Run the 1st query
+          db.pool.query(deleteEmployee, [employeeID], function(error, rows, fields){
+              if (error) {
+  
+              // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+              console.log(error);
+              res.sendStatus(400);
+              } else {
+                res.sendStatus(204);
+            }
+
+  })});
+
 /*
     LISTENER
 */
