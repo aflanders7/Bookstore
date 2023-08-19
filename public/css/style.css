@@ -114,6 +114,11 @@ nav {
     text-decoration:none;
     font-family: 'Playfair Display', serif;
     font-weight: 600;
+
+}
+
+.main a:hover {
+    text-decoration: underline;
 }
 
 table {
@@ -166,6 +171,18 @@ label.required {
     margin-top: 6%;
     background-color: var(--light);
     padding: 2%;
+}
+
+.index2 {
+    border: solid 2px var(--dark); 
+    border-radius: 2px;
+    align-content: center;
+    justify-content: center;
+    margin-left: 20%;
+    margin-top: 6%;
+    background-color: var(--light);
+    padding: 2%;
+    width:fit-content;
 }
 
 .header {

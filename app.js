@@ -185,6 +185,14 @@ app.get('/sales', function (req, res) {
 })
 });
 
+app.get('/schema', function(req, res)
+{
+    let query1 = "SELECT * FROM Merchandise;";
+    db.pool.query(query1, function(error, rows, fields){
+    res.render('schema', {data: rows});
+    })
+}); 
+
 
 ////////////// Add Operations
 
