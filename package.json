@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aflanders7/BookstoreDBMS.git"
+    "url": "git+https://github.com/aflanders7/Bookstore.git"
   },
   "author": "Audrey Flanders",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/aflanders7/BookstoreDBMS/issues"
+    "url": "https://github.com/aflanders7/Bookstore/issues"
   },
-  "homepage": "https://github.com/aflanders7/BookstoreDBMS#readme",
+  "homepage": "https://github.com/aflanders7/Bookstore#readme",
   "dependencies": {
     "express": "^4.18.2",
     "express-handlebars": "^7.1.1",
