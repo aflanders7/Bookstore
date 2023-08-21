@@ -1,44 +1,12 @@
-// citations
-
-// Citation for the code setup and listener:
-// Date 8/11/23
-// Copied from OSU CS 340 nodejs-starter-app
-// Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main
-
-// Citation for the read and search operations:
-// Date 8/11/23
-// Adapted from OSU CS 340 nodejs-starter-app step 4 and step 6, queries are entirely our own work
-// Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%204%20-%20Dynamically%20Displaying%20Data
-// Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%206%20-%20Dynamically%20Filling%20Dropdowns%20and%20Adding%20a%20Search%20Box
-
-// Citation for the add operations:
-// Date 8/11/23
-// Adapted from OSU CS 340 nodejs-starter-app step 5, queries are entirely our own work
-// Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data
-
-// Citation for the delete operations:
-// Date 8/11/23
-// Adapted from OSU CS 340 nodejs-starter-app step 6, queries are entirely our own work
-// Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%207%20-%20Dynamically%20Deleting%20Data
-
-// Citation for the update operations:
-// Date 8/11/23
-// Adapted from OSU CS 340 nodejs-starter-app step 8, queries are entirely our own work
-// Update functions were modified based on the add function post requests
-// Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%208%20-%20Dynamically%20Updating%20Data
-
-
-
-
 // App.js
 
 /*
     SETUP
 */
 const path = require('path');
-var express = require('express');   // We are using the express library for the web server
-var app     = express();            // We need to instantiate an express object to interact with the server in our code
-PORT        = 8034;                 // Set a port number at the top so it's easy to change in the future
+var express = require('express');   // Using express library
+var app     = express();            // instantiate an express object to interact with the server in our code
+PORT        = 8034;                 // Port number
 
 // Database
 var db = require('./database/db-connector');
@@ -70,7 +38,7 @@ app.get('/', function(req, res)
     db.pool.query(query1, function(error, rows, fields){
     res.render('index', {data: rows});
     })
-});                                    // will process this file, before sending the finished HTML to the client.
+});                                 
 
 
 app.get('/books', function (req, res) {
@@ -104,13 +72,13 @@ app.get('/booksales', function (req, res) {
 app.get('/customers', function (req, res) {
     let query1;
 
-    // If there is no query string, we just perform a basic SELECT
+    // If there is no query string, perform a basic SELECT
     if (req.query.inputcustomerName === undefined)
     {
         query1 = "SELECT * FROM Customers;";
     }
  
-    // If there is a query string, we assume this is a search, and return desired results
+    // If there is a query string, assume this is a search
     else
     {
         query1 = `SELECT * FROM Customers WHERE customerName LIKE "${req.query.inputcustomerName}%"`
@@ -210,13 +178,10 @@ app.post('/add-merch-form', function(req, res){
         // Check to see if there was an error
         if (error) {
 
-            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
             console.log(error)
             res.sendStatus(400);
         }
 
-        // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
-        // presents it on the screen
         else
         {
             res.redirect('/merchandise');
@@ -231,20 +196,16 @@ app.post('/add-book-form', function(req, res){
 
     // Capture NULL values- no null values
 
-    // Create the query and run it on the database
     query1 = `INSERT INTO Books (bookTitle, bookAuthor, yearPublished, bookGenre, bookPrice, bookQuantity) VALUES ('${data['input-bookTitle']}', '${data['input-bookAuthor']}', '${data['input-bookYear']}', '${data['input-bookGenre']}', '${data['input-bookPrice']}', '${data['input-bookQuantity']}')`;
     db.pool.query(query1, function(error, rows, fields){
 
         // Check to see if there was an error
         if (error) {
 
-            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
             console.log(error)
             res.sendStatus(400);
         }
 
-        // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
-        // presents it on the screen
         else
         {
             res.redirect('/books');
@@ -270,13 +231,10 @@ app.post('/add-customer-form', function(req, res){
         // Check to see if there was an error
         if (error) {
 
-            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
             console.log(error)
             res.sendStatus(400);
         }
 
-        // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
-        // presents it on the screen
         else
         {
             res.redirect('/customers');
@@ -297,13 +255,11 @@ app.post('/add-employee-form', function(req, res){
         // Check to see if there was an error
         if (error) {
 
-            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
             console.log(error)
             res.sendStatus(400);
         }
 
-        // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
-        // presents it on the screen
+
         else
         {
             res.redirect('/employees');
@@ -333,13 +289,11 @@ app.post('/add-sale-form', function(req, res){
         // Check to see if there was an error
         if (error) {
 
-            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
             console.log(error)
             res.sendStatus(400);
         }
 
-        // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
-        // presents it on the screen
+
         else
         {
             
@@ -362,13 +316,12 @@ app.post('/add-book-sale-form', function(req, res){
         // Check to see if there was an error
         if (error) {
 
-            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+            // Log the error 
             console.log(error)
             res.sendStatus(400);
         }
 
-        // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
-        // presents it on the screen
+
         else
         {
             res.redirect('/booksales');
@@ -388,13 +341,11 @@ app.post('/add-merch-sale-form', function(req, res){
         // Check to see if there was an error
         if (error) {
 
-            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
             console.log(error)
             res.sendStatus(400);
         }
 
-        // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
-        // presents it on the screen
+
         else
         {
             res.redirect('/merchandisesales');
@@ -420,8 +371,6 @@ app.post('/update-merch', function(req,res){
             res.sendStatus(400);
         }
 
-        // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
-        // presents it on the screen
         else {
             res.redirect('/merchandise');
         }
@@ -445,8 +394,7 @@ app.post('/update-book', function(req,res){
             res.sendStatus(400);
         }
 
-        // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
-        // presents it on the screen
+        // If there was no error
         else {
             res.redirect('/books');
         }
@@ -477,8 +425,7 @@ app.post('/update-sale', function(req, res){
             res.sendStatus(400);
         }
 
-        // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
-        // presents it on the screen
+
         else
         {
             res.redirect('/sales');
@@ -505,8 +452,6 @@ app.post('/update-merch-sale', function(req, res){
             res.sendStatus(400);
         }
 
-        // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
-        // presents it on the screen
         else
         {
             res.redirect('/merchandisesales');
@@ -533,8 +478,7 @@ app.post('/update-book-sale', function(req, res){
             res.sendStatus(400);
         }
 
-        // If there was no error, we redirect back to our root route, which automatically runs the SELECT * FROM bsg_people and
-        // presents it on the screen
+        // If there was no error
         else
         {
             res.redirect('/booksales');
@@ -669,7 +613,7 @@ app.delete('/delete-employee-ajax/', function(req,res,next){
 /*
     LISTENER
 */
-app.listen(PORT, function(){            // This is the basic syntax for what is called the 'listener' which receives incoming requests on the specified PORT.
+app.listen(PORT, function(){            
     console.log('Express started on http://localhost:' + PORT + '; press Ctrl-C to terminate.')
 });
 
