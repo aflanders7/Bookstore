@@ -98,7 +98,7 @@ VALUES ('Sapiens', 'Yuval Noah Harari', 2011, 'Non-fiction', 13.06, 7),
 ('To Kill a Mockingbird', 'Harper Lee', 1960, 'Fiction', 15.49, 6);
 
 INSERT INTO Customers (customerName, customerEmail)
-VALUES ('Jack Griffin', NULL),
+VALUES ('Jack Griffin', jack@gmail.com),
     ('Martha Owen', 'mowen@gmail.com'),
     ('Jennie Mcdaniel', 'jennieM96@yahoo.com');
 
