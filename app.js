@@ -81,7 +81,7 @@ app.get('/books', function (req, res) {
     });  
 
 app.get('/booksales', function (req, res) {
-    let query1 = "SELECT BookSales.bookSaleID, Books.bookTitle, BookSales.invoiceNumber FROM BookSales JOIN Books ON Books.bookID = BookSales.bookID group by BookSales.bookSaleID ASC;";
+    let query1 = "SELECT BookSales.bookSaleID, Books.bookTitle, BookSales.invoiceNumber FROM BookSales JOIN Books ON Books.bookID = BookSales.bookID group by BookSales.bookSaleID;";
     let query2 = "SELECT * FROM Books;";
     let query3 = "SELECT * FROM Sales;";
     db.pool.query(query1, function(error, rows, fields){
@@ -141,7 +141,7 @@ app.get('/merchandise', function(req, res) {
 
 
 app.get('/merchandisesales', function (req, res) {
-    let query1 = "SELECT MerchandiseSales.merchSaleID, Merchandise.merchName, MerchandiseSales.invoiceNumber FROM MerchandiseSales JOIN Merchandise ON Merchandise.merchID = MerchandiseSales.merchID group by MerchandiseSales.merchSaleID ASC;";
+    let query1 = "SELECT MerchandiseSales.merchSaleID, Merchandise.merchName, MerchandiseSales.invoiceNumber FROM MerchandiseSales JOIN Merchandise ON Merchandise.merchID = MerchandiseSales.merchID group by MerchandiseSales.merchSaleID;";
     let query2 = "SELECT * FROM Merchandise;";
     let query3 = "SELECT * FROM Sales;";
     db.pool.query(query1, function(error, rows, fields){
@@ -162,7 +162,7 @@ app.get('/merchandisesales', function (req, res) {
 }); 
 
 app.get('/sales', function (req, res) {
-    let query1 = "SELECT Sales.invoiceNumber, Employees.employeeName, Customers.customerName, Sales.saleRevenue, GROUP_CONCAT(DISTINCT Books.bookTitle SEPARATOR ', ') AS 'Books', GROUP_CONCAT(DISTINCT Merchandise.merchName SEPARATOR ', ') AS 'Merchandise' FROM Sales LEFT JOIN Employees ON Sales.employeeID = Employees.employeeID JOIN Customers ON Sales.customerID = Customers.customerID LEFT JOIN BookSales ON Sales.invoiceNumber = BookSales.invoiceNumber LEFT JOIN Books ON BookSales.bookID = Books.bookID LEFT JOIN MerchandiseSales ON Sales.invoiceNumber = MerchandiseSales.invoiceNumber LEFT JOIN Merchandise ON MerchandiseSales.merchID = Merchandise.merchID group by Sales.invoiceNumber ASC;";
+    let query1 = "SELECT Sales.invoiceNumber, Employees.employeeName, Customers.customerName, Sales.saleRevenue, GROUP_CONCAT(DISTINCT Books.bookTitle SEPARATOR ', ') AS 'Books', GROUP_CONCAT(DISTINCT Merchandise.merchName SEPARATOR ', ') AS 'Merchandise' FROM Sales LEFT JOIN Employees ON Sales.employeeID = Employees.employeeID JOIN Customers ON Sales.customerID = Customers.customerID LEFT JOIN BookSales ON Sales.invoiceNumber = BookSales.invoiceNumber LEFT JOIN Books ON BookSales.bookID = Books.bookID LEFT JOIN MerchandiseSales ON Sales.invoiceNumber = MerchandiseSales.invoiceNumber LEFT JOIN Merchandise ON MerchandiseSales.merchID = Merchandise.merchID group by Sales.invoiceNumber;";
     let query2 = "SELECT * FROM Employees;";
     let query3 = "SELECT * FROM Customers;";
     db.pool.query(query1, function(error, rows, fields){
@@ -264,7 +264,7 @@ app.post('/add-customer-form', function(req, res){
     }
 
     // Create the query and run it on the database
-    query1 = `INSERT INTO Customers (customerName, customerEmail) VALUES ('${data['input-customerName']}', ${email})`;
+    query1 = `INSERT INTO Customers (customerName, customerEmail) VALUES ('${data['input-customerName']}', ${data['input-customerEmail']})`;
     db.pool.query(query1, function(error, rows, fields){
 
         // Check to see if there was an error
