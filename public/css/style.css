@@ -1,14 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;800&display=swap');
 
-/* citations */
-
-/* 
-Citation for CSS
-Date: 8/8/23
-Adapted from W3Schools CSS Tutorial, but the details and specifications are our own work
-URL: https://www.w3schools.com/css/default.asp
-
-*/
 
 :root {
     --dark:#59372b;
