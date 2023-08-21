@@ -1,8 +1,3 @@
-// Citation for deleting the data functions:
-// Date: 8/11/23
-// Adapted from from OSU CS 340 nodejs-starter-app Step 6, attribute names and IDs are our own work
-// Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%207%20-%20Dynamically%20Deleting%20Data
-
 function deleteMerchandise(merchandiseID) {
   // Put our data we want to send in a javascript object
   let data = {
