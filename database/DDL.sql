@@ -1,16 +1,3 @@
--- Audrey Flanders, Jacob Summers
--- Team 29
-
--- Citation for the table queries:
--- Date 7/17/23
--- Adapted from OSU CS 340 module 3: Activity 1 and Activity 3 example code, attributes and values are our own work
--- Source URL: https://canvas.oregonstate.edu/courses/1922991/modules/items/23329597
-
--- This file created tables for Merchandise, Books, Customers, Employees, Sales, Merchandise Sales, and Book Sales.
--- There is a M:N realtionship between Merchandise and Sales facilitated by the Merchandise Sales intersection table.
--- There is a M:N realtionship between Books and Sales facilitated by the Books Sales intersection table.
--- There is a 1:M realtionship between Customers and Sales.
--- There is an optional 1:M realtionship between Employees and Sales.
 
 SET FOREIGN_KEY_CHECKS=0;
 SET AUTOCOMMIT = 0;
