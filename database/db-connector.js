@@ -6,9 +6,9 @@ var mysql = require('mysql')
 var pool = mysql.createPool({
     connectionLimit : 10,
     host            : 'localhost',
-    user            : '',
-    password        : '',
-    database        : ''
+    user            : 'oracle',
+    password        : 'oraclepassword',
+    database        : 'oracledb'
 })
 
 // Export it for use in our applicaiton
