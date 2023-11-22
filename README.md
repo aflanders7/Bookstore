@@ -1,6 +1,8 @@
 # Bookstore Database Management App
 Author: Audrey Flanders
 
+[Link to Demo](https://www.youtube.com/watch?v=OGN5wG_WY0o)
+
 # Built With
 * MySQL
 * Node.JS
