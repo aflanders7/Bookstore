@@ -10,6 +10,9 @@ Author: Audrey Flanders
 * Handlebars
 * JavaScript
 
+# About the project
+This is a database management system for a bookstore. Uses CRUD functions to manage and track product inventory, customers, employees, and sales.
+
 # Getting Started
 **1. Clone the repo**
 
