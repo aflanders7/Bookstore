@@ -8,6 +8,9 @@ var express = require('express');   // Using express library
 var app     = express();            // instantiate an express object to interact with the server in our code
 PORT        = 8034;                 // Port number
 
+require('dotenv').config()
+
+
 // Database
 var db = require('./database/db-connector');
 
