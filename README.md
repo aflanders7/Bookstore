@@ -1,7 +1,7 @@
 # Bookstore Database Management App
 Author: Audrey Flanders
 
-[Link to Demo](https://www.youtube.com/watch?v=OGN5wG_WY0o)
+[Link to Demo](https://bookstoredbms.onrender.com/)    (Please be patient- It may takes about 30 seconds for the server to spin up.)
 
 ![scehma](/public/images/schema.png)
 
